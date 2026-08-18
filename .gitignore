@@ -1,0 +1,11 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# System & Temp Files
+*.tmp
+*.log
+.system_generated/
+scratch/
+node_modules/
