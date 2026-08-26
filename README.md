@@ -22,11 +22,11 @@
 
 ## 📸 实际汉化效果预览 (Screenshots)
 
-| 主编辑器与智能体协作界面 | 快捷命令面板 (\`Ctrl+Shift+P\`) |
+| 快捷命令面板 (\`Ctrl+Shift+P\`) 全中文 | 全量 125 项官方技能卡片深度汉化 |
 | :---: | :---: |
-| ![主编辑器界面](assets/main-editor.png) | ![快捷命令面板](assets/command-palette.png) |
-| **外观与主题设置中心** | **全量 125 项官方技能卡片** |
-| ![外观设置](assets/settings-appearance.png) | ![技能卡片预览](assets/skills-preview.png) |
+| ![快捷命令面板](assets/command-palette.png) | ![技能卡片预览](assets/skills-preview.png) |
+| **自定义代理与插件管理中心** | **外观与主题预设中心** |
+| ![自定义代理与插件](assets/custom-agents.png) | ![外观设置](assets/settings-appearance.png) |
 
 ---
 
