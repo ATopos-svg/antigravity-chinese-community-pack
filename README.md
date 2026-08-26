@@ -22,14 +22,14 @@
 
 ## 📸 实际汉化效果预览 (Screenshots)
 
-### 1. 快捷命令面板 (\`Ctrl+Shift+P\`) 全中文支持
+### 1. 快捷命令面板 (\`Ctrl+Shift+P\`) 全中文指令
 ![快捷命令面板](assets/command-palette.png)
 
-### 2. 全量 125 项官方技能卡片及详细适用场景深度汉化
-![技能卡片汉化效果](assets/skills-preview.png)
+### 2. 全局常规设置与智能体执行权限中心
+![常规设置与权限中心](assets/settings-general.png)
 
-### 3. 自定义代理、插件扩展与 MCP 管理中心
-![自定义代理与插件](assets/custom-agents.png)
+### 3. 全量 125 项官方技能卡片及详细适用场景深度汉化
+![技能卡片深度汉化效果](assets/skills-cards.png)
 
 ---
 
