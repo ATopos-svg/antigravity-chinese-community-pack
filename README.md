@@ -8,7 +8,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.11.0-brightgreen.svg" alt="Latest Release"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.11.0%2B-orange.svg" alt="Platform"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.11.0%2B-orange.svg" alt="Compatibility"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue.svg" alt="Platform"></a>
   <a href="#"><img src="https://img.shields.io/badge/Pure%20Architecture-No%20Deadlock-success.svg" alt="Pure Architecture"></a>
 </p>
 
@@ -57,7 +58,7 @@
 
 | 版本标签 | 适配官方版本 | 发布时间 | 核心更新说明 | 预打包下载 (Releases) |
 | :--- | :--- | :--- | :--- | :--- |
-| **🚀 v2.11.0 (最新版)** | Google Antigravity **v2.11.0** | 2026-08-27 | • 极速跟进 Google 2026.08.27 推送的 2.11.0 正式版<br>• 汉化 2.11.0 高级设置新增的“自动检查更新”开关与说明<br>• 保持 125 项官方技能、命令面板、外观主题 100% 全汉化 | [📥 下载 v2.11.0 补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.11.0) |
+| **🚀 v2.11.0 (最新版)** | Google Antigravity **v2.11.0** | 2026-08-27 | • 极速跟进 Google 2026.08.27 推送的 2.11.0 正式版<br>• **全面支持 Windows / macOS / Linux 全平台**<br>• 汉化 2.11.0 高级设置新增的“自动检查更新”开关与说明<br>• 保持 125 项官方技能、命令面板、外观主题 100% 全汉化 | [📥 下载 v2.11.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.11.0) |
 | **⭐ v4.2.0 (经典版)** | Google Antigravity **v2.10.0** | 2026-08-26 | • 首次攻克老补丁在 2.10.0 上的“卡死在 Loading 白屏”死锁问题<br>• 首创 Preload 单点沙箱隔离与 1 秒温和延迟技术<br>• 全量地毯式汉化 125 项官方技能说明 | [📥 下载 v2.10.0 补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v4.2.0) |
 
 ---
@@ -73,15 +74,40 @@
 
 ---
 
-## ⚡ 模式 A：客户端 UI 极速安装（推荐）
+## ⚡ 模式 A：客户端 UI 极速安装（Windows / macOS / Linux 全平台支持）
 
-### 📥 方式 1：一键安装包（适合普通用户）
+由于核心基于 Electron Preload 沙箱拦截机制，补丁核心文件 `app.asar.chinese` 在 **Windows、macOS 和 Linux 三大操作系统上完全通用**！安装包内已为各系统内置了一键安装与还原脚本：
+
+### 📥 1. 获取预打包文件
 1. 前往本仓库的 **[Releases 发布页面](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases)**；
-2. 下载最新版预打包文件 **`Antigravity-Chinese-Pack-v2.11.0.zip`**；
-3. 解压后，双击运行 **《一键安装汉化.bat》**；
-4. 脚本将自动安全退出程序、创建原版备份并注入汉化，**2 秒内即可秒级启动全中文版 Antigravity**！
+2. 下载最新版通用压缩包 **`Antigravity-Chinese-Pack-v2.11.0.zip`** 并解压。
 
-> 💡 **随时还原**：压缩包内自带《一键恢复官方英文.bat》，随时双击即可秒级还原为官方纯英文原版。
+---
+
+### 💻 2. 各操作系统一键安装与还原指南
+
+#### 🪟 Windows 用户：
+* **一键安装**：直接双击运行 **《一键安装汉化.bat》**；
+* **一键还原**：随时双击运行 **《一键恢复官方英文.bat》** 秒级还原。
+
+#### 🍎 macOS (苹果电脑) 用户：
+* **一键安装**：解压后直接在访达 (Finder) 中双击运行 **《一键安装汉化-macOS.command》**；
+  > 💡 *脚本已内置自动解除 Gatekeeper 隔离属性（`xattr -cr`）并执行本地重签名（`codesign`），彻底杜绝 macOS 弹窗提示“应用已损坏，无法打开”！*
+* **一键还原**：直接双击运行 **《一键恢复官方英文-macOS.command》**；
+* **命令行备用方式**：
+  ```bash
+  chmod +x 一键安装汉化-macOS.command && ./一键安装汉化-macOS.command
+  ```
+
+#### 🐧 Linux 用户：
+* **一键安装**：在解压目录下打开终端执行：
+  ```bash
+  bash 一键安装汉化-Linux.sh
+  ```
+* **一键还原**：在终端执行：
+  ```bash
+  bash 一键恢复官方英文-Linux.sh
+  ```
 
 ---
 
