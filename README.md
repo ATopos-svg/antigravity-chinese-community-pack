@@ -51,6 +51,17 @@
 
 ---
 
+## 📜 版本迭代历史与对应下载 (Changelog & Releases)
+
+为了方便不同更新周期的开发者使用，项目完整保留了各个里程碑版本的预打包资产：
+
+| 版本标签 | 适配官方版本 | 发布时间 | 核心更新说明 | 预打包下载 (Releases) |
+| :--- | :--- | :--- | :--- | :--- |
+| **🚀 v2.11.0 (最新版)** | Google Antigravity **v2.11.0** | 2026-08-27 | • 极速跟进 Google 2026.08.27 推送的 2.11.0 正式版<br>• 汉化 2.11.0 高级设置新增的“自动检查更新”开关与说明<br>• 保持 125 项官方技能、命令面板、外观主题 100% 全汉化 | [📥 下载 v2.11.0 补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.11.0) |
+| **⭐ v4.2.0 (经典版)** | Google Antigravity **v2.10.0** | 2026-08-26 | • 首次攻克老补丁在 2.10.0 上的“卡死在 Loading 白屏”死锁问题<br>• 首创 Preload 单点沙箱隔离与 1 秒温和延迟技术<br>• 全量地毯式汉化 125 项官方技能说明 | [📥 下载 v2.10.0 补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v4.2.0) |
+
+---
+
 ## 🌟 方案总览：双模式自由选择
 
 本项目提供两种灵活的中文本地化方式，开发者可按需选用：
