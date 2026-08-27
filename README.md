@@ -7,8 +7,8 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v4.2.0-brightgreen.svg" alt="Latest Release"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.10.0%2B-orange.svg" alt="Platform"></a>
+  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.11.0-brightgreen.svg" alt="Latest Release"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.11.0%2B-orange.svg" alt="Platform"></a>
   <a href="#"><img src="https://img.shields.io/badge/Pure%20Architecture-No%20Deadlock-success.svg" alt="Pure Architecture"></a>
 </p>
 
@@ -66,7 +66,7 @@
 
 ### 📥 方式 1：一键安装包（适合普通用户）
 1. 前往本仓库的 **[Releases 发布页面](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases)**；
-2. 下载最新版预打包文件 **`Antigravity-Chinese-Pack-v2.10.0.zip`**；
+2. 下载最新版预打包文件 **`Antigravity-Chinese-Pack-v2.11.0.zip`**；
 3. 解压后，双击运行 **《一键安装汉化.bat》**；
 4. 脚本将自动安全退出程序、创建原版备份并注入汉化，**2 秒内即可秒级启动全中文版 Antigravity**！
 

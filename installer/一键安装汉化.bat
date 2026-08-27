@@ -1,7 +1,7 @@
 @echo off
-title Antigravity Chinese Patch Installer (v2.10.0)
+title Antigravity Chinese Patch Installer (v2.11.0)
 echo =========================================================
-echo    Antigravity Chinese Patch Installer (v2.10.0)
+echo    Antigravity Chinese Patch Installer (v2.11.0)
 echo =========================================================
 echo.
 
@@ -12,7 +12,6 @@ set "SOURCE_ASAR=%~dp0app.asar.chinese"
 
 if not exist "%SOURCE_ASAR%" (
     echo [ERROR] app.asar.chinese not found in current folder!
-    echo Please make sure the zip package is extracted completely.
     pause
     exit /b 1
 )
