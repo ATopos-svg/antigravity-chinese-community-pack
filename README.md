@@ -1,8 +1,8 @@
-# Antigravity 社区中文汉化与智能体辅助包 (antigravity-chinese-community-pack)
+# Google Antigravity（反重力）社区全平台中文深度汉化与智能体辅助包
 
 <p align="center">
   <b>非官方社区自研 · 全界面深度汉化补丁 + 智能体中文交互规则库</b><br>
-  <i>专为 Google Antigravity 2.0+ 设计的现代化双模式中文本地化解决方案</i>
+  <i>专为 Google Antigravity（反重力）2.11.0+ 最新版设计的全平台双模式中文本地化解决方案</i>
 </p>
 
 <p align="center">
