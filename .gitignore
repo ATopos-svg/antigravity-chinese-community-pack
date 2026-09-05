@@ -9,3 +9,9 @@ desktop.ini
 .system_generated/
 scratch/
 node_modules/
+
+# Binary & Packaging Outputs
+*.asar
+*.asar.*
+installer/app.asar.chinese
+*.zip

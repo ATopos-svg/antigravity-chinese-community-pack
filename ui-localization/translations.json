@@ -69,5 +69,15 @@
       "marketingEmails": "接收产品动态邮件",
       "open": "打开"
     }
-  }
+  },
+  "Local Permissions": "本地权限",
+  "Global Permissions": "全局权限",
+  "Workspace Permissions": "工作区权限",
+  "Inherit General Settings": "继承全局常规设置",
+  "Inherit General": "继承常规设置",
+  "Inherit Global Settings": "继承全局设置",
+  "Dart and Flutter": "Dart 与 Flutter",
+  "Google Maps Platform": "Google Maps 平台",
+  "Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real-time audio/video.": "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力。",
+  "Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal routes.": "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径。"
 }

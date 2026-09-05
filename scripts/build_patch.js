@@ -47,6 +47,73 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 用户截图实测深度汉化补充 (2.12.2 Hotfix 2) ===
+    // 1. Google Maps Platform 长描述与片段
+    ["Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal routes.", "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径。"],
+    ["Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal...", "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径等..."],
+    ["Build and prototype location-aware applications with Google Maps Platform.", "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。"],
+    ["Integrate interactive maps, search and inspect Places details, calculate optimal routes.", "集成交互式地图、搜索与查看地点详情、计算最优路径。"],
+    ["Integrate interactive maps, search and inspect Places details, calculate optimal routes", "集成交互式地图、搜索与查看地点详情、计算最优路径"],
+    ["Integrate interactive maps, search and inspect Places details, calculate optimal...", "集成交互式地图、搜索与查看地点详情、计算最优路径等..."],
+    ["Integrate interactive maps", "集成交互式地图"],
+    ["search and inspect Places details", "搜索与查看地点详情"],
+    ["calculate optimal routes", "计算最优路径"],
+    ["location-aware applications", "基于地理位置的应用"],
+
+    // 2. Gemini API 完整描述、截断与原子子短语
+    ["Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real-time audio/video.", "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力。"],
+    ["Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real-...", "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力..."],
+    ["Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real...", "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力..."],
+    ["Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real-time streaming.", "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体与实时流。"],
+    ["Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and...", "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体等功能。"],
+    ["text generation, multi-turn chat, streaming, function calling, managed agents, and real-time audio/video", "文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频"],
+    ["text generation, multi-turn chat, streaming, function calling, managed agents, and real-", "文本生成、多轮对话、流式传输、函数调用、托管智能体与实时音视频..."],
+    ["text generation, multi-turn chat, streaming, function calling, managed agents", "文本生成、多轮对话、流式传输、函数调用与托管智能体"],
+    ["real-time audio/video", "实时音视频"],
+    ["real-time audio", "实时音频"],
+    ["real-time video", "实时视频"],
+    ["text generation", "文本生成"],
+    ["multi-turn chat", "多轮对话"],
+    ["function calling", "函数调用"],
+    ["managed agents", "托管智能体"],
+
+    // 3. 本地权限 (Local Permissions) 与工作区说明
+    ["Local Permissions", "本地权限"],
+    ["Global Permissions", "全局权限"],
+    ["Workspace Permissions", "工作区权限"],
+    ["Also includes global settings when working in this project. Learn more.", "在当前项目中工作时，同时继承并应用全局设置。了解更多。"],
+    ["Also includes global settings when working in this project.", "在当前项目中工作时，同时继承并应用全局设置。"],
+    ["Also includes global settings when working in this project", "在当前项目中工作时，同时继承并应用全局设置"],
+    ["Also includes global settings when working", "在当前项目中工作时，同时继承并应用全局设置"],
+    ["Also includes global settings", "同时继承并应用全局设置"],
+    ["when working in this project", "在当前项目中工作时"],
+    ["global settings when working", "全局设置（在当前项目中工作时）"],
+    ["global settings", "全局设置"],
+
+    // 4. 继承设置 (Inherit Settings) 与下拉菜单
+    ["Inherit General Settings", "继承全局常规设置"],
+    ["Inherit General", "继承常规设置"],
+    ["Inherit Global Settings", "继承全局设置"],
+    ["Inherit Workspace Settings", "继承工作区设置"],
+    ["Inherits your General Settings settings when working in this project.", "在当前项目中工作时，直接继承并沿用您的全局常规设置。"],
+    ["Inherits your General Settings settings when working in this project", "在当前项目中工作时，直接继承并沿用您的全局常规设置"],
+    ["Inherits your General settings when working in this project.", "在当前项目中工作时，直接继承并沿用您的全局常规设置。"],
+    ["Inherits your General settings when working in this project", "在当前项目中工作时，直接继承并沿用您的全局常规设置"],
+    ["Inherits your Global settings when working in this project.", "在当前项目中工作时，直接继承并沿用您的全局设置。"],
+    ["Inherits your Global settings when working in this project", "在当前项目中工作时，直接继承并沿用您的全局设置"],
+    ["Inherits your General Settings settings", "继承您的全局常规设置"],
+    ["Inherits your General settings", "继承您的常规设置"],
+    ["Inherits your 常规设置 settings when working （仅当前项目）", "在当前项目中工作时，直接继承并沿用您的全局常规设置"],
+    ["Inherits your 常规设置 settings when working （仅当前项目） .", "在当前项目中工作时，直接继承并沿用您的全局常规设置。"],
+    ["Inherits your 常规设置 settings when working", "在当前项目中工作时，直接继承并沿用您的常规设置"],
+    ["Inherits your 常规设置 settings", "继承您的常规设置"],
+    ["Inherit 常规设置", "继承常规设置"],
+    ["Inherits your", "继承您的"],
+    ["Inherit", "继承"],
+
+    // 5. 插件标题
+    ["Dart and Flutter", "Dart 与 Flutter"],
+    ["Google Maps Platform", "Google Maps 平台"],
     // 2.12.2 新增 IDE 分拆引导与硬件设置
     ["Welcome to the new Antigravity!", "欢迎体验全新的 Antigravity！"],
     ["Antigravity has been redesigned to put agents first with new capabilities. If you'd still like a code editor, you can download it as a separate app named Antigravity IDE.", "Antigravity 现已全面重塑，以智能体为第一核心并赋予全新能力。如果您仍需要代码编辑器，可下载独立的“Antigravity IDE”伴侣应用。"],
@@ -398,6 +465,14 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    "Local Permissions": "本地权限",
+    "Global Permissions": "全局权限",
+    "Workspace Permissions": "工作区权限",
+    "Dart and Flutter": "Dart 与 Flutter",
+    "Google Maps Platform": "Google Maps 平台",
+    "Inherit 常规设置": "继承常规设置",
+    "Inherit General Settings": "继承全局常规设置",
+    "Inherit General": "继承常规设置",
     "Commands": "命令",
     "Window": "窗口",
     "Create Project": "新建项目",
@@ -559,19 +634,36 @@ const injectedCode = `
             return false;
         }
 
-        function translateText(text) {
+                function translateText(text) {
             if (!text || !text.trim()) return text;
             let res = text;
+
+            // 1. 特殊整句或已知混杂语句优先直接处理
+            if (res.includes("使用 Gemini Interactions API 和 Live API 构建应用，，包含") || res.includes("使用 Gemini Interactions API 和 Live API 构建应用，包含 text generation")) {
+                return "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力。";
+            }
+            if (res.includes("Also includes global settings when working")) {
+                return "在当前项目中工作时，同时继承并应用全局设置。了解更多。";
+            }
+            if (res.includes("Inherits your 常规设置 settings when working") || res.includes("Inherits your General Settings settings when working") || res.includes("Inherits your General settings when working")) {
+                return "在当前项目中工作时，直接继承并沿用您的全局常规设置。";
+            }
+
+            // 2. 长短语字典替换
             for (let i = 0; i < PHRASES.length; i++) {
                 const [en, zh] = PHRASES[i];
                 if (res.includes(en)) {
                     res = res.replaceAll(en, zh);
                 }
             }
+
+            // 3. 精确单词匹配
             const trimmed = res.trim();
             if (EXACT_WORDS[trimmed]) {
                 return res.replace(trimmed, EXACT_WORDS[trimmed]);
             }
+
+            // 4. 弹窗与权限交互
             if (res.includes("Allow running this command?")) {
                 res = res.replaceAll("Allow running this command?", "允许运行此命令吗？");
             }
@@ -581,11 +673,30 @@ const injectedCode = `
             if (res.includes("No (tell the agent what to do instead)")) {
                 res = res.replaceAll("No (tell the agent what to do instead)", "拒绝（告诉智能体改做什么）");
             }
+
+            // 5. 动态正则处理
+            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including\\s+(\\d+)\\s+active\\s+conversations?\\./gi, '永久删除 $1（包含 $2 个活动会话）。');
+            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including/gi, '永久删除 $1，包含');
+            res = res.replace(/Modified in\\s+([\\s\\S]+)/gi, '已在 $1 中修改');
+            res = res.replace(/Learn more about\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Learn more\\s+关于\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）\\s*\\.?\\s*了解更多\\.?/gi, '在当前项目中工作时，同时继承并应用全局设置。了解更多。');
+            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）/gi, '在当前项目中工作时，同时继承并应用全局设置');
+            res = res.replace(/Also includes global settings when working/gi, '在当前项目中工作时，同时继承并应用全局设置');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working\\s*（仅当前项目）\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working in this project\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings/gi, '继承您的 $1 设置');
+            res = res.replace(/Inherit\\s+常规设置/gi, '继承常规设置');
+            res = res.replace(/Inherit\\s+General Settings/gi, '继承全局常规设置');
+            res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
+
             if (res.includes("Yes, and always allow ")) {
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+conversation/gi, '允许，并在当前会话中始终允许 $1');
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+project/gi, '允许，并在当前项目中始终允许 $1');
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+)/gi, '允许，并始终允许 $1');
             }
+
+            // 6. 相对时间词
             res = res.replace(/(\\d+)\\s*days?\\s*ago/gi, '$1 天前')
                      .replace(/(\\d+)\\s*hours?\\s*ago/gi, '$1 小时前')
                      .replace(/(\\d+)\\s*minutes?\\s*ago/gi, '$1 分钟前')
@@ -593,6 +704,14 @@ const injectedCode = `
                      .replace(/(\\d+)\\s*hours?/gi, '$1 小时')
                      .replace(/(\\d+)\\s*minutes?/gi, '$1 分钟')
                      .replace(/(\\d+)\\s*seconds?/gi, '$1 秒');
+
+            // 7. 标点清洗
+            res = res.replaceAll("，，包含", "，包含")
+                     .replaceAll("， 包含", "，包含")
+                     .replaceAll("，，", "，")
+                     .replaceAll("Inherit 常规设置", "继承常规设置")
+                     .replaceAll("Inherit 全局常规设置", "继承全局常规设置");
+
             return res;
         }
 
