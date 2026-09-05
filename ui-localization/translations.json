@@ -79,5 +79,16 @@
   "Dart and Flutter": "Dart 与 Flutter",
   "Google Maps Platform": "Google Maps 平台",
   "Build applications with the Gemini Interactions API and Live API, including text generation, multi-turn chat, streaming, function calling, managed agents, and real-time audio/video.": "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力。",
-  "Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal routes.": "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径。"
+  "Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal routes.": "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径。",
+  "Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/.": "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启。",
+  "Proactively connect to apps and hot reload": "主动连接正在运行的应用并执行热重载",
+  "Manage project folders, agent settings, and permissions.": "管理项目文件夹、智能体设置及权限。",
+  "Folders": "文件夹",
+  "Configure the browser subagent. It requires Google Chrome to be installed.": "配置浏览器子代理。需要安装 Google Chrome。",
+  "Disabled": "已禁用",
+  "Block all browser JavaScript execution.": "阻止所有浏览器 JavaScript 执行。",
+  "Prompt for approval before running browser scripts.": "运行浏览器脚本前提示审核与批准。",
+  "Allow full browser script execution without prompting.": "允许完整执行浏览器脚本且无需提示。",
+  "Catppuccin": "Catppuccin 浅色",
+  "Replace the usage of `expect` and similar functions from `package:matcher` to `package:checks` equivalents.": "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。"
 }

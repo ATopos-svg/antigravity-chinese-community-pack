@@ -47,6 +47,59 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.12.2 Hotfix 3 用户新截图针对性深度补齐 ===
+    // 1. 规则与热重载 (Rules & Hot Reload - 图 1)
+    ["Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/.", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启。"],
+    ["Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启"],
+    ["Proactively connect to apps and hot reload", "主动连接正在运行的应用并执行热重载"],
+    ["Proactively connect to running Dart/Flutter apps", "主动连接正在运行的 Dart/Flutter 应用"],
+    ["trigger hot reload or hot restart upon editing .dart files under lib/.", "在编辑 lib/ 目录下的 .dart 文件时触发热重载或热重启。"],
+    ["trigger hot reload or hot restart upon editing .dart files under lib/", "在编辑 lib/ 目录下的 .dart 文件时触发热重载或热重启"],
+    ["trigger hot reload or hot restart", "触发热重载或热重启"],
+    ["hot reload or hot restart", "热重载或热重启"],
+    ["hot reload", "热重载"],
+    ["hot restart", "热重启"],
+
+    // 2. 项目文件夹与权限设置 (Project Folders - 图 2)
+    ["Manage project folders, agent settings, and permissions.", "管理项目文件夹、智能体设置及权限。"],
+    ["Manage project folders, agent settings, and permissions", "管理项目文件夹、智能体设置及权限"],
+    ["Manage project folders", "管理项目文件夹"],
+    ["agent settings, and permissions", "智能体设置及权限"],
+    ["Folders", "文件夹"],
+
+    // 3. 浏览器子代理与执行策略 (Browser Subagent & Javascript Policy - 图 3)
+    ["Configure the browser subagent. It requires Google Chrome to be installed. Type /browser in chat to use it.", "配置浏览器子代理。需要安装 Google Chrome。在对话输入框中输入 /browser 即可唤起浏览器子代理。"],
+    ["Configure the browser subagent. It requires Google Chrome to be installed.", "配置浏览器子代理。需要安装 Google Chrome。"],
+    ["Configure the browser subagent.", "配置浏览器子代理。"],
+    ["Configure the browser subagent", "配置浏览器子代理"],
+    ["It requires Google Chrome to be installed.", "需要安装 Google Chrome。"],
+    ["It requires Google Chrome to be installed", "需要安装 Google Chrome"],
+    ["Google Chrome to be installed", "安装 Google Chrome"],
+    ["Block all browser JavaScript execution.", "阻止所有浏览器 JavaScript 执行。"],
+    ["Block all browser JavaScript execution", "阻止所有浏览器 JavaScript 执行"],
+    ["Prompt for approval before running browser scripts.", "运行浏览器脚本前提示审核与批准。"],
+    ["Prompt for approval before running browser scripts", "运行浏览器脚本前提示审核与批准"],
+    ["Allow full browser script execution without prompting.", "允许完整执行浏览器脚本且无需提示。"],
+    ["Allow full browser script execution without prompting", "允许完整执行浏览器脚本且无需提示"],
+    ["Browser Javascript Execution Policy", "浏览器 Javascript 执行策略"],
+    ["Browser Javascript Policy", "浏览器 Javascript 执行策略"],
+    ["Browser Actuation Rules", "浏览器操作执行规则"],
+    ["Browser Actuation Permissions", "浏览器操作执行权限"],
+    ["Browser Settings", "浏览器设置"],
+
+    // 4. Flutter 技能多行换行与复杂引号兼容补全 (图 5)
+    ["Replace the usage of `expect` and similar functions from `package:matcher` to `package:checks` equivalents.", "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。"],
+    ["Replace the usage of `expect` and similar functions from `package:matcher`\nto `package:checks` equivalents.", "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。"],
+    ["Replace the usage of expect and similar functions from package:matcher to package:checks equivalents.", "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。"],
+    ["Replace the usage of `expect` and similar functions from `package:matcher`", "将测试中的 expect 及 package:matcher 相关断言函数"],
+    ["Replace the usage of `expect` and similar functions", "将 expect 及类似断言函数"],
+    ["from `package:matcher` to `package:checks` equivalents.", "从 package:matcher 替换为现代 package:checks 等效项。"],
+    ["from `package:matcher` to `package:checks` equivalents", "从 package:matcher 替换为现代 package:checks 等效项"],
+    ["to `package:checks` equivalents.", "替换为现代 package:checks 等效项。"],
+    ["to `package:checks` equivalents", "替换为现代 package:checks 等效项"],
+    ["Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Code Assets) using Dart's Native Assets hook system (via hook/build.dart and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use when a user asks to: 'setup native assets', 'compile C/C++ source code', 'bundle dynamic libraries', 'build native C code', 'link native assets', 'implement build.dart or link.dart hooks', or 'integrate C/C++ interop in Dart/Flutter'. Helps agents avoid manual toolchain orchestration and configures secure hash-validated binary downloads or advanced linker tree-shaking with package:record_use mapping.", "指导智能体使用 Dart 原生资产 (Native Assets) 钩子系统将 C/C++ 源码编译并打包为动态或静态库。当要求配置或链接原生资产、编译 C/C++ 代码、或在 Dart/Flutter 中集成 C/C++ 互操作时使用。"],
+    ["Rules and formatting guidelines for writing Dart /// API documentation and doc comments. Use when documenting Dart code, writing doc comments for any Dart declaration (libraries, classes, methods, variables, etc.), or when instructed to follow the Effective Dart documentation guidelines.", "编写 Dart /// API 文档与注释的规范与格式指南。在为 Dart 代码编写文档注释（库、类、方法、变量等）或遵循 Effective Dart 文档准则时使用。"],
+
     // === 用户截图实测深度汉化补充 (2.12.2 Hotfix 2) ===
     // 1. Google Maps Platform 长描述与片段
     ["Build and prototype location-aware applications with Google Maps Platform. Integrate interactive maps, search and inspect Places details, calculate optimal routes.", "使用 Google Maps Platform 构建与设计基于地理位置的原型应用。集成交互式地图、搜索与查看地点详情、计算最优路径。"],
@@ -453,7 +506,6 @@ const UI_PHRASES = [
     ["Browser", "浏览器设置"],
     ["App Settings", "应用设置"],
     ["Chat Settings", "对话设置"],
-    ["Execution", "执行与流程"],
     ["about Turbo mode", "极速模式的相关说明"],
     ["about", "关于"],
     ["Plugin: ", "插件: "],
@@ -465,6 +517,27 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    "Folders": "文件夹",
+    "Folder": "文件夹",
+    "Disabled": "已禁用",
+    "Catppuccin": "Catppuccin 浅色",
+    "Catppuccin Light": "Catppuccin 浅色",
+    "Catppuccin Dark": "Catppuccin 深色",
+    "Fast Mode": "极速模式",
+    "Fast mode": "极速模式",
+    "Planning Mode": "规划模式",
+    "Planning mode": "规划模式",
+    "Task Mode": "任务模式",
+    "Task mode": "任务模式",
+    "Security Policy Preset": "安全策略预设",
+    "Security Policy": "安全策略",
+    "Danger Zone": "危险区域",
+    "Delete Project": "删除项目",
+    "Require Review": "需要审核",
+    "Tool Permissions": "工具权限",
+    "Version": "版本",
+    "App version": "应用版本",
+    "Project": "项目",
     "Local Permissions": "本地权限",
     "Global Permissions": "全局权限",
     "Workspace Permissions": "工作区权限",
@@ -657,6 +730,17 @@ const injectedCode = `
                 }
             }
 
+            // 2.1 多行与空白折叠归一化匹配 (针对 YAML 块折叠换行等情况)
+            if (/[a-zA-Z]{3,}/.test(res)) {
+                const normRes = res.replace(/\\s+/g, ' ').trim();
+                for (let i = 0; i < PHRASES.length; i++) {
+                    const [en, zh] = PHRASES[i];
+                    if (en.includes(' ') && normRes === en.replace(/\\s+/g, ' ').trim()) {
+                        return zh;
+                    }
+                }
+            }
+
             // 3. 精确单词匹配
             const trimmed = res.trim();
             if (EXACT_WORDS[trimmed]) {
@@ -689,6 +773,48 @@ const injectedCode = `
             res = res.replace(/Inherit\\s+常规设置/gi, '继承常规设置');
             res = res.replace(/Inherit\\s+General Settings/gi, '继承全局常规设置');
             res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
+
+            // 5.1 用户最新截图针对性动态匹配与兜底
+            if (res.includes("Replace the usage of")) {
+                res = "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。";
+            }
+            if (res.includes("Proactively connect to running Dart/Flutter apps")) {
+                res = res.replaceAll("Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/.", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启。");
+                res = res.replaceAll("Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启");
+                res = res.replaceAll("Proactively connect to running Dart/Flutter apps", "主动连接正在运行的 Dart/Flutter 应用");
+            }
+            if (res.includes("Proactively connect to apps and hot reload")) {
+                res = res.replaceAll("Proactively connect to apps and hot reload", "主动连接正在运行的应用并执行热重载");
+            }
+            if (res.includes("Manage project folders, agent settings, and permissions")) {
+                res = res.replaceAll("Manage project folders, agent settings, and permissions.", "管理项目文件夹、智能体设置及权限。");
+                res = res.replaceAll("Manage project folders, agent settings, and permissions", "管理项目文件夹、智能体设置及权限");
+            }
+            if (res.includes("Configure the browser subagent")) {
+                res = res.replaceAll("Configure the browser subagent. It requires Google Chrome to be installed.", "配置浏览器子代理。需要安装 Google Chrome。");
+                res = res.replaceAll("Configure the browser subagent.", "配置浏览器子代理。");
+                res = res.replaceAll("Configure the browser subagent", "配置浏览器子代理");
+                res = res.replaceAll("It requires Google Chrome to be installed.", "需要安装 Google Chrome。");
+                res = res.replaceAll("It requires Google Chrome to be installed", "需要安装 Google Chrome");
+            }
+            if (res.includes("Block all browser JavaScript execution")) {
+                res = res.replaceAll("Block all browser JavaScript execution.", "阻止所有浏览器 JavaScript 执行。");
+                res = res.replaceAll("Block all browser JavaScript execution", "阻止所有浏览器 JavaScript 执行");
+            }
+            if (res.includes("Prompt for approval before running browser scripts")) {
+                res = res.replaceAll("Prompt for approval before running browser scripts.", "运行浏览器脚本前提示审核与批准。");
+                res = res.replaceAll("Prompt for approval before running browser scripts", "运行浏览器脚本前提示审核与批准");
+            }
+            if (res.includes("Allow full browser script execution without prompting")) {
+                res = res.replaceAll("Allow full browser script execution without prompting.", "允许完整执行浏览器脚本且无需提示。");
+                res = res.replaceAll("Allow full browser script execution without prompting", "允许完整执行浏览器脚本且无需提示");
+            }
+            if (res.includes("Guides agents in compiling and packaging C/C++ source code")) {
+                res = "指导智能体使用 Dart 原生资产 (Native Assets) 钩子系统将 C/C++ 源码编译并打包为动态或静态库。当要求配置或链接原生资产、编译 C/C++ 代码、或在 Dart/Flutter 中集成 C/C++ 互操作时使用。";
+            }
+            if (res.includes("Rules and formatting guidelines for writing Dart /// API documentation")) {
+                res = "编写 Dart /// API 文档与注释的规范与格式指南。在为 Dart 代码编写文档注释（库、类、方法、变量等）或遵循 Effective Dart 文档准则时使用。";
+            }
 
             if (res.includes("Yes, and always allow ")) {
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+conversation/gi, '允许，并在当前会话中始终允许 $1');
