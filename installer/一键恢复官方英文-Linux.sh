@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
-cd "$(dirname "$0")"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "========================================================="
-echo "   Antigravity 官方原版英文还原器 (Linux)"
+echo "   Antigravity 官方英文原版一键恢复器 (Linux 专属版)"
 echo "========================================================="
 echo ""
 
-POSSIBLE_PATHS=(
+POSSIBLE_DIRS=(
     "/opt/Antigravity/resources"
     "/opt/antigravity/resources"
     "/usr/lib/antigravity/resources"
@@ -15,39 +15,24 @@ POSSIBLE_PATHS=(
     "$HOME/.local/share/antigravity/resources"
 )
 
-TARGET_DIR=""
-for p in "${POSSIBLE_PATHS[@]}"; do
-    if [ -f "$p/app.asar.backup" ]; then
-        TARGET_DIR="$p"
+RESOURCES_DIR=""
+for dir in "${POSSIBLE_DIRS[@]}"; do
+    if [ -f "$dir/app.asar.backup" ]; then
+        RESOURCES_DIR="$dir"
         break
     fi
 done
 
-if [ -z "$TARGET_DIR" ]; then
-    echo "[提示] 请输入包含 app.asar.backup 的 resources 目录路径:"
-    read -r TARGET_DIR
-fi
-
-TARGET_ASAR="$TARGET_DIR/app.asar"
-BACKUP_ASAR="$TARGET_DIR/app.asar.backup"
-
-if [ ! -f "$BACKUP_ASAR" ]; then
-    echo "[错误] 未找到备份文件: $BACKUP_ASAR"
+if [ -z "$RESOURCES_DIR" ]; then
+    echo "[提示] 未在默认位置检测到 app.asar.backup 备份文件。"
     exit 1
 fi
 
-echo "[1/2] 正在关闭 Antigravity 进程..."
-killall -9 antigravity 2>/dev/null || pkill -9 -f "antigravity" 2>/dev/null || true
-sleep 1
-
-echo "[2/2] 正在还原官方原版英文核心..."
-if [ -w "$TARGET_DIR" ]; then
-    cp -f "$BACKUP_ASAR" "$TARGET_ASAR"
+echo "正在恢复官方英文版 app.asar..."
+if [ -w "$RESOURCES_DIR" ]; then
+    cp -f "$RESOURCES_DIR/app.asar.backup" "$RESOURCES_DIR/app.asar"
 else
-    sudo cp -f "$BACKUP_ASAR" "$TARGET_ASAR"
+    sudo cp -f "$RESOURCES_DIR/app.asar.backup" "$RESOURCES_DIR/app.asar"
 fi
 
-echo ""
-echo "========================================================="
-echo "   已成功恢复为官方英文原版！"
-echo "========================================================="
+echo "恢复成功！已还原为官方英文原版。"

@@ -9,7 +9,10 @@ const b2 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_2.json
 const b3 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_3.json"), "utf8"));
 const b4 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_4.json"), "utf8"));
 
-const allSkills = [...b1, ...b2, ...b3, ...b4];
+const allSkills = [...b1, ...b2, ...b3, ...b4, {
+    en: 'Guidelines for interacting with GitHub and request permissions from the user when commands fail due to restrictions in the agent environment.',
+    zh: '规范与 GitHub 的交互准则。当命令因代理环境限制而失败时，向用户申请执行权限。'
+}];
 console.log("Total skills loaded:", allSkills.length);
 
 const skillPhrasePairs = [];
@@ -33,7 +36,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\.gemini\\antigravity\\brain\\c4d6a0c9-989a-4af1-a5b9-9fed69fcd143\\scratch\\clean_2100";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_212_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -44,6 +47,35 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // 2.12.2 新增 IDE 分拆引导与硬件设置
+    ["Welcome to the new Antigravity!", "欢迎体验全新的 Antigravity！"],
+    ["Antigravity has been redesigned to put agents first with new capabilities. If you'd still like a code editor, you can download it as a separate app named Antigravity IDE.", "Antigravity 现已全面重塑，以智能体为第一核心并赋予全新能力。如果您仍需要代码编辑器，可下载独立的“Antigravity IDE”伴侣应用。"],
+    ["Download the Antigravity IDE", "下载 Antigravity IDE"],
+    ["Explore the new Antigravity", "开始探索全新 Antigravity"],
+    ["Setting up…", "正在配置…"],
+    ["Keep Computer Awake", "保持电脑清醒（防止休眠）"],
+    ["Prevent the computer from going to sleep while tasks are running.", "在任务运行期间防止计算机进入睡眠状态。"],
+    ["Antigravity IDE", "Antigravity IDE"],
+    // 2.11.0 新增高级设置与自动更新
+    ["Automatic Check for Updates", "自动检查更新"],
+    ["Automatically prompt you to restart the app when a new update is available. When disabled, you can check for updates manually from the app menu.", "当有新版本可用时，自动提示您重启应用完成更新。关闭后，您可以通过应用菜单手动检查更新。"],
+    ["Automatically prompt you to restart the app when a new update is available.", "当有新版本可用时，自动提示您重启应用完成更新。"],
+    ["When disabled, you can check for updates manually from the app menu.", "关闭后，您可以通过应用菜单手动检查更新。"],
+    ["Check for Updates", "检查更新"],
+    ["Advanced Settings", "高级设置"],
+
+    // 权限与命令执行确认对话框 (交互式 Permission Modal)
+    ["Allow running this command?", "允许运行此命令吗？"],
+    ["Allow reading this file?", "允许读取此文件吗？"],
+    ["Allow writing to this file?", "允许写入此文件吗？"],
+    ["Allow editing this file?", "允许编辑此文件吗？"],
+    ["Yes, allow this time", "允许，仅本次允许"],
+    ["No (tell the agent what to do instead)", "拒绝（告诉智能体改做什么）"],
+    ["tell the agent what to do instead", "告诉智能体改做什么"],
+    ["in this conversation", "（仅当前会话）"],
+    ["in this project", "（仅当前项目）"],
+    ["Yes, and always allow", "允许，并始终允许"],
+
     // Custom Agents & Plugins & MCP Empty State
     ["Custom Agents", "自定义代理"],
     ["Expert at reviewing Flutter code for accessibility (a11y) issues. Invoke this agent to perform an a11y review of a codebase, pending changes, or PR.", "擅长审查 Flutter 代码中的无障碍 (a11y) 问题。调用此子代理以对代码库、待提交改动或 PR 进行无障碍审计。"],
@@ -375,6 +407,14 @@ const EXACT_WORDS = {
     "Plugins": "插件扩展",
     "Customize": "自定义配置",
     "Custom Agents": "自定义代理",
+    "Automatic Check for Updates": "自动检查更新",
+    "Check for Updates": "检查更新",
+    "Advanced Settings": "高级设置",
+    "Allow running this command?": "允许运行此命令吗？",
+    "Yes, allow this time": "允许，仅本次允许",
+    "No (tell the agent what to do instead)": "拒绝（告诉智能体改做什么）",
+    "Skip": "跳过",
+    "Submit": "提交",
     "Add": "添加",
     "Back": "返回",
     "← Back": "← 返回",
@@ -532,6 +572,20 @@ const injectedCode = `
             if (EXACT_WORDS[trimmed]) {
                 return res.replace(trimmed, EXACT_WORDS[trimmed]);
             }
+            if (res.includes("Allow running this command?")) {
+                res = res.replaceAll("Allow running this command?", "允许运行此命令吗？");
+            }
+            if (res.includes("Yes, allow this time")) {
+                res = res.replaceAll("Yes, allow this time", "允许，仅本次允许");
+            }
+            if (res.includes("No (tell the agent what to do instead)")) {
+                res = res.replaceAll("No (tell the agent what to do instead)", "拒绝（告诉智能体改做什么）");
+            }
+            if (res.includes("Yes, and always allow ")) {
+                res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+conversation/gi, '允许，并在当前会话中始终允许 $1');
+                res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+project/gi, '允许，并在当前项目中始终允许 $1');
+                res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+)/gi, '允许，并始终允许 $1');
+            }
             res = res.replace(/(\\d+)\\s*days?\\s*ago/gi, '$1 天前')
                      .replace(/(\\d+)\\s*hours?\\s*ago/gi, '$1 小时前')
                      .replace(/(\\d+)\\s*minutes?\\s*ago/gi, '$1 分钟前')
@@ -628,6 +682,6 @@ const injectedCode = `
 `;
 
 const finalPreloadContent = baseCode + "\n" + injectedCode;
-const targetPreload = "C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\agy_zh_repack\\\\dist\\\\preload.js";
+const targetPreload = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_212_extract\\dist\\preload.js";
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 console.log("FINAL_PRELOAD_V41_WRITTEN_SUCCESSFULLY");
