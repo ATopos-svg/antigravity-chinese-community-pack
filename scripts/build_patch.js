@@ -47,6 +47,28 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 智能体设置与权限策略 (Agent Settings & Permissions - 用户重点反馈) ===
+    ["Controls the actions the agent can take.", "控制智能体可以执行的操作范围。"],
+    ["Outside of folders file access policy", "工作目录外文件访问策略"],
+    ["Configures how the agent tries to access files outside of its working folders.", "配置智能体尝试访问其工作目录之外的文件时的处理策略。"],
+    ["Terminal Command Auto Execution Policy", "终端命令自动执行策略"],
+    ["Terminal Command Auto Execution", "终端命令自动执行策略"],
+    ["Terminal Command Execution Policy", "终端命令执行策略"],
+    ["Terminal Command Execution", "终端命令执行策略"],
+    ["Terminal Command Auto", "终端命令自动执行"],
+    ["Controls whether terminal commands require your approval before running.", "控制运行终端命令前是否需要您的审核与批准。"],
+    ["Whether the agent asks you to review its documents.", "智能体生成或修改产物文档时是否请求您审核。"],
+    ["Modify permissions for file, terminal, and MCP tools.", "修改文件、终端以及 MCP 工具的权限。"],
+    ["Require review", "需要审核"],
+    ["Always Allow", "始终允许"],
+    ["active conversations.", "个活动会话。"],
+    ["active conversations", "个活动会话"],
+    ["active conversation", "个活动会话"],
+    ["Learn more about Fast Mode", "了解更多关于 极速模式"],
+    ["Learn more about Planning Mode", "了解更多关于 规划模式"],
+    ["Learn more about Task Mode", "了解更多关于 任务模式"],
+    ["Policy Presets", "策略预设"],
+
     // === 2.12.2 Hotfix 3 用户新截图针对性深度补齐 ===
     // 1. 规则与热重载 (Rules & Hot Reload - 图 1)
     ["Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/.", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启。"],
@@ -517,6 +539,15 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    "Outside of folders file access policy": "工作目录外文件访问策略",
+    "Terminal Command Auto Execution": "终端命令自动执行策略",
+    "Terminal Command Auto Execution Policy": "终端命令自动执行策略",
+    "Terminal Command Execution Policy": "终端命令执行策略",
+    "Terminal Command Execution": "终端命令执行策略",
+    "Controls the actions the agent can take.": "控制智能体可以执行的操作范围。",
+    "Controls whether terminal commands require your approval before running.": "控制运行终端命令前是否需要您的审核与批准。",
+    "Modify permissions for file, terminal, and MCP tools.": "修改文件、终端以及 MCP 工具的权限。",
+    "Configures how the agent tries to access files outside of its working folders.": "配置智能体尝试访问其工作目录之外的文件时的处理策略。",
     "Folders": "文件夹",
     "Folder": "文件夹",
     "Disabled": "已禁用",
@@ -775,6 +806,24 @@ const injectedCode = `
             res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
+            if (res.includes("Controls the actions the agent can take")) {
+                res = "控制智能体可以执行的操作范围。";
+            }
+            if (res.includes("Outside of folders file access policy")) {
+                res = "工作目录外文件访问策略";
+            }
+            if (res.includes("Configures how the agent tries to access files outside of its working folders")) {
+                res = "配置智能体尝试访问其工作目录之外的文件时的处理策略。";
+            }
+            if (res.includes("Terminal Command Auto Execution")) {
+                res = "终端命令自动执行策略";
+            }
+            if (res.includes("Controls whether terminal commands require your approval before running")) {
+                res = "控制运行终端命令前是否需要您的审核与批准。";
+            }
+            if (res.includes("Modify permissions for file, terminal, and MCP tools")) {
+                res = "修改文件、终端以及 MCP 工具的权限。";
+            }
             if (res.includes("Replace the usage of")) {
                 res = "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。";
             }

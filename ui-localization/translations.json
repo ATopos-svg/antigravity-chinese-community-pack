@@ -90,5 +90,11 @@
   "Prompt for approval before running browser scripts.": "运行浏览器脚本前提示审核与批准。",
   "Allow full browser script execution without prompting.": "允许完整执行浏览器脚本且无需提示。",
   "Catppuccin": "Catppuccin 浅色",
-  "Replace the usage of `expect` and similar functions from `package:matcher` to `package:checks` equivalents.": "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。"
+  "Replace the usage of `expect` and similar functions from `package:matcher` to `package:checks` equivalents.": "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。",
+  "Controls the actions the agent can take.": "控制智能体可以执行的操作范围。",
+  "Outside of folders file access policy": "工作目录外文件访问策略",
+  "Configures how the agent tries to access files outside of its working folders.": "配置智能体尝试访问其工作目录之外的文件时的处理策略。",
+  "Terminal Command Auto Execution": "终端命令自动执行策略",
+  "Controls whether terminal commands require your approval before running.": "控制运行终端命令前是否需要您的审核与批准。",
+  "Modify permissions for file, terminal, and MCP tools.": "修改文件、终端以及 MCP 工具的权限。"
 }
