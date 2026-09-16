@@ -69,6 +69,21 @@ const UI_PHRASES = [
     ["Learn more about Task Mode", "了解更多关于 任务模式"],
     ["Policy Presets", "策略预设"],
 
+    // === 2.14.0 新增: 沙箱模式 (Sandbox Mode) ===
+    ["Enable Sandbox Mode (Preview)", "启用沙箱模式（预览）"],
+    ["Enable Sandbox Mode", "启用沙箱模式"],
+    ["Sandbox Mode (Preview)", "沙箱模式（预览）"],
+    ["Sandbox Mode", "沙箱模式"],
+    ["Restricts agent tools to a secure, isolated local sandbox.", "将智能体工具限制在安全、隔离的本地沙箱环境中。"],
+    ["Restricts agent tools to a secure, isolated local sandbox", "将智能体工具限制在安全、隔离的本地沙箱环境中"],
+    ["Restricts agent tools to a secure, isolated sandbox.", "将智能体工具限制在安全、隔离的沙箱环境中。"],
+    ["Restricts agent tools to a secure, isolated sandbox", "将智能体工具限制在安全、隔离的沙箱环境中"],
+    ["secure, isolated local sandbox", "安全、隔离的本地沙箱"],
+    ["isolated local sandbox", "隔离的本地沙箱"],
+    ["local sandbox", "本地沙箱"],
+    ["Terminal Sandboxing", "终端沙箱机制"],
+    ["Terminal sandboxing per project", "针对每个项目的终端沙箱机制"],
+
     // === 2.12.2 Hotfix 3 用户新截图针对性深度补齐 ===
     // 1. 规则与热重载 (Rules & Hot Reload - 图 1)
     ["Proactively connect to running Dart/Flutter apps and trigger hot reload or hot restart upon editing .dart files under lib/.", "编辑 lib/ 目录下的 .dart 文件时，主动连接正在运行的 Dart/Flutter 应用并触发热重载或热重启。"],
