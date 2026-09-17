@@ -238,6 +238,20 @@ const UI_PHRASES = [
     ["in this project", "（仅当前项目）"],
     ["Yes, and always allow", "允许，并始终允许"],
 
+    // 会话与项目删除确认对话框 (Delete Confirmation Modals)
+    ["Are you sure you want to delete this conversation? This action cannot be undone.", "您确定要删除此会话吗？此操作无法撤销。"],
+    ["Are you sure you want to delete this conversation?", "您确定要删除此会话吗？"],
+    ["This action cannot be undone.", "此操作无法撤销。"],
+    ["This action cannot be undone", "此操作无法撤销"],
+    ["Delete Conversation", "删除会话"],
+    ["Delete conversation", "删除会话"],
+    ["Are you sure you want to delete this project? This action cannot be undone.", "您确定要删除此项目吗？此操作无法撤销。"],
+    ["Are you sure you want to delete this project?", "您确定要删除此项目吗？"],
+    ["Are you sure you want to delete this task? This action cannot be undone.", "您确定要删除此任务吗？此操作无法撤销。"],
+    ["Are you sure you want to delete this task?", "您确定要删除此任务吗？"],
+    ["Are you sure you want to delete this artifact? This action cannot be undone.", "您确定要删除此产物文档吗？此操作无法撤销。"],
+    ["Are you sure you want to delete this artifact?", "您确定要删除此产物文档吗？"],
+
     // Custom Agents & Plugins & MCP Empty State
     ["Custom Agents", "自定义代理"],
     ["Expert at reviewing Flutter code for accessibility (a11y) issues. Invoke this agent to perform an a11y review of a codebase, pending changes, or PR.", "擅长审查 Flutter 代码中的无障碍 (a11y) 问题。调用此子代理以对代码库、待提交改动或 PR 进行无障碍审计。"],
@@ -584,6 +598,10 @@ const EXACT_WORDS = {
     "Security Policy": "安全策略",
     "Danger Zone": "危险区域",
     "Delete Project": "删除项目",
+    "Delete Conversation": "删除会话",
+    "Delete conversation": "删除会话",
+    "Delete Task": "删除任务",
+    "Delete Artifact": "删除产物文档",
     "Require Review": "需要审核",
     "Tool Permissions": "工具权限",
     "Version": "版本",
@@ -850,6 +868,12 @@ const injectedCode = `
             }
             if (res.includes("Modify permissions for file, terminal, and MCP tools")) {
                 res = "修改文件、终端以及 MCP 工具的权限。";
+            }
+            if (res.includes("Are you sure you want to delete this conversation")) {
+                res = "您确定要删除此会话吗？此操作无法撤销。";
+            }
+            if (res.includes("Are you sure you want to delete this project")) {
+                res = "您确定要删除此项目吗？此操作无法撤销。";
             }
             if (res.includes("Replace the usage of")) {
                 res = "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。";
