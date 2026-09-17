@@ -252,6 +252,32 @@ const UI_PHRASES = [
     ["Are you sure you want to delete this artifact? This action cannot be undone.", "您确定要删除此产物文档吗？此操作无法撤销。"],
     ["Are you sure you want to delete this artifact?", "您确定要删除此产物文档吗？"],
 
+    // === 智能体运行错误提示横幅 (Agent Terminated Banner) ===
+    ["Agent terminated due to error", "智能体因错误而终止"],
+    ["You can prompt the model to try again or start a new conversation if the error persists.", "您可以提示模型重试，若错误持续存在，请开启新会话。"],
+    ["You can prompt the model to try again or start a new conversation if the error persists", "您可以提示模型重试，若错误持续存在，请开启新会话"],
+    ["See our troubleshooting guide for more help.", "查看我们的 故障排除指南 获取更多帮助。"],
+    ["See our troubleshooting guide for more help", "查看我们的 故障排除指南 获取更多帮助"],
+    ["See our troubleshooting_guide for more help.", "查看我们的 故障排除指南 获取更多帮助。"],
+    ["See our troubleshooting_guide for more help", "查看我们的 故障排除指南 获取更多帮助"],
+    ["troubleshooting guide", "故障排除指南"],
+    ["troubleshooting_guide", "故障排除指南"],
+    ["for more help.", "获取更多帮助。"],
+    ["for more help", "获取更多帮助"],
+    ["See our", "查看我们的"],
+    ["Copy debug info", "复制调试信息"],
+    ["Copy Debug Info", "复制调试信息"],
+
+    // === 窗口与编辑器分屏菜单 (Window & Split Menu) ===
+    ["Split Right", "向右分屏"],
+    ["Split Down", "向下分屏"],
+    ["Split Left", "向左分屏"],
+    ["Split Up", "向上分屏"],
+    ["Replace With New", "替换为新建"],
+    ["Replace with New", "替换为新建"],
+    ["Replace with new", "替换为新建"],
+    ["Split", "分屏"],
+
     // Custom Agents & Plugins & MCP Empty State
     ["Custom Agents", "自定义代理"],
     ["Expert at reviewing Flutter code for accessibility (a11y) issues. Invoke this agent to perform an a11y review of a codebase, pending changes, or PR.", "擅长审查 Flutter 代码中的无障碍 (a11y) 问题。调用此子代理以对代码库、待提交改动或 PR 进行无障碍审计。"],
@@ -626,6 +652,16 @@ const EXACT_WORDS = {
     "Command Palette": "命令面板",
     "Commands Outside Sandbox": "沙箱外命令执行",
     "Open System Preferences": "打开系统偏好设置",
+    "Agent terminated due to error": "智能体因错误而终止",
+    "Copy debug info": "复制调试信息",
+    "Copy Debug Info": "复制调试信息",
+    "Split Right": "向右分屏",
+    "Split Down": "向下分屏",
+    "Split Left": "向左分屏",
+    "Split Up": "向上分屏",
+    "Replace With New": "替换为新建",
+    "Replace with New": "替换为新建",
+    "Split": "分屏",
     "Plugins": "插件扩展",
     "Customize": "自定义配置",
     "Custom Agents": "自定义代理",
@@ -874,6 +910,15 @@ const injectedCode = `
             }
             if (res.includes("Are you sure you want to delete this project")) {
                 res = "您确定要删除此项目吗？此操作无法撤销。";
+            }
+            if (res.includes("Agent terminated due to error")) {
+                res = "智能体因错误而终止";
+            }
+            if (res.includes("You can prompt the model to try again or start a new conversation")) {
+                res = "您可以提示模型重试，若错误持续存在，请开启新会话。";
+            }
+            if (res.includes("troubleshooting") && res.includes("help")) {
+                res = "查看我们的 故障排除指南 获取更多帮助。";
             }
             if (res.includes("Replace the usage of")) {
                 res = "将测试中的 expect 及 package:matcher 相关断言函数替换为现代 package:checks 等效项。";
