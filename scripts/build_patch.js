@@ -198,8 +198,13 @@ const UI_PHRASES = [
     ["Inherits your 常规设置 settings when working", "在当前项目中工作时，直接继承并沿用您的常规设置"],
     ["Inherits your 常规设置 settings", "继承您的常规设置"],
     ["Inherit 常规设置", "继承常规设置"],
+    ["Inherit Global Settings", "继承全局设置"],
+    ["Inherit Global", "继承全局设置"],
+    ["Inherit Workspace Settings", "继承工作区设置"],
+    ["Inherit Workspace", "继承工作区设置"],
     ["Inherits your", "继承您的"],
     ["Inherit", "继承"],
+    ["Enabled", "已启用"],
 
     // 5. 插件标题
     ["Dart and Flutter", "Dart 与 Flutter"],
@@ -592,6 +597,11 @@ const EXACT_WORDS = {
     "Inherit 常规设置": "继承常规设置",
     "Inherit General Settings": "继承全局常规设置",
     "Inherit General": "继承常规设置",
+    "Inherit Global Settings": "继承全局设置",
+    "Inherit Global": "继承全局设置",
+    "Inherit Workspace Settings": "继承工作区设置",
+    "Inherit Workspace": "继承工作区设置",
+    "Enabled": "已启用",
     "Commands": "命令",
     "Window": "窗口",
     "Create Project": "新建项目",
@@ -805,20 +815,22 @@ const injectedCode = `
             }
 
             // 5. 动态正则处理
-            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including\\s+(\\d+)\\s+active\\s+conversations?\\./gi, '永久删除 $1（包含 $2 个活动会话）。');
-            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including/gi, '永久删除 $1，包含');
-            res = res.replace(/Modified in\\s+([\\s\\S]+)/gi, '已在 $1 中修改');
-            res = res.replace(/Learn more about\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
-            res = res.replace(/Learn more\\s+关于\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
-            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）\\s*\\.?\\s*了解更多\\.?/gi, '在当前项目中工作时，同时继承并应用全局设置。了解更多。');
-            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）/gi, '在当前项目中工作时，同时继承并应用全局设置');
+            res = res.replace(/Permanently delete\s+([\s\S]+?)\s+including\s+(\d+)\s+active\s+conversations?\./gi, '永久删除 $1（包含 $2 个活动会话）。');
+            res = res.replace(/Permanently delete\s+([\s\S]+?)\s+including/gi, '永久删除 $1，包含');
+            res = res.replace(/Modified in\s+([\s\S]+)/gi, '已在 $1 中修改');
+            res = res.replace(/Learn more about\s+([\s\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Learn more\s+关于\s+([\s\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Also includes global settings when working\s*（仅当前项目）\s*\.?\s*了解更多\.?/gi, '在当前项目中工作时，同时继承并应用全局设置。了解更多。');
+            res = res.replace(/Also includes global settings when working\s*（仅当前项目）/gi, '在当前项目中工作时，同时继承并应用全局设置');
             res = res.replace(/Also includes global settings when working/gi, '在当前项目中工作时，同时继承并应用全局设置');
-            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working\\s*（仅当前项目）\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
-            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working in this project\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
-            res = res.replace(/Inherits your\\s+(.+?)\\s+settings/gi, '继承您的 $1 设置');
-            res = res.replace(/Inherit\\s+常规设置/gi, '继承常规设置');
-            res = res.replace(/Inherit\\s+General Settings/gi, '继承全局常规设置');
-            res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
+            res = res.replace(/Inherits your\s+(.+?)\s+settings when working\s*（仅当前项目）\s*\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\s+(.+?)\s+settings when working in this project\s*\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\s+(.+?)\s+settings/gi, '继承您的 $1 设置');
+            res = res.replace(/Inherit\s+常规设置/gi, '继承常规设置');
+            res = res.replace(/Inherit\s+General Settings/gi, '继承全局常规设置');
+            res = res.replace(/Inherit\s+Global(\s+Settings)?/gi, '继承全局设置');
+            res = res.replace(/继承\s+Global/gi, '继承全局设置');
+            res = res.replace(/Inherit\s+(.+)/gi, '继承 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
             if (res.includes("Controls the actions the agent can take")) {
