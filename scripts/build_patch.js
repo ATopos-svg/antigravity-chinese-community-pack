@@ -591,7 +591,180 @@ const UI_PHRASES = [
     ["about Turbo mode", "极速模式的相关说明"],
     ["about", "关于"],
     ["Plugin: ", "插件: "],
-    ["Plugin:", "插件:"]
+    ["Plugin:", "插件:"],
+    // === MCP 服务市场与扩展管理 (MCP Server Marketplace & Management - 45+ 款服务全覆盖) ===
+    // 0. 通用控件与搜索栏
+    ["Search MCP servers by name", "按名称搜索 MCP 服务"],
+    ["Search MCP servers", "搜索 MCP 服务"],
+    ["Search MCP server", "搜索 MCP 服务"],
+    ["Configured MCP Servers", "已配置的 MCP 服务"],
+    ["Available MCP Servers", "可用 MCP 服务"],
+    ["Installed MCP Servers", "已安装的 MCP 服务"],
+    ["No MCP servers found", "未找到匹配的 MCP 服务"],
+    ["Custom MCP Server", "自定义 MCP 服务"],
+    ["Add custom MCP server", "添加自定义 MCP 服务"],
+    ["Add Custom Server", "添加自定义服务"],
+    ["Manage MCP Servers", "管理 MCP 服务"],
+    ["MCP Servers", "MCP 服务"],
+    ["MCP Server", "MCP 服务"],
+
+    // 1. 截图 1 (云审计、AI 运维、数据集成与体验设计)
+    ["The Cloud Audit Manager remote MCP server allows you to enroll projects, generate audit and scope reports, and check resource enrollment statuses in the us-central1 region.", "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 us-central1 区域内的资源登记状态。"],
+    ["The Cloud Audit Manager remote MCP server allows you to enroll projects, generate audit and scope reports, and check resource enrollment statuses in the us-central1...", "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 us-central1 区域内的资源登记状态..."],
+    ["The Cloud Audit Manager remote MCP server allows you to enroll projects, generate audit and scope reports, and check resource enrollment statuses in the europe-west1 region.", "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 europe-west1 区域内的资源登记状态。"],
+    ["The Cloud Audit Manager remote MCP server allows you to enroll projects, generate audit and scope reports, and check resource enrollment statuses in the europe-...", "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 europe-west1 区域内的资源登记状态..."],
+    ["The Cloud Audit Manager remote MCP server allows you to enroll projects, generate audit and scope reports, and check resource enrollment statuses", "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查资源登记状态"],
+
+    ["Investigate and fix software issues using AI-powered root cause analysis. This MCP server connects to your Antimetal account to search issues, read investigative reports, and monitor resolutions.", "使用 AI 驱动的根本原因分析调查并修复软件问题。该 MCP 服务连接到您的 Antimetal 账户以检索问题、阅读调查报告并监控解决方案。"],
+    ["Investigate and fix software issues using AI-powered root cause analysis. This MCP server connects to your Antimetal account to search issues, read investigative...", "使用 AI 驱动的根本原因分析调查并修复软件问题。该 MCP 服务连接到您的 Antimetal 账户以检索问题、阅读调查报告..."],
+    ["Investigate and fix software issues using AI-powered root cause analysis.", "使用 AI 驱动的根本原因分析调查并修复软件问题。"],
+
+    ["Query and act on your marketing, analytics, CRM, e-commerce, and warehouse data across 325+ connectors (Meta Ads, Google Ads, TikTok Ads, GA4, HubSpot, etc.).", "跨 325+ 个连接器（Meta Ads、Google Ads、TikTok Ads、GA4、HubSpot 等）查询并处理您的营销、分析、CRM、电商及数据仓库数据。"],
+    ["Query and act on your marketing, analytics, CRM, e-commerce, and warehouse data across 325+ connectors (Meta Ads, Google Ads, TikTok Ads, GA4, HubSpot,...", "跨 325+ 个连接器（Meta Ads、Google Ads、TikTok Ads、GA4、HubSpot 等）查询并处理您的营销、分析、CRM、电商及数据仓库数据..."],
+    ["Query and act on your marketing, analytics, CRM, e-commerce, and warehouse data across 325+ connectors", "跨 325+ 个连接器查询并处理您的营销、分析、CRM、电商及数据仓库数据"],
+
+    ["Query your GitLab SDLC as a knowledge graph. Orbit indexes groups, projects, source code, merge requests, pipelines, work items, and security findings into a graph.", "将您的 GitLab 软件开发生命周期 (SDLC) 作为知识图谱进行查询。Orbit 将群组、项目、源码、合并请求、流水线、工作项和安全发现编入图谱索引。"],
+    ["Query your GitLab SDLC as a knowledge graph. Orbit indexes groups, projects, source code, merge requests, pipelines, work items, and security findings into a...", "将您的 GitLab 软件开发生命周期 (SDLC) 作为知识图谱进行查询。Orbit 将群组、项目、源码、合并请求、流水线、工作项和安全发现编入图谱索引..."],
+    ["Query your GitLab SDLC as a knowledge graph.", "将您的 GitLab 软件开发生命周期 (SDLC) 作为知识图谱进行查询。"],
+
+    ["Enable Antigravity to deploy apps to Google Cloud Run.", "使 Antigravity 能够将应用程序部署到 Google Cloud Run。"],
+    ["Enable Antigravity to deploy apps to Google Cloud Run", "使 Antigravity 能够将应用程序部署到 Google Cloud Run"],
+
+    ["Ask questions. Get answers. The MCP is a server your coding agent talks to. Ask a question in English. It runs the query against your PostHog data. The answer lands right back in your chat.", "提出问题，获取答案。该 MCP 是智能体与之交互的服务器。用自然语言提问，它将针对您的 PostHog 数据执行查询并将答案直接返回到对话中。"],
+    ["Ask questions. Get answers. The MCP is a server your coding agent talks to. Ask a question in English. It runs the query against your PostHog data. The answer lands...", "提出问题，获取答案。该 MCP 是智能体与之交互的服务器。用自然语言提问，它将针对您的 PostHog 数据执行查询并将答案直接返回到对话中..."],
+    ["Ask questions. Get answers. The MCP is a server your coding agent talks to.", "提出问题，获取答案。该 MCP 是智能体与之交互的服务器。"],
+
+    ["Search and reference over 600,000 real-world app screens, user flows, and UI patterns from Mobbin directly within your AI tools.", "直接在您的 AI 工具中搜索并参考 Mobbin 上超过 600,000 个真实应用的界面、用户交互流程和 UI 设计模式。"],
+    ["Search and reference over 600,000 real-world app screens, user flows, and UI patterns from Mobbin directly within your AI tools", "直接在您的 AI 工具中搜索并参考 Mobbin 上超过 600,000 个真实应用的界面、用户交互流程和 UI 设计模式"],
+
+    // 2. 截图 2 (云原生基础设施与官方开发栈)
+    ["The Wiz MCP Server connects multiple security data sources through a central host and server setup. This creates a single, contextual view of your security posture—allowing AI agents to analyze risks, evaluate misconfigurations, and help you remediate issues across your cloud environments.", "Wiz MCP 服务通过集中式主机和服务器设置连接多个安全数据源，为您的安全状况创建统一、上下文关联的全局视图——允许 AI 智能体分析风险、评估错误配置并帮助您跨云环境修复安全问题。"],
+    ["The Wiz MCP Server connects multiple security data sources through a central host and server setup. This creates a single, contextual view of your security posture—...", "Wiz MCP 服务通过集中式主机和服务器设置连接多个安全数据源，为您的安全状况创建统一、上下文关联的全局视图——..."],
+    ["The Wiz MCP Server connects multiple security data sources through a central host and server setup.", "Wiz MCP 服务通过集中式主机和服务器设置连接多个安全数据源。"],
+
+    ["Google Kubernetes Engine (Remote)", "Google Kubernetes Engine (远程)"],
+    ["The GKE remote MCP server provides read write access to your GKE Kubernetes resources. It allows an AI agent to inspect and observe your environment.", "GKE 远程 MCP 服务提供对 GKE Kubernetes 资源的读写访问权限。它允许 AI 智能体检查和观测您的集群环境。"],
+    ["The GKE remote MCP server provides read write access to your GKE Kubernetes resources.", "GKE 远程 MCP 服务提供对 GKE Kubernetes 资源的读写访问权限。"],
+
+    ["The Dart and Flutter MCP server exposes Dart (and Flutter) development tool actions to compatible AI-assistant clients.", "Dart 与 Flutter MCP 服务向兼容的 AI 助手客户端暴露 Dart（及 Flutter）开发工具操作。"],
+    ["The Dart 与 Flutter MCP server exposes Dart (and Flutter) development tool actions to compatible AI-assistant clients.", "Dart 与 Flutter MCP 服务向兼容的 AI 助手客户端暴露 Dart（及 Flutter）开发工具操作。"],
+
+    ["The Firebase Model Context Protocol (MCP) Server gives AI-powered development tools the ability to work with your Firebase projects and your app's codebase.", "Firebase 模型上下文协议 (MCP) 服务使 AI 开发工具能够与您的 Firebase 项目和应用程序代码库无缝协同工作。"],
+
+    ["The Genkit Model Context Protocol (MCP) Server gives AI-powered development tools the ability to build, debug and inspect your Genkit app.", "Genkit 模型上下文协议 (MCP) 服务使 AI 开发工具能够构建、调试和检查您的 Genkit 应用程序。"],
+
+    ["The gopls Model Context Protocol (MCP) server provides tools for semantic code analysis, live diagnostics, and transformation of your Go codebase.", "gopls 模型上下文协议 (MCP) 服务为您的 Go 代码库提供语义代码分析、实时诊断与代码转换工具。"],
+
+    ["Interact with your BigQuery data using natural language. This MCP server allows you to securely connect to your datasets to search the datasets, inspect table schemas, and run SQL queries.", "使用自然语言与您的 BigQuery 数据交互。该 MCP 服务允许您安全连接到数据集以搜索数据、检查数据表结构并执行 SQL 查询。"],
+    ["Interact with your BigQuery data using natural language. This MCP server allows you to securely connect to your datasets to search the datasets, inspect table...", "使用自然语言与您的 BigQuery 数据交互。该 MCP 服务允许您安全连接到数据集以搜索数据、检查数据表结构..."],
+
+    ["The AlloyDB for PostgreSQL remote MCP server lets you access and run AlloyDB tools to manage AlloyDB clusters and instances, manage users, create and restore backups, and execute queries.", "AlloyDB for PostgreSQL 远程 MCP 服务允许您访问并运行 AlloyDB 工具来管理 AlloyDB 集群和实例、管理用户、创建和恢复备份并执行查询。"],
+    ["The AlloyDB for PostgreSQL remote MCP server lets you access and run AlloyDB tools to manage AlloyDB clusters and instances, manage users, create and restore...", "AlloyDB for PostgreSQL 远程 MCP 服务允许您访问并运行 AlloyDB 工具来管理 AlloyDB 集群和实例、管理用户、创建和恢复备份..."],
+
+    ["Google Cloud Bigtable Admin", "Google Cloud Bigtable 管理"],
+    ["The Bigtable Admin remote MCP server lets you manage Bigtable resources.", "Bigtable Admin 远程 MCP 服务允许您管理 Bigtable 资源。"],
+
+    ["Google Cloud CLI (Preview)", "Google Cloud CLI (预览)"],
+    ["Manage Google Cloud resources with natural language. This MCP server provides tools to run gcloud CLI commands safely.", "使用自然语言管理 Google Cloud 资源。该 MCP 服务提供安全运行 gcloud CLI 命令的工具。"],
+    ["Manage Google Cloud resources with natural language.", "使用自然语言管理 Google Cloud 资源。"],
+    ["Manage Google Cloud resources with natural...", "使用自然语言管理 Google Cloud 资源..."],
+
+    // 3. 截图 3 (数据库、API 平台与协作工具)
+    ["The Cloud SQL remote MCP server lets you access and run Cloud SQL tools to manage Cloud SQL instances, manage users, create and restore backups, administer databases, and monitor performance.", "Cloud SQL 远程 MCP 服务允许您访问并运行 Cloud SQL 工具来管理 Cloud SQL 实例、管理用户、创建和恢复备份、管理数据库并监控性能。"],
+    ["The Cloud SQL remote MCP server lets you access and run Cloud SQL tools to manage Cloud SQL instances, manage users, create and restore backups, administ...", "Cloud SQL 远程 MCP 服务允许您访问并运行 Cloud SQL 工具来管理 Cloud SQL 实例、管理用户、创建和恢复备份、管理数据库..."],
+
+    ["The Spanner remote MCP server lets you access and run Spanner tools to create, manage, and query Spanner resources from your AI-enabled development environment.", "Spanner 远程 MCP 服务允许您通过支持 AI 的开发环境访问并运行 Spanner 工具来创建、管理和查询 Spanner 资源。"],
+    ["The Spanner remote MCP server lets you access and run Spanner tools to create, manage, and query Spanner resources from your AI-enabled development...", "Spanner 远程 MCP 服务允许您通过支持 AI 的开发环境访问并运行 Spanner 工具来创建、管理和查询 Spanner 资源..."],
+
+    ["Google Cloud Apigee API hub", "Google Cloud Apigee API 中心"],
+    ["The Apigee API hub remote MCP server lets you manage the APIs, versions, specs, operations, deployments, attributes, external APIs, and dependencies registered in Apigee API hub.", "Apigee API hub 远程 MCP 服务允许您管理在 Apigee API hub 中注册的 API、版本、规范、操作、部署、属性、外部 API 及依赖项。"],
+    ["The Apigee API hub remote MCP server lets you manage the APIs, versions, specs, operations, deployments, attributes, external APIs, and dependencies registered in...", "Apigee API hub 远程 MCP 服务允许您管理注册的 API、版本、规范、操作、部署、属性、外部 API 及依赖项..."],
+
+    ["Connect your AI assistants to Looker business intelligence. This MCP server enables data exploration and content management by allowing you to execute natural language queries and retrieve dashboards.", "将您的 AI 助手连接到 Looker 商业智能平台。该 MCP 服务允许您执行自然语言查询并获取仪表板以进行数据探索和内容管理。"],
+    ["Connect your AI assistants to Looker business intelligence. This MCP server enables data exploration and content management by allowing you to execute natural...", "将您的 AI 助手连接到 Looker 商业智能平台。该 MCP 服务允许您执行自然语言查询以进行数据探索和内容管理..."],
+    ["Connect your AI assistants to Looker business intelligence.", "将您的 AI 助手连接到 Looker 商业智能平台。"],
+
+    ["Knowledge Catalog", "知识目录 (Knowledge Catalog)"],
+    ["Connect your AI assistants to the Knowledge Catalog (formerly known as Dataplex). This MCP server enables data discovery and governance by allowing you to search for metadata, inspect data lineages, and manage policies.", "将您的 AI 助手连接到 Knowledge Catalog（前身为 Dataplex）。该 MCP 服务允许您搜索元数据、检查数据血缘并管理治理策略以实现数据发现与数据治理。"],
+    ["Connect your AI assistants to the Knowledge Catalog (formerly known as Dataplex). This MCP server enables data discovery and governance by allowing you to search...", "将您的 AI 助手连接到 Knowledge Catalog（前身为 Dataplex）。该 MCP 服务允许您检索元数据以实现数据发现与数据治理..."],
+    ["Connect your AI assistants to the Knowledge Catalog (formerly known as Dataplex).", "将您的 AI 助手连接到 Knowledge Catalog（前身为 Dataplex）。"],
+
+    ["MCP Toolbox for Databases", "数据库 MCP 工具箱 (MCP Toolbox for Databases)"],
+    ["The MCP Toolbox for Databases is an open-source MCP server designed to simplify and secure the development of tools for interacting with databases.", "MCP Toolbox for Databases 是一个开源 MCP 服务，旨在简化和保护与数据库交互工具的开发。"],
+
+    ["Oracle Database", "Oracle 数据库"],
+    ["Interact with your Oracle Database data using natural language. This MCP server allows you to securely connect to your databases for executing SQL queries, inspecting schemas, and analyzing performance.", "使用自然语言与您的 Oracle 数据库数据交互。该 MCP 服务允许您安全连接到数据库以执行 SQL 查询、检查数据表结构并分析性能。"],
+    ["Interact with your Oracle Database data using natural language. This MCP server allows you to securely connect to your databases for executing SQL queries,...", "使用自然语言与您的 Oracle 数据库数据交互。该 MCP 服务允许您安全连接到数据库以执行 SQL 查询、检查表结构..."],
+
+    ["The Dev Mode MCP Server brings Figma directly into your workflow by providing important design information and context to AI agents generating code from Figma designs.", "Dev Mode MCP 服务通过向从 Figma 设计生成代码的 AI 智能体提供关键设计信息和上下文，将 Figma 直接引入您的工作流程中。"],
+    ["The Dev Mode MCP Server brings Figma directly into your workflow by providing important design information and context to AI agents generating code from Fig...", "Dev Mode MCP 服务通过向从 Figma 设计生成代码的 AI 智能体提供关键设计信息和上下文，将 Figma 直接引入您的工作流程中..."],
+
+    ["The GitHub MCP Server is a Model Context Protocol (MCP) server that provides seamless integration with GitHub APIs, enabling advanced automation and workflows directly in your AI assistant.", "GitHub MCP 服务是一个提供与 GitHub API 无缝集成的模型上下文协议 (MCP) 服务，可直接在 AI 助手内实现高级自动化与工作流。"],
+    ["The GitHub MCP Server is a Model Context Protocol (MCP) server that provides seamless integration with GitHub APIs, enabling advanced automation and...", "GitHub MCP 服务是一个提供与 GitHub API 无缝集成的模型上下文协议 (MCP) 服务，可实现高级自动化与..."],
+
+    // 4. 截图 4 (物联网、云数据库与支付协同)
+    ["Google Home Developer", "Google Home 开发者"],
+    ["The Google Home Developer MCP server allows you to search through Google Home documentation, OpenThread and Matter specifications documentation.", "Google Home Developer MCP 服务允许您检索 Google Home 文档、OpenThread 和 Matter 规范文档。"],
+
+    ["Manage your Neon backend with the Neon MCP Server: Lakebase Postgres, branching, Object Storage, Functions, and the AI Gateway", "使用 Neon MCP 服务管理您的 Neon 后端：Lakebase Postgres、数据库分支、对象存储、函数以及 AI 网关"],
+    ["Manage your Neon backend with the Neon MCP Server", "使用 Neon MCP 服务管理您的 Neon 后端"],
+
+    ["The Stripe Model Context Protocol server allows you to integrate with Stripe APIs through function calling. This protocol supports various tools to interact with different Stripe resources and features.", "Stripe 模型上下文协议服务允许您通过函数调用与 Stripe API 集成。该协议支持各种工具与不同 Stripe 资源和功能进行交互。"],
+    ["The Stripe Model Context Protocol server allows you to integrate with Stripe APIs through function calling. This protocol supports various tools to interact with different...", "Stripe 模型上下文协议服务允许您通过函数调用与 Stripe API 集成。该协议支持各种工具与不同 Stripe 资源和功能进行交互..."],
+    ["The Stripe Model Context Protocol server allows you to integrate with Stripe APIs through 函数调用. This protocol supports various tools to interact with different...", "Stripe 模型上下文协议服务允许您通过函数调用与 Stripe API 集成。该协议支持各种工具与不同 Stripe 资源和功能进行交互..."],
+
+    ["Interact with Redis key-value stores", "与 Redis 键值存储交互"],
+
+    ["A Model Context Protocol server for interacting with MongoDB Atlas.", "用于与 MongoDB Atlas 交互的模型上下文协议 (MCP) 服务。"],
+    ["A Model Context Protocol server for interacting with MongoDB Atlas", "用于与 MongoDB Atlas 交互的模型上下文协议 (MCP) 服务"],
+
+    ["Official Notion MCP Server that allows interaction with Notion workspaces, pages, databases, and comments via the Notion API.", "官方 Notion MCP 服务，允许通过 Notion API 与 Notion 工作区、页面、数据库和评论进行交互。"],
+    ["Official Notion MCP Server that allows interaction with Notion workspaces, pages, databases, and comments via the Notion API", "官方 Notion MCP 服务，允许通过 Notion API 与 Notion 工作区、页面、数据库和评论进行交互"],
+
+    ["Official Linear.app MCP Server for interacting with Linear projects, issues, and workflows.", "官方 Linear.app MCP 服务，用于与 Linear 项目、议题 (Issues) 和工作流程进行交互。"],
+    ["Official Linear.app MCP Server for interacting with Linear projects, issues, and workflows", "官方 Linear.app MCP 服务，用于与 Linear 项目、议题 (Issues) 和工作流程进行交互"],
+
+    ["An MCP server implementation that integrates the Perplexity Sonar API to provide real-time, web-wide research capabilities.", "集成 Perplexity Sonar API 的 MCP 服务实现，提供实时全网深度研究能力。"],
+    ["An MCP server implementation that integrates the Perplexity Sonar API to provide real-time, web-wide research capabilities", "集成 Perplexity Sonar API 的 MCP 服务实现，提供实时全网深度研究能力"],
+
+    ["Official PayPal MCP Server that allows integration with PayPal APIs for payment processing, transaction management, and account operations.", "官方 PayPal MCP 服务，允许与 PayPal API 集成以进行支付处理、交易管理和账户操作。"],
+    ["Official PayPal MCP Server that allows integration with PayPal APIs for payment processing, transaction management, and account operations", "官方 PayPal MCP 服务，允许与 PayPal API 集成以进行支付处理、交易管理和账户操作"],
+
+    // 5. 截图 5 (现代集成、代码分析与端到端观测)
+    ["Airweave lets agents search any app.", "Airweave 允许智能体搜索任何应用程序。"],
+    ["Airweave lets agents search any app", "Airweave 允许智能体搜索任何应用程序"],
+
+    ["Atlassian MCP Server for interacting with Atlassian products.", "用于与 Atlassian 产品（Jira、Confluence 等）交互的 Atlassian MCP 服务。"],
+    ["Atlassian MCP Server for interacting with Atlassian products", "用于与 Atlassian 产品（Jira、Confluence 等）交互的 Atlassian MCP 服务"],
+
+    ["Interact with your Harness account using natural language. This MCP server lets AI agents inspect and manage CI/CD pipelines, executions, services, environments, and deployments.", "使用自然语言与您的 Harness 账户交互。该 MCP 服务允许 AI 智能体检查和管理 CI/CD 流水线、执行记录、服务、环境及部署。"],
+    ["Interact with your Harness account using natural language. This MCP server lets AI agents inspect and manage CI/CD pipelines, executions, services, environments,...", "使用自然语言与您的 Harness 账户交互。该 MCP 服务允许 AI 智能体检查和管理 CI/CD 流水线、执行记录、服务与环境..."],
+    ["Interact with your Harness account using natural language.", "使用自然语言与您的 Harness 账户交互。"],
+
+    ["SonarQube MCP Server enables AI assistants to interact with SonarQube instances for code quality analysis, project management, and quality gate operations.", "SonarQube MCP 服务使 AI 助手能够与 SonarQube 实例交互，以执行代码质量分析、项目管理和质量门禁操作。"],
+    ["SonarQube MCP Server enables AI assistants to interact with SonarQube instances for code quality analysis, project management, and quality gate operations", "SonarQube MCP 服务使 AI 助手能够与 SonarQube 实例交互，以执行代码质量分析、项目管理和质量门禁操作"],
+
+    ["Netlify MCP Server enables AI assistants to interact with Netlify's platform for managing sites, deployments, domains, and other web development workflows.", "Netlify MCP 服务使 AI 助手能够与 Netlify 平台交互，以管理站点、部署、域名及其他 Web 开发工作流。"],
+    ["Netlify MCP Server enables AI assistants to interact with Netlify's platform for managing sites, deployments, domains, and other web development workflows", "Netlify MCP 服务使 AI 助手能够与 Netlify 平台交互，以管理站点、部署、域名及其他 Web 开发工作流"],
+
+    ["Sequential Thinking", "结构化深度思考 (Sequential Thinking)"],
+    ["A Model Context Protocol server that provides structured thinking and reasoning capabilities for LLM conversations.", "为大语言模型 (LLM) 对话提供结构化思考与逻辑推理能力的模型上下文协议 (MCP) 服务。"],
+    ["A Model Context Protocol server that provides structured thinking and reasoning capabilities for LLM conversations", "为大语言模型 (LLM) 对话提供结构化思考与逻辑推理能力的模型上下文协议 (MCP) 服务"],
+
+    ["Sonatype Guide", "Sonatype 指南"],
+    ["Sonatype MCP server for interacting with our dependency management and security intelligence platform.", "用于与依赖管理和安全情报平台交互的 Sonatype MCP 服务。"],
+    ["Sonatype MCP server for interacting with our dependency management and security intelligence platform", "用于与依赖管理和安全情报平台交互的 Sonatype MCP 服务"],
+
+    ["Google Maps Platform Code Assist", "Google Maps 平台 Code Assist"],
+    ["Google Maps 平台 Code Assist", "Google Maps 平台 Code Assist"],
+    ["The Google Maps Platform Code Assist MCP server provides your favorite AI coding assistant with up-to-date, official Google Maps Platform documentation, code samples, and best practices.", "Google Maps 平台 Code Assist MCP 服务为您喜爱的 AI 编程助手提供最新官方 Google Maps 平台文档、代码示例及最佳实践。"],
+    ["The Google Maps Platform Code Assist MCP server provides your favorite AI coding assistant with up-to-date, official Google Maps Platform documentation, code samples...", "Google Maps 平台 Code Assist MCP 服务为您喜爱的 AI 编程助手提供最新官方 Google Maps 平台文档、代码示例及最佳实践..."],
+    ["The Google Maps 平台 Code Assist MCP server provides your favorite AI coding assistant with up-to-date, official Google Maps 平台 documentation, code samples...", "Google Maps 平台 Code Assist MCP 服务为您喜爱的 AI 编程助手提供最新官方 Google Maps 平台文档、代码示例及最佳实践..."],
+
+    ["ArizeTracingAssistant", "Arize 链路追踪助手 (ArizeTracingAssistant)"],
+    ["This MCP server provides your LLM with docs and examples to instrument your AI apps with Arize AX. It also provides access to Arize support. Connect it to your IDE to start debugging traces.", "该 MCP 服务为您的 LLM 提供文档和示例，以便使用 Arize AX 埋点观测您的 AI 应用。它还提供对 Arize 支持的访问。将其连接到您的 IDE 开始调试链路跟踪。"],
+    ["This MCP server provides your LLM with docs and examples to instrument your AI apps with Arize AX. It also provides access to Arize support. Connect it to your IDE...", "该 MCP 服务为您的 LLM 提供文档和示例，以便使用 Arize AX 埋点观测您的 AI 应用。它还提供对 Arize 支持的访问。将其连接到您的 IDE..."],
+    ["This MCP server provides your LLM with docs and examples to instrument your AI apps with Arize AX.", "该 MCP 服务为您的 LLM 提供文档和示例，以便使用 Arize AX 埋点观测您的 AI 应用。"],
 ];
 
 // 合并技能词条与 UI 词条
@@ -599,6 +772,31 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    "Search MCP servers by name": "按名称搜索 MCP 服务",
+    "Search MCP servers": "搜索 MCP 服务",
+    "Search MCP server": "搜索 MCP 服务",
+    "Configured MCP Servers": "已配置的 MCP 服务",
+    "Available MCP Servers": "可用 MCP 服务",
+    "Installed MCP Servers": "已安装的 MCP 服务",
+    "No MCP servers found": "未找到匹配的 MCP 服务",
+    "Custom MCP Server": "自定义 MCP 服务",
+    "Add custom MCP server": "添加自定义 MCP 服务",
+    "Add Custom Server": "添加自定义服务",
+    "Manage MCP Servers": "管理 MCP 服务",
+    "Google Kubernetes Engine (Remote)": "Google Kubernetes Engine (远程)",
+    "Google Cloud Bigtable Admin": "Google Cloud Bigtable 管理",
+    "Google Cloud CLI (Preview)": "Google Cloud CLI (预览)",
+    "Google Cloud Apigee API hub": "Google Cloud Apigee API 中心",
+    "Knowledge Catalog": "知识目录 (Knowledge Catalog)",
+    "MCP Toolbox for Databases": "数据库 MCP 工具箱 (MCP Toolbox for Databases)",
+    "Oracle Database": "Oracle 数据库",
+    "Google Home Developer": "Google Home 开发者",
+    "Sequential Thinking": "结构化深度思考 (Sequential Thinking)",
+    "Sonatype Guide": "Sonatype 指南",
+    "Google Maps Platform Code Assist": "Google Maps 平台 Code Assist",
+    "Google Maps 平台 Code Assist": "Google Maps 平台 Code Assist",
+    "ArizeTracingAssistant": "Arize 链路追踪助手 (ArizeTracingAssistant)",
+
     "Outside of folders file access policy": "工作目录外文件访问策略",
     "Terminal Command Auto Execution": "终端命令自动执行策略",
     "Terminal Command Auto Execution Policy": "终端命令自动执行策略",
@@ -965,6 +1163,145 @@ const injectedCode = `
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+conversation/gi, '允许，并在当前会话中始终允许 $1');
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+?)\\s+in\\s+this\\s+project/gi, '允许，并在当前项目中始终允许 $1');
                 res = res.replace(/Yes,\\s*and\\s*always\\s*allow\\s+([\\s\\S]+)/gi, '允许，并始终允许 $1');
+            }
+
+
+            // 5.2 MCP 服务市场特征前缀动态兜底
+            if (res.includes("The Cloud Audit Manager remote MCP server")) {
+                if (res.includes("europe")) {
+                    res = "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 europe-west1 区域内的资源登记状态。";
+                } else {
+                    res = "Cloud Audit Manager 远程 MCP 服务允许您登记项目、生成审计与作用域报告，并检查 us-central1 区域内的资源登记状态。";
+                }
+            }
+            if (res.includes("Investigate and fix software issues using AI-powered root cause analysis")) {
+                res = "使用 AI 驱动的根本原因分析调查并修复软件问题。该 MCP 服务连接到您的 Antimetal 账户以检索问题、阅读调查报告...";
+            }
+            if (res.includes("Query and act on your marketing, analytics, CRM")) {
+                res = "跨 325+ 个连接器（Meta Ads、Google Ads、TikTok Ads、GA4、HubSpot 等）查询并处理您的营销、分析、CRM、电商及数据仓库数据。";
+            }
+            if (res.includes("Query your GitLab SDLC as a knowledge graph")) {
+                res = "将您的 GitLab 软件开发生命周期 (SDLC) 作为知识图谱进行查询。Orbit 将群组、项目、源码、合并请求、流水线、工作项和安全发现编入图谱索引...";
+            }
+            if (res.includes("Enable Antigravity to deploy apps to Google Cloud Run")) {
+                res = "使 Antigravity 能够将应用程序部署到 Google Cloud Run。";
+            }
+            if (res.includes("Ask questions. Get answers. The MCP is a server your coding agent talks to")) {
+                res = "提出问题，获取答案。该 MCP 是智能体与之交互的服务器。用自然语言提问，它将针对您的 PostHog 数据执行查询并将答案直接返回到对话中...";
+            }
+            if (res.includes("Search and reference over 600,000 real-world app screens")) {
+                res = "直接在您的 AI 工具中搜索并参考 Mobbin 上超过 600,000 个真实应用的界面、用户交互流程和 UI 设计模式。";
+            }
+            if (res.includes("The Wiz MCP Server connects multiple security data sources")) {
+                res = "Wiz MCP 服务通过集中式主机和服务器设置连接多个安全数据源，为您的安全状况创建统一、上下文关联的全局视图——...";
+            }
+            if (res.includes("The GKE remote MCP server provides read write access")) {
+                res = "GKE 远程 MCP 服务提供对 GKE Kubernetes 资源的读写访问权限。它允许 AI 智能体检查和观测您的集群环境。";
+            }
+            if (res.includes("Dart") && res.includes("Flutter MCP server exposes Dart")) {
+                res = "Dart 与 Flutter MCP 服务向兼容的 AI 助手客户端暴露 Dart（及 Flutter）开发工具操作。";
+            }
+            if (res.includes("The Firebase Model Context Protocol (MCP) Server gives AI-powered development tools")) {
+                res = "Firebase 模型上下文协议 (MCP) 服务使 AI 开发工具能够与您的 Firebase 项目和应用程序代码库协同工作。";
+            }
+            if (res.includes("The Genkit Model Context Protocol (MCP) Server gives AI-powered development tools")) {
+                res = "Genkit 模型上下文协议 (MCP) 服务使 AI 开发工具能够构建、调试和检查您的 Genkit 应用程序。";
+            }
+            if (res.includes("The gopls Model Context Protocol (MCP) server provides tools")) {
+                res = "gopls 模型上下文协议 (MCP) 服务为您的 Go 代码库提供语义代码分析、实时诊断与代码转换工具。";
+            }
+            if (res.includes("Interact with your BigQuery data using natural language")) {
+                res = "使用自然语言与您的 BigQuery 数据交互。该 MCP 服务允许您安全连接到数据集以搜索数据、检查数据表结构...";
+            }
+            if (res.includes("The AlloyDB for PostgreSQL remote MCP server lets you access")) {
+                res = "AlloyDB for PostgreSQL 远程 MCP 服务允许您访问并运行 AlloyDB 工具来管理 AlloyDB 集群和实例、管理用户、创建和恢复备份...";
+            }
+            if (res.includes("The Bigtable Admin remote MCP server lets you manage Bigtable resources")) {
+                res = "Bigtable Admin 远程 MCP 服务允许您管理 Bigtable 资源。";
+            }
+            if (res.includes("Manage Google Cloud resources with natural language") || res.includes("Manage Google Cloud resources with natural...")) {
+                res = "使用自然语言管理 Google Cloud 资源。该 MCP 服务提供安全运行 gcloud CLI 命令的工具。";
+            }
+            if (res.includes("The Cloud SQL remote MCP server lets you access and run Cloud SQL tools")) {
+                res = "Cloud SQL 远程 MCP 服务允许您访问并运行 Cloud SQL 工具来管理 Cloud SQL 实例、管理用户、创建和恢复备份、管理数据库...";
+            }
+            if (res.includes("The Spanner remote MCP server lets you access and run Spanner tools")) {
+                res = "Spanner 远程 MCP 服务允许您通过支持 AI 的开发环境访问并运行 Spanner 工具来创建、管理和查询 Spanner 资源...";
+            }
+            if (res.includes("The Apigee API hub remote MCP server lets you manage the APIs")) {
+                res = "Apigee API hub 远程 MCP 服务允许您管理注册的 API、版本、规范、操作、部署、属性、外部 API 及依赖项...";
+            }
+            if (res.includes("Connect your AI assistants to Looker business intelligence")) {
+                res = "将您的 AI 助手连接到 Looker 商业智能平台。该 MCP 服务允许您执行自然语言查询以进行数据探索和内容管理...";
+            }
+            if (res.includes("Connect your AI assistants to the Knowledge Catalog")) {
+                res = "将您的 AI 助手连接到 Knowledge Catalog（前身为 Dataplex）。该 MCP 服务允许您检索元数据以实现数据发现与数据治理...";
+            }
+            if (res.includes("The MCP Toolbox for Databases is an open-source MCP server designed to simplify")) {
+                res = "MCP Toolbox for Databases 是一个开源 MCP 服务，旨在简化和保护与数据库交互工具的开发。";
+            }
+            if (res.includes("Interact with your Oracle Database data using natural language")) {
+                res = "使用自然语言与您的 Oracle 数据库数据交互。该 MCP 服务允许您安全连接到数据库以执行 SQL 查询、检查表结构...";
+            }
+            if (res.includes("The Dev Mode MCP Server brings Figma directly into your workflow")) {
+                res = "Dev Mode MCP 服务通过向从 Figma 设计生成代码的 AI 智能体提供关键设计信息和上下文，将 Figma 直接引入您的工作流程中...";
+            }
+            if (res.includes("The GitHub MCP Server is a Model Context Protocol (MCP) server that provides seamless integration")) {
+                res = "GitHub MCP 服务是一个提供与 GitHub API 无缝集成的模型上下文协议 (MCP) 服务，可实现高级自动化与智能工作流...";
+            }
+            if (res.includes("The Google Home Developer MCP server allows you to search")) {
+                res = "Google Home Developer MCP 服务允许您检索 Google Home 文档、OpenThread 和 Matter 规范文档。";
+            }
+            if (res.includes("Manage your Neon backend with the Neon MCP Server")) {
+                res = "使用 Neon MCP 服务管理您的 Neon 后端：Lakebase Postgres、数据库分支、对象存储、函数以及 AI 网关";
+            }
+            if (res.includes("The Stripe Model Context Protocol server allows you to integrate with Stripe APIs")) {
+                res = "Stripe 模型上下文协议服务允许您通过函数调用与 Stripe API 集成。该协议支持各种工具与不同 Stripe 资源和功能进行交互...";
+            }
+            if (res.includes("Interact with Redis key-value stores")) {
+                res = "与 Redis 键值存储交互";
+            }
+            if (res.includes("A Model Context Protocol server for interacting with MongoDB Atlas")) {
+                res = "用于与 MongoDB Atlas 交互的模型上下文协议 (MCP) 服务。";
+            }
+            if (res.includes("Official Notion MCP Server that allows interaction with Notion workspaces")) {
+                res = "官方 Notion MCP 服务，允许通过 Notion API 与 Notion 工作区、页面、数据库和评论进行交互。";
+            }
+            if (res.includes("Official Linear.app MCP Server for interacting with Linear projects")) {
+                res = "官方 Linear.app MCP 服务，用于与 Linear 项目、议题 (Issues) 和工作流程进行交互。";
+            }
+            if (res.includes("An MCP server implementation that integrates the Perplexity Sonar API")) {
+                res = "集成 Perplexity Sonar API 的 MCP 服务实现，提供实时全网深度研究能力。";
+            }
+            if (res.includes("Official PayPal MCP Server that allows integration with PayPal APIs")) {
+                res = "官方 PayPal MCP 服务，允许与 PayPal API 集成以进行支付处理、交易管理和账户操作。";
+            }
+            if (res.includes("Airweave lets agents search any app")) {
+                res = "Airweave 允许智能体搜索任何应用程序。";
+            }
+            if (res.includes("Atlassian MCP Server for interacting with Atlassian products")) {
+                res = "用于与 Atlassian 产品（Jira、Confluence 等）交互的 Atlassian MCP 服务。";
+            }
+            if (res.includes("Interact with your Harness account using natural language")) {
+                res = "使用自然语言与您的 Harness 账户交互。该 MCP 服务允许 AI 智能体检查和管理 CI/CD 流水线、执行记录、服务与环境...";
+            }
+            if (res.includes("SonarQube MCP Server enables AI assistants to interact with SonarQube instances")) {
+                res = "SonarQube MCP 服务使 AI 助手能够与 SonarQube 实例交互，以执行代码质量分析、项目管理和质量门禁操作。";
+            }
+            if (res.includes("Netlify MCP Server enables AI assistants to interact with Netlify's platform")) {
+                res = "Netlify MCP 服务使 AI 助手能够与 Netlify 平台交互，以管理站点、部署、域名及其他 Web 开发工作流。";
+            }
+            if (res.includes("A Model Context Protocol server that provides structured thinking and reasoning capabilities")) {
+                res = "为大语言模型 (LLM) 对话提供结构化思考与逻辑推理能力的模型上下文协议 (MCP) 服务。";
+            }
+            if (res.includes("Sonatype MCP server for interacting with our dependency management")) {
+                res = "用于与依赖管理和安全情报平台交互的 Sonatype MCP 服务。";
+            }
+            if (res.includes("The Google Maps") && res.includes("Code Assist MCP server provides your favorite AI coding assistant")) {
+                res = "Google Maps 平台 Code Assist MCP 服务为您喜爱的 AI 编程助手提供最新官方 Google Maps 平台文档、代码示例及最佳实践...";
+            }
+            if (res.includes("This MCP server provides your LLM with docs and examples to instrument your AI apps with Arize AX")) {
+                res = "该 MCP 服务为您的 LLM 提供文档和示例，以便使用 Arize AX 埋点观测您的 AI 应用。它还提供对 Arize 支持的访问。将其连接到您的 IDE...";
             }
 
             // 6. 相对时间词

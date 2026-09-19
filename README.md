@@ -58,7 +58,7 @@
 
 | 版本标签 | 适配官方版本 | 发布时间 | 核心更新说明 | 预打包下载 (Releases) |
 | :--- | :--- | :--- | :--- | :--- |
-| **🚀 v2.15.0 (最新版)** | Google Antigravity **v2.15.0** | 2026-09-19 | • 深度适配 Google 2026.09 最新推送的 2.15.0 正式版（内部版本 2.15.0.0）<br>• 全面汉化官方独立「Antigravity IDE」欢迎向导与错误提示横幅<br>• 汉化分屏菜单（Split Right/Down）、沙箱模式（Sandbox Mode）及删除会话弹窗<br>• 保持 2.15.0 原生 `ideAPI` 完整对接与 ConnectRPC 通信栈零冲突挂载<br>• 全量 126 项官方技能卡片与智能体权限安全策略深度汉化<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键还原 | [📥 下载 v2.15.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.15.0) |
+| **🚀 v2.15.0 (最新版)** | Google Antigravity **v2.15.0** | 2026-09-19 | • 深度适配 Google 2026.09 最新推送的 2.15.0 正式版（内部版本 2.15.0.0）<br>• 重磅新增：全量 45+ 款官方与社区 MCP 服务市场卡片（GKE、AlloyDB、PostHog、Mobbin、Figma 等）及搜索栏深度汉化<br>• 全面汉化官方独立「Antigravity IDE」欢迎向导与错误提示横幅<br>• 汉化分屏菜单（Split Right/Down）、沙箱模式（Sandbox Mode）及删除会话弹窗<br>• 保持 2.15.0 原生 `ideAPI` 完整对接与 ConnectRPC 通信栈零冲突挂载<br>• 全量 126 项官方技能卡片与智能体权限安全策略深度汉化<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键还原 | [📥 下载 v2.15.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.15.0) |
 | **⭐ v2.14.0 (稳定版)** | Google Antigravity **v2.14.0** | 2026-09-16 | • 深度适配 Google 2026.09 推送的 2.14.0 正式版（内部版本 2.14.0.0）<br>• 升级官方独立「Antigravity IDE」欢迎向导为全简体中文<br>• 保持 2.14.0 原生 `ideAPI` 完整对接与 ConnectRPC 通信栈零冲突挂载<br>• 全量 126 项官方技能卡片与智能体权限安全策略深度汉化<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键还原 | [📥 下载 v2.14.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.14.0) |
 | **⭐ v2.12.2 (稳定版)** | Google Antigravity **v2.12.2** | 2026-09-05 | • 极速适配 Google 2026.09 推送的 2.12.2 正式版（内部版本 2.12.2.0）<br>• 适配官方重磅「Antigravity IDE」分拆与引导向导，提供完整中文提示<br>• 保留 2.12.2 原生 `ideAPI` 接口，零冲突稳定挂载<br>• 汉化全新防休眠硬件设置（Keep Computer Awake）与 `permissioned-github` 新技能<br>• 支持 Windows / macOS / Linux 全平台一键安装 | [📥 下载 v2.12.2 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.12.2) |
 | **⭐ v2.11.0 (里程碑)** | Google Antigravity **v2.11.0** | 2026-08-27 | • 跟进 2.11.0 正式版，率先实现全平台 Windows / macOS / Linux 交付闭环<br>• 汉化高级设置中“自动检查更新”开关与长句描述<br>• 命令权限确认弹窗动态正则全汉化 | [📥 下载 v2.11.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.11.0) |
@@ -160,6 +160,9 @@ flowchart TD
 - **🧩 全量 125 项官方与插件技能卡片 (Skills & Customizations)**：
   - 覆盖 Android CLI、Chrome DevTools 调试套件、BigQuery 数据工程套件、Firebase 全栈、Flutter/Dart 开发套件、Gemini API、Google Maps、科学计算套件 (Science) 以及 HyperFrames 动效引擎。
   - 连同卡片内部的所有详细使用场景说明（`Use when...`、`STOP AND VERIFY` 防误删说明）全盘地毯式精译。
+- **🔌 MCP 服务市场与扩展管理 (MCP Server Marketplace)**：
+  - 搜索栏（`按名称搜索 MCP 服务`）、已配置/可用/已安装服务列表。
+  - 全量 45+ 款核心 MCP 插件卡片与使用场景深度汉化（涵盖 Cloud Audit Manager、Mobbin、GitLab Orbit、Wiz、GKE、Firebase、BigQuery、AlloyDB、Spanner、Oracle、Figma Dev Mode、GitHub、PostHog、Stripe、Notion、Linear、Airweave、SonarQube、Netlify、Sequential Thinking、ArizeTracing 等）。
 - **⚙️ 全局设置中心 (Settings)**：
   - 常规设置、应用偏好、主题外观（预设浅色/深色/Solarized/One 风格）、模型配置、浏览器子代理权限与沙箱外命令执行规则。
 
