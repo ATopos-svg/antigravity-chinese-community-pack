@@ -108,7 +108,6 @@ electron_1.contextBridge.exposeInMainWorld('agent', agentAPI);
 electron_1.contextBridge.exposeInMainWorld('electronNative', electronNativeAPI);
 electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
 
-
 // ==========================================
 // Antigravity 延迟安全中文本地化引擎 (Preload 隔离环境 - v4.1 全量终极版)
 // ==========================================
@@ -123,13 +122,13 @@ electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
             let el = node.nodeType === 1 ? node : node.parentElement;
             while (el) {
                 const tag = el.tagName;
-                if (tag === 'CODE' || tag === 'PRE' || tag === 'TEXTAREA' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') {
+                if (tag === 'CODE' || tag === 'PRE' || tag === 'TEXTAREA' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'INPUT') {
                     return true;
                 }
                 if (el.isContentEditable) {
                     return false;
                 }
-                if (el.classList && (
+                if (el.classList && typeof el.classList.contains === 'function' && (
                     el.classList.contains('monaco-editor') ||
                     el.classList.contains('cm-content') ||
                     el.classList.contains('hljs') ||
@@ -143,8 +142,8 @@ electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
             return false;
         }
 
-                function translateText(text) {
-            if (!text || !text.trim()) return text;
+        function translateText(text) {
+            if (!text || typeof text !== 'string' || !text.trim()) return text;
             let res = text;
 
             // 1. 特殊整句或已知混杂语句优先直接处理
@@ -453,49 +452,51 @@ electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
 
         function translateNode(node) {
             if (!node) return;
-            if (node.nodeType === 3) {
-                if (isExcluded(node)) return;
-                const original = node.nodeValue;
-                if (original && original.trim()) {
-                    const translated = translateText(original);
-                    if (translated !== original) {
-                        node.nodeValue = translated;
+            try {
+                if (node.nodeType === 3) {
+                    if (isExcluded(node)) return;
+                    const original = node.nodeValue;
+                    if (original && original.trim()) {
+                        const translated = translateText(original);
+                        if (translated !== original) {
+                            node.nodeValue = translated;
+                        }
+                    }
+                } else if (node.nodeType === 1) {
+                    if (isExcluded(node)) return;
+                    if (node.hasAttribute('placeholder')) {
+                        const p = node.getAttribute('placeholder');
+                        const tp = translateText(p);
+                        if (p !== tp) node.setAttribute('placeholder', tp);
+                    }
+                    if (node.hasAttribute('data-placeholder')) {
+                        const p = node.getAttribute('data-placeholder');
+                        const tp = translateText(p);
+                        if (p !== tp) node.setAttribute('data-placeholder', tp);
+                    }
+                    if (node.hasAttribute('aria-placeholder')) {
+                        const p = node.getAttribute('aria-placeholder');
+                        const tp = translateText(p);
+                        if (p !== tp) node.setAttribute('aria-placeholder', tp);
+                    }
+                    if (node.hasAttribute('title')) {
+                        const t = node.getAttribute('title');
+                        const tt = translateText(t);
+                        if (t !== tt) node.setAttribute('title', tt);
+                    }
+                    if (node.hasAttribute('aria-label')) {
+                        const a = node.getAttribute('aria-label');
+                        const ta = translateText(a);
+                        if (a !== ta) node.setAttribute('aria-label', ta);
+                    }
+                    if (node.shadowRoot) {
+                        translateNode(node.shadowRoot);
+                    }
+                    for (let i = 0; i < node.childNodes.length; i++) {
+                        translateNode(node.childNodes[i]);
                     }
                 }
-            } else if (node.nodeType === 1) {
-                if (node.hasAttribute('placeholder')) {
-                    const p = node.getAttribute('placeholder');
-                    const tp = translateText(p);
-                    if (p !== tp) node.setAttribute('placeholder', tp);
-                }
-                if (node.hasAttribute('data-placeholder')) {
-                    const p = node.getAttribute('data-placeholder');
-                    const tp = translateText(p);
-                    if (p !== tp) node.setAttribute('data-placeholder', tp);
-                }
-                if (node.hasAttribute('aria-placeholder')) {
-                    const p = node.getAttribute('aria-placeholder');
-                    const tp = translateText(p);
-                    if (p !== tp) node.setAttribute('aria-placeholder', tp);
-                }
-                if (node.hasAttribute('title')) {
-                    const t = node.getAttribute('title');
-                    const tt = translateText(t);
-                    if (t !== tt) node.setAttribute('title', tt);
-                }
-                if (node.hasAttribute('aria-label')) {
-                    const a = node.getAttribute('aria-label');
-                    const ta = translateText(a);
-                    if (a !== ta) node.setAttribute('aria-label', ta);
-                }
-                if (isExcluded(node)) return;
-                if (node.shadowRoot) {
-                    translateNode(node.shadowRoot);
-                }
-                for (let i = 0; i < node.childNodes.length; i++) {
-                    translateNode(node.childNodes[i]);
-                }
-            }
+            } catch (_) {}
         }
 
         let isTranslating = false;
@@ -510,25 +511,31 @@ electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
             }
         }
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    sweep();
-                    let rafId = null;
-                    const observer = new MutationObserver(() => {
-                        if (!isTranslating && !rafId) {
-                            rafId = requestAnimationFrame(() => {
-                                rafId = null;
-                                sweep();
-                            });
-                        }
+        function initObserver() {
+            sweep();
+            let rafId = null;
+            const observer = new MutationObserver(() => {
+                if (!isTranslating && !rafId) {
+                    rafId = requestAnimationFrame(() => {
+                        rafId = null;
+                        sweep();
                     });
-                    if (document.body) {
-                        observer.observe(document.body, { childList: true, subtree: true });
-                    }
-                    setInterval(sweep, 800);
-                }, 1000);
+                }
             });
+            if (document.body) {
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+            setInterval(sweep, 1000);
+        }
+
+        if (typeof window !== 'undefined') {
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(initObserver, 600);
+            } else {
+                window.addEventListener('load', () => {
+                    setTimeout(initObserver, 600);
+                });
+            }
         }
     } catch (err) {
         console.error('[Antigravity-ZH] Initialization error:', err);
