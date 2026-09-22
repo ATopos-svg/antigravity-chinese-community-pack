@@ -36,7 +36,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_215_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2151_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -1411,4 +1411,5 @@ const injectedCode = `
 const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2150_WRITTEN_SUCCESSFULLY");
+fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
+console.log("FINAL_PRELOAD_V2151_WRITTEN_SUCCESSFULLY");
