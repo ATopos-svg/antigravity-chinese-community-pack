@@ -36,7 +36,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2151_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2170_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -47,6 +47,14 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.17.0 新增: WSL 原生集成与启动 Splash ===
+    ["Connect to WSL", "连接到 WSL"],
+    ["Reopen Locally", "在本地重新打开"],
+    ["Setting up WSL:", "正在配置 WSL 环境："],
+    ["Setting up WSL", "正在配置 WSL 环境"],
+    ["WSL Distros", "WSL 发行版"],
+    ["WSL Distro", "WSL 发行版"],
+
     // === 智能体设置与权限策略 (Agent Settings & Permissions - 用户重点反馈) ===
     ["Controls the actions the agent can take.", "控制智能体可以执行的操作范围。"],
     ["Outside of folders file access policy", "工作目录外文件访问策略"],
@@ -1420,4 +1428,4 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2151_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2170_WRITTEN_SUCCESSFULLY");

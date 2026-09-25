@@ -3,8 +3,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const installerDir = path.resolve(__dirname, '..', 'installer');
-const desktopDir = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.15.1';
-const zipPath = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.15.1.zip';
+const desktopDir = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.17.0';
+const zipPath = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.17.0.zip';
 
 console.log('1. 正在同步文件到桌面目录:', desktopDir);
 if (!fs.existsSync(desktopDir)) {
