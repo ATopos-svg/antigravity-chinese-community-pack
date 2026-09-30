@@ -36,7 +36,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2170_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2181_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -47,6 +47,15 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.18.1 新增: 系统托盘 (System Tray) 与退出二次确认 ===
+    ["No agents running", "没有正在运行的智能体"],
+    ["agent running", "个智能体正在运行"],
+    ["agents running", "个智能体正在运行"],
+    ["Confirm Quit", "确认退出"],
+    ["Are you sure you want to quit?", "您确定要退出吗？"],
+    ["There may be agents or background tasks running.", "当前可能有正在运行的智能体或后台任务。"],
+    ["There may be agents or background tasks running", "当前可能有正在运行的智能体或后台任务"],
+
     // === 2.17.0 新增: WSL 原生集成与启动 Splash ===
     ["Connect to WSL", "连接到 WSL"],
     ["Reopen Locally", "在本地重新打开"],
@@ -1428,4 +1437,4 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2170_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2181_WRITTEN_SUCCESSFULLY");
