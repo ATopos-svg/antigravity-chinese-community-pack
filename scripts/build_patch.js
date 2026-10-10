@@ -36,7 +36,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2181_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2220_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -47,6 +47,35 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.22.0 新增: 原生右键上下文菜单 (Native Context Menu) 与拖拽操作 ===
+    ["Reveal in File Explorer", "在文件资源管理器中显示"],
+    ["Reveal in Finder", "在访达 (Finder) 中显示"],
+    ["Reveal in File Manager", "在文件管理器中显示"],
+    ["Open in Integrated Terminal", "在集成终端中打开"],
+    ["Open in Terminal", "在终端中打开"],
+    ["Open in Antigravity IDE", "在 Antigravity IDE 中打开"],
+    ["Copy Relative Path", "复制相对路径"],
+    ["Copy Path", "复制路径"],
+    ["Inspect Element", "检查元素"],
+    ["Mark as Unread", "标为未读"],
+    ["Mark as Read", "标为已读"],
+    ["Pin Conversation", "置顶会话"],
+    ["Unpin Conversation", "取消置顶会话"],
+    ["Archive Conversation", "归档会话"],
+    ["Unarchive Conversation", "取消归档会话"],
+    ["Duplicate Conversation", "复制会话"],
+    ["Rename Conversation", "重命名会话"],
+    ["Select All", "全选"],
+    ["Paste", "粘贴"],
+    ["Cut", "剪切"],
+    ["Redo", "重做"],
+    ["Undo", "撤销"],
+    ["Duplicate", "创建副本"],
+    ["Unarchive", "取消归档"],
+    ["Archive", "归档"],
+    ["Unpin", "取消置顶"],
+    ["Pin", "置顶"],
+
     // === 2.18.1 新增: 系统托盘 (System Tray) 与退出二次确认 ===
     ["No agents running", "没有正在运行的智能体"],
     ["agent running", "个智能体正在运行"],
@@ -1339,6 +1368,7 @@ const injectedCode = `
 
             return res;
         }
+        globalThis.__agyTranslateText = translateText;
 
         function translateNode(node) {
             if (!node) return;
@@ -1437,4 +1467,4 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2181_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2220_WRITTEN_SUCCESSFULLY");
