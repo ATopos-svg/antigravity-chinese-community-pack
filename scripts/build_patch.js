@@ -3,13 +3,14 @@ const path = require('path');
 
 const scratchDir = "C:\\Users\\Lenovo\\.gemini\\antigravity\\brain\\c4d6a0c9-989a-4af1-a5b9-9fed69fcd143\\scratch";
 
-// 1. 读取四个技能批次
+// 1. 读取五个技能批次
 const b1 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_1.json"), "utf8"));
 const b2 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_2.json"), "utf8"));
 const b3 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_3.json"), "utf8"));
 const b4 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_4.json"), "utf8"));
+const b5 = JSON.parse(fs.readFileSync(path.join(scratchDir, "skills_batch_5.json"), "utf8"));
 
-const allSkills = [...b1, ...b2, ...b3, ...b4, {
+const allSkills = [...b1, ...b2, ...b3, ...b4, ...b5, {
     en: 'Guidelines for interacting with GitHub and request permissions from the user when commands fail due to restrictions in the agent environment.',
     zh: '规范与 GitHub 的交互准则。当命令因代理环境限制而失败时，向用户申请执行权限。'
 }];
@@ -22,8 +23,12 @@ for (const item of allSkills) {
     if (!en || !zh) continue;
 
     skillPhrasePairs.push([en, zh]);
+    const normEn = en.replace(/\s+/g, ' ').trim();
+    if (normEn !== en) {
+        skillPhrasePairs.push([normEn, zh]);
+    }
 
-    const enSentences = en.split(/(?<=[.?!])\s+/).filter(s => s.length > 20);
+    const enSentences = normEn.split(/(?<=[.?!])\s+/).filter(s => s.length > 20);
     const zhSentences = zh.split(/(?<=[。？！])\s*/).filter(s => s.length > 5);
 
     if (enSentences.length === zhSentences.length && enSentences.length > 1) {
@@ -47,6 +52,150 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.22.0 新增模块 1: 自动化与定时任务系统 (Automations & Scheduled Tasks) ===
+    ["You don't have any projects created. Please create a project first.", "您尚未创建任何项目，请先创建一个项目。"],
+    ["Your changes were not saved. Please try again.", "您的更改未能保存，请重试。"],
+    ["All automations run as Flash.", "所有自动化任务均使用 Flash 模型运行。"],
+    ["All scheduled tasks run as Flash.", "所有定时任务均使用 Flash 模型运行。"],
+    ["Enter a prompt for the agent to run...", "输入要让智能体执行的提示词..."],
+    ["Prompt to execute on schedule...", "按计划定时执行的提示词..."],
+    ["Prompt to run when triggered...", "触发时要执行的提示词..."],
+    ["Cron expression e.g. 0 */6 * * *", "Cron 表达式，例如 0 */6 * * *"],
+    ["Enter scheduled task name...", "输入定时任务名称..."],
+    ["Enter automation name...", "输入自动化任务名称..."],
+    ["No scheduled tasks matching your search", "未找到匹配的定时任务"],
+    ["No automations matching your search", "未找到匹配的自动化任务"],
+    ["No plugins matching your search", "未找到匹配的插件"],
+    ["No scheduled tasks configured.", "暂未配置任何定时任务。"],
+    ["No automations configured.", "暂未配置任何自动化任务。"],
+    ["No plugins configured.", "暂未配置任何插件。"],
+    ["Sidecar feature is not available.", "后台驻留服务 (Sidecar) 功能当前不可用。"],
+    ["Multi-conversation view is not available", "多会话分屏视图当前不可用"],
+    ["Search automations...", "搜索自动化任务..."],
+    ["Search tasks...", "搜索任务..."],
+    ["Search plugins...", "搜索插件..."],
+    ["Create with Prompt", "使用提示词创建"],
+    ["New Scheduled Task", "新建定时任务"],
+    ["Add Scheduled Task", "添加定时任务"],
+    ["Add scheduled task", "添加定时任务"],
+    ["New Automation", "新建自动化任务"],
+    ["Add Automation", "添加自动化任务"],
+    ["Add automation", "添加自动化任务"],
+    ["Automation saved", "自动化任务已保存"],
+    ["Back to Automations", "返回自动化列表"],
+    ["Back to Scheduled Tasks", "返回定时任务列表"],
+    ["Edit automation title", "编辑自动化标题"],
+    ["Edit task title", "编辑任务标题"],
+    ["Open project settings", "打开项目设置"],
+    ["No projects created", "暂未创建项目"],
+    ["Select workspace", "选择工作区"],
+    ["Time Trigger", "定时触发"],
+    ["Event Trigger", "事件触发"],
+    ["Trigger Type", "触发类型"],
+    ["Select Day", "选择星期"],
+    ["Select Hour", "选择时间"],
+    ["Loading events...", "正在加载事件记录..."],
+    ["No events recorded.", "暂无事件记录。"],
+    ["Close Logs Modal", "关闭日志窗口"],
+    ["Task Logs", "任务日志"],
+
+    // === 2.22.0 新增模块 2: 自定义扩展 Token 预算占用分析 (Customizations Token Usage Breakdown) ===
+    ["The breakdown below shows token usage from customizations like rules, skills, and MCP. If a budget is exceeded, large rules are demoted to path pointers and large customizations are excluded automatically.", "下方明细展示了规则、技能与 MCP 等自定义扩展的 Token 占用情况。若超出预算上限，体积较大的规则将自动降级为文件路径指针，过大的自定义扩展将被自动排除在上下文之外。"],
+    ["Rules and customization token budgets exceeded. Large rules are demoted to path pointers and large customizations are excluded from context.", "规则与自定义扩展 Token 预算均已超限。体积较大的规则已降级为文件路径指针，过大的自定义扩展已从上下文中自动排除。"],
+    ["Customization token budget exceeded. Large customizations are excluded from context.", "自定义扩展 Token 预算已超限，体积较大的扩展已从上下文中自动排除。"],
+    ["Rules token budget exceeded. Large rules are demoted to path pointers.", "规则 Token 预算已超限，体积较大的规则已降级为文件路径指针。"],
+    ["There are no customizations enabled.", "当前未启用任何自定义扩展。"],
+    ["Loading token usage...", "正在加载 Token 占用统计..."],
+    ["No token data available.", "暂无可用的 Token 统计数据。"],
+    ["Other Customizations", "其他自定义扩展"],
+    ["Other 自定义扩展", "其他自定义扩展"],
+    ["Context usage", "上下文 Token 占用"],
+    ["Hide breakdown", "收起明细"],
+    ["Hide tools", "收起工具"],
+
+    // === 2.22.0 新增模块 3: 自定义扩展与插件商城页 (Customizations Marketplace & Google Workspace / Build with Google) ===
+    ["This plugin provides a specialized suite of skills for data engineers and database practitioners working on Google Cloud. It acts as an expert assistant, allowing you to use natural language prompts in your preferred coding agent to architect complex data pipelines, transform data with dbt, write Spark and BigQuery SQL notebooks, and orchestrate end-to-end workflows across GCP's data ecosystem.", "专为 Google Cloud 数据工程师与数据库开发者打造的专业技能套件。支持通过自然语言提示词构建复杂数据管道、使用 dbt 转换数据、编写 Spark 与 BigQuery SQL 笔记本，并编排 GCP 数据生态端到端工作流。"],
+    ["Official plugin for Dart and Flutter that installs Flutter/Dart Skills, Rules, Custom Agents, and Dart MCP server for building natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase", "Dart 与 Flutter 官方插件，内置 Flutter/Dart 技能、规则、自定义智能体与 Dart MCP 服务，助您从单一代码库构建覆盖移动端、Web、桌面与嵌入式设备的原生精美应用。"],
+    ["Official plugin for Dart 与 Flutter that installs Flutter/Dart Skills, Rules, Custom Agents, and Dart MCP server for building natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase", "Dart 与 Flutter 官方插件，内置 Flutter/Dart 技能、规则、自定义智能体与 Dart MCP 服务，助您从单一代码库构建覆盖移动端、Web、桌面与嵌入式设备的原生精美应用。"],
+    ["Build applications with the Gemini Interactions API and Live API, including text, image, video, and speech generation, managed agents, and real-time multimodal streaming.", "使用 Gemini Interactions API 与 Live API 构建应用，支持文本、图像、视频与语音生成、托管智能体以及实时多模态流式传输。"],
+    ["Search and retrieve official documentation across Google Cloud, Gemini, Android, Firebase, Flutter, and Web. Requires Google Cloud credentials (ADC) or an API key.", "跨 Google Cloud、Gemini、Android、Firebase、Flutter 与 Web 搜索并检索官方开发者文档（需配置 Google Cloud ADC 凭据或 API 密钥）。"],
+    ["Bundles will let you download a whole group of user-defined plugins at once, instead of installing them one at a time. They are not here yet.", "插件套装支持一次性批量下载整组自定义插件，无需逐个安装。该功能即将上线，敬请期待。"],
+    ["Services this plugin connects to on your behalf. Credentials stay on this machine and are only sent to the domains listed.", "此插件代表您连接的外部服务。凭据仅保存在本机，且只会发送至所列出的域名。"],
+    ["Prototype, build & run modern apps that users love with Firebase's backend, AI, and operational infrastructure.", "借助 Firebase 的后端、AI 与运维基础设施，快速设计原型、构建并运行用户喜爱的现代化应用。"],
+    ["Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer", "使用 Chrome 开发者工具与 Puppeteer 在 Chrome 中实现可靠的自动化测试、深度调试与性能分析。"],
+    ["Install this plugin to see the commands it adds, along with its skills, agents and MCP servers.", "安装此插件以查看其提供的斜杠命令、技能、子代理与 MCP 服务。"],
+    ["This is a preview of the plugin's source. Nothing below is active until you install it.", "当前为插件源码预览模式，安装插件前下方各项扩展尚未激活。"],
+    ["This plugin is disabled, so nothing shown below is active. Enable it above to use it.", "此插件当前处于禁用状态，请点击上方按钮启用后使用。"],
+    ["Build on Google's developer platforms, including Android, Chrome, Gemini, and Google Cloud.", "基于 Google 开发者平台构建应用，涵盖 Android、Chrome、Gemini 与 Google Cloud。"],
+    ["Build on Google\u2019s developer platforms, including Android, Chrome, Gemini, and Google Cloud.", "基于 Google 开发者平台构建应用，涵盖 Android、Chrome、Gemini 与 Google Cloud。"],
+    ["Connect to Google Workspace, including Docs, Sheets, Slides, Drive, and Calendar.", "连接 Google Workspace 办公套件，涵盖文档 (Docs)、表格 (Sheets)、幻灯片 (Slides)、云端硬盘 (Drive) 与日历 (Calendar)。"],
+    ["This plugin requires authentication before the agent can use its tools.", "此插件需要先完成身份认证，智能体才能调用其工具。"],
+    ["These servers need you to sign in before the agent can use their tools.", "这些服务需要您先完成登录，智能体才能调用其工具。"],
+    ["This server needs you to sign in before the agent can use its tools.", "此服务需要您先完成登录，智能体才能调用其工具。"],
+    ["Keep your coding agent up to date with the latest web best practices.", "让您的编程智能体始终掌握最新的现代 Web 开发最佳实践。"],
+    ["Please fill out all required argument values before continuing.", "请先填写所有必填参数后再继续。"],
+    ["This extension has no declared permissions requiring user input.", "此扩展没有需要用户输入的声明权限。"],
+    ["Using the Google Antigravity Python SDK to build AI agents", "使用 Google Antigravity Python SDK 构建与编排 AI 智能体。"],
+    ["Integration skill and tools for Google Maps Platform APIs", "适用于 Google Maps 平台 API 的集成技能与开发工具包。"],
+    ["Integration skill and tools for Google Maps 平台 APIs", "适用于 Google Maps 平台 API 的集成技能与开发工具包。"],
+    ["Core tools and knowledge required to develop for Android", "进行 Android 应用开发所需的核心命令行工具与官方知识库。"],
+    ["Curated collection of agent skills for science tasks.", "专为科学研究与计算任务打造的精选智能体技能合集。"],
+    ["Check availability, schedule events, and RSVP.", "查询日程空闲状态、安排会议活动并回复邀请 (RSVP)。"],
+    ["Find skills, agents, and more in the Marketplace.", "在插件市场中探索技能、智能体与更多扩展。"],
+    ["Failed to load more plugins. Please try again.", "加载更多插件失败，请重试。"],
+    ["Failed to resolve permissions. Please try again.", "解析权限失败，请重试。"],
+    ["Failed to update permissions. Please try again.", "更新权限失败，请重试。"],
+    ["Search, upload, download, and share files.", "搜索、上传、下载和共享云端硬盘文件。"],
+    ["Failed to load plugins. Please try again.", "加载插件列表失败，请重试。"],
+    ["Failed to load plugin. Please try again.", "加载插件详情失败，请重试。"],
+    ["No plugins available in the marketplace.", "插件市场中暂无可用插件。"],
+    ["Read, edit, and export presentations.", "读取、编辑和导出 Google 幻灯片演示文稿。"],
+    ["Read, write, and format spreadsheets.", "读取、编写和格式化 Google 电子表格。"],
+    ["Waiting for you to finish signing in\u2026", "正在等待您完成登录..."],
+    ["Waiting for you to finish signing in...", "正在等待您完成登录..."],
+    ["No skills or rules match this filter.", "没有符合当前筛选条件的技能或规则。"],
+    ["No customizations match your search.", "没有匹配搜索条件的自定义扩展。"],
+    ["This plugin was force disabled.", "此插件已被强制禁用。"],
+    ["No plugins match your search.", "没有匹配搜索条件的插件。"],
+    ["Loading installed plugins...", "正在加载已安装插件..."],
+    ["Loading available plugins...", "正在加载可用插件..."],
+    ["Loading customizations...", "正在加载自定义扩展..."],
+    ["Plugin Bundles Coming Soon", "插件套装即将推出"],
+    ["Read, draft, and edit docs.", "读取、起草和编辑 Google 文档。"],
+    ["Search customizations...", "搜索自定义扩展与插件..."],
+    ["No matching plugins found.", "未找到匹配的插件。"],
+    ["No description available.", "暂无描述信息。"],
+    ["No skills or rules yet.", "暂无技能或规则。"],
+    ["Browse the Marketplace", "浏览插件市场"],
+    ["Bundled With the App", "随应用内置"],
+    ["Found in This Workspace", "在当前工作区中发现"],
+    ["Listed in Your Config", "在您的配置中列出"],
+    ["Enable Recommended Skills", "启用推荐技能"],
+    ["Skills and Rules Settings", "技能与规则设置"],
+    ["Set up authentication", "配置身份认证"],
+    ["No custom agents yet.", "暂无自定义智能体。"],
+    ["No plugins available.", "暂无可用插件。"],
+    ["Copy Config File Path", "复制配置文件路径"],
+    ["Reopen sign-in page", "重新打开登录页面"],
+    ["Signed-in accounts", "已登录的账户"],
+    ["Configured servers", "已配置的服务"],
+    ["Unnamed MCP Server", "未命名 MCP 服务"],
+    ["No folder selected", "未选择文件夹"],
+    ["Account connected.", "账户已连接。"],
+    ["Loading plugin...", "正在加载插件..."],
+    ["See more results", "查看更多结果"],
+    ["Restart sign-in", "重新发起登录"],
+    ["Save & Continue", "保存并继续"],
+    ["Confirm & Save", "确认并保存"],
+    ["Setup required", "需要配置"],
+    ["Skills & Rules", "技能与规则"],
+    ["Add MCP Server", "添加 MCP 服务"],
+    ["Needs re-auth", "需要重新授权"],
+    ["Target Tools:", "目标工具："],
+    ["UI Extensions", "界面扩展 (UI Extensions)"],
+    ["UI extensions", "界面扩展 (UI Extensions)"],
+    ["UI Plugins", "界面插件 (UI Plugins)"],
+
     // === 2.22.0 新增: 原生右键上下文菜单 (Native Context Menu) 与拖拽操作 ===
     ["Reveal in File Explorer", "在文件资源管理器中显示"],
     ["Reveal in Finder", "在访达 (Finder) 中显示"],
@@ -66,15 +215,6 @@ const UI_PHRASES = [
     ["Duplicate Conversation", "复制会话"],
     ["Rename Conversation", "重命名会话"],
     ["Select All", "全选"],
-    ["Paste", "粘贴"],
-    ["Cut", "剪切"],
-    ["Redo", "重做"],
-    ["Undo", "撤销"],
-    ["Duplicate", "创建副本"],
-    ["Unarchive", "取消归档"],
-    ["Archive", "归档"],
-    ["Unpin", "取消置顶"],
-    ["Pin", "置顶"],
 
     // === 2.18.1 新增: 系统托盘 (System Tray) 与退出二次确认 ===
     ["No agents running", "没有正在运行的智能体"],
@@ -1022,13 +1162,179 @@ const EXACT_WORDS = {
     "Background": "背景色",
     "Foreground": "前景色",
     "Accent": "强调色",
-    "Description": "详细描述"
+    "Description": "详细描述",
+
+    // === 2.22.0 新增: 右键菜单、自动化、Token 预算、插件商城精确词条 ===
+    "Paste": "粘贴",
+    "Cut": "剪切",
+    "Redo": "重做",
+    "Undo": "撤销",
+    "Duplicate": "创建副本",
+    "Unarchive": "取消归档",
+    "Archive": "归档",
+    "Unpin": "取消置顶",
+    "Pin": "置顶",
+    "Refresh": "刷新",
+    "Shortcuts": "快捷键",
+    "Conversations": "历史会话",
+    "Customizations": "自定义扩展",
+    "Other Customizations": "其他自定义扩展",
+    "Other 自定义扩展": "其他自定义扩展",
+    "Appearance": "外观设置",
+    "Models": "模型配置",
+    "General": "常规设置",
+    "General Settings": "常规设置",
+    "Account": "账号设置",
+    "Browser": "浏览器设置",
+    "Automations": "自动化",
+    "Automation": "自动化任务",
+    "Scheduled Tasks": "计划与定时任务",
+    "Scheduled Task": "定时任务",
+    "UI Plugins": "界面插件 (UI Plugins)",
+    "UI Extensions": "界面扩展 (UI Extensions)",
+    "UI extensions": "界面扩展 (UI Extensions)",
+    "Create with Prompt": "使用提示词创建",
+    "New": "新建",
+    "New Automation": "新建自动化任务",
+    "Add Automation": "添加自动化任务",
+    "Add automation": "添加自动化任务",
+    "New Scheduled Task": "新建定时任务",
+    "Add Scheduled Task": "添加定时任务",
+    "Add scheduled task": "添加定时任务",
+    "Creating\u2026": "正在创建...",
+    "Creating...": "正在创建...",
+    "Adding...": "正在添加...",
+    "Removing...": "正在移除...",
+    "Saving...": "正在保存...",
+    "Starting...": "正在启动...",
+    "Stopping...": "正在停止...",
+    "Loading...": "加载中...",
+    "Uninstalling...": "正在卸载...",
+    "Installing...": "正在安装...",
+    "Saved": "已保存",
+    "Save": "保存",
+    "Reset": "重置",
+    "Name": "名称",
+    "Schedule": "执行计划",
+    "Trigger": "触发条件",
+    "Time Trigger": "定时触发",
+    "Event Trigger": "事件触发",
+    "Trigger Type": "触发类型",
+    "Frequency": "执行频率",
+    "Hourly": "每小时",
+    "Daily": "每天",
+    "Weekly": "每周",
+    "Monday": "星期一",
+    "Tuesday": "星期二",
+    "Wednesday": "星期三",
+    "Thursday": "星期四",
+    "Friday": "星期五",
+    "Saturday": "星期六",
+    "Sunday": "星期日",
+    "Select Day": "选择星期",
+    "Select Hour": "选择时间",
+    "around": "大约",
+    "Prompt": "提示词 (Prompt)",
+    "Events": "触发事件记录",
+    "Task Logs": "任务日志",
+    "Back to Automations": "返回自动化列表",
+    "Select workspace": "选择工作区",
+    "No projects created": "暂未创建项目",
+    "Status": "运行状态",
+    "Type": "类型",
+    "Command": "执行命令",
+    "Uptime": "运行时长",
+    "Running": "运行中",
+    "Starting": "正在启动",
+    "Stopped": "已停止",
+    "Error": "错误",
+    "Backoff": "退避重试中",
+    "Unknown": "未知",
+    "Scheduled": "定时任务",
+    "Generic": "通用后台进程",
+    "Rules": "规则 (Rules)",
+    "MCP Tools": "MCP 工具 (MCP Tools)",
+    "System Prompt": "系统提示词",
+    "Context usage": "上下文 Token 占用",
+    "Demoted": "已降级",
+    "Excluded": "已排除",
+    "Hide breakdown": "收起明细",
+    "Hide tools": "收起工具",
+    "tokens (": "Tokens (",
+    "tokens)": "Tokens)",
+    "Marketplace": "插件市场",
+    "Stay Tuned": "敬请期待",
+    "Plugin Bundles Coming Soon": "插件套装即将推出",
+    "Customizations Token Usage Breakdown": "自定义扩展 Token 占用分析",
+    "Google Workspace": "Google Workspace 办公套件",
+    "Build with Google": "与 Google 一起构建 (Build with Google)",
+    "Google Docs": "Google 文档 (Docs)",
+    "Google Sheets": "Google 表格 (Sheets)",
+    "Google Slides": "Google 幻灯片 (Slides)",
+    "Google Drive": "Google 云端硬盘 (Drive)",
+    "Google Calendar": "Google 日历 (Calendar)",
+    "Gemini API": "Gemini API 开发套件",
+    "Data Agent Kit": "数据工程套件 (Data Agent Kit)",
+    "Data Agent Kit for Google Cloud": "Google Cloud 数据智能体套件 (Data Agent Kit)",
+    "Modern Web Guidance": "现代 Web 开发指南",
+    "Google Developer Knowledge": "Google 开发者知识库",
+    "Google Antigravity SDK": "Google Antigravity SDK 开发套件",
+    "Android CLI": "Android 命令行工具 (CLI)",
+    "See more": "展开更多",
+    "See less": "收起",
+    "See more results": "查看更多结果",
+    "Try again": "重试",
+    "Built In": "内置",
+    "Blocked": "已拦截",
+    "Setup required": "需要配置",
+    "Enable": "启用",
+    "Disable": "禁用",
+    "Remove": "移除",
+    "Overview": "概览",
+    "Hooks": "钩子 (Hooks)",
+    "Agents": "智能体",
+    "MCP servers": "MCP 服务",
+    "MCP Servers": "MCP 服务",
+    "Skills & Rules": "技能与规则",
+    "Accounts": "关联账户",
+    "Connected": "已连接",
+    "Sign in": "登录",
+    "Sign out": "退出登录",
+    "Reconnect": "重新连接",
+    "Restart sign-in": "重新发起登录",
+    "Reopen sign-in page": "重新打开登录页面",
+    "Add account": "添加账户",
+    "Needs re-auth": "需要重新授权",
+    "Paste key": "粘贴密钥",
+    "API key": "API 密钥",
+    "Basic auth": "基础认证 (Basic)",
+    "Domains:": "域名：",
+    "Scopes:": "权限范围 (Scopes)：",
+    "Event:": "触发事件：",
+    "Target Tools:": "目标工具：",
+    "Command:": "执行命令：",
+    "Timeout:": "超时时间：",
+    "Definition:": "配置定义：",
+    "Save & Continue": "保存并继续",
+    "Confirm & Save": "确认并保存",
+    "Browse the Marketplace": "浏览插件市场",
+    "Authenticate": "立即认证",
+    "Disconnect": "断开连接",
+    "Set up authentication": "配置身份认证",
+    "Configured servers": "已配置的服务",
+    "Bundled With the App": "随应用内置",
+    "Included in:": "包含于：",
+    "Listed in Your Config": "在您的配置中列出",
+    "Found in This Workspace": "在当前工作区中发现",
+    "Change": "更改",
+    "Browse": "浏览...",
+    "All": "全部"
 };
 
 // 5. 生成直接内联的 JavaScript 代码
 const injectedCode = `
 // ==========================================
-// Antigravity 延迟安全中文本地化引擎 (Preload 隔离环境 - v4.1 全量终极版)
+// Antigravity 延迟安全中文本地化引擎 (Preload 隔离环境 - v4.2 全量终极版)
 // ==========================================
 (function initChineseLocalization() {
     try {
@@ -1037,11 +1343,25 @@ const injectedCode = `
 
         PHRASES.sort((a, b) => b[0].length - a[0].length);
 
+        const NORM_EXACT_MAP = Object.create(null);
+        for (let i = PHRASES.length - 1; i >= 0; i--) {
+            const [en, zh] = PHRASES[i];
+            const k = en.replace(/\\s+/g, ' ').replace(/[\\u2018\\u2019]/g, "'").trim();
+            if (k) NORM_EXACT_MAP[k] = zh;
+        }
+        for (const [en, zh] of Object.entries(EXACT_WORDS)) {
+            const k = en.replace(/\\s+/g, ' ').replace(/[\\u2018\\u2019]/g, "'").trim();
+            if (k) NORM_EXACT_MAP[k] = zh;
+        }
+
         function isExcluded(node) {
             let el = node.nodeType === 1 ? node : node.parentElement;
+            if (node.nodeType === 3 && el && (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT')) {
+                return true;
+            }
             while (el) {
                 const tag = el.tagName;
-                if (tag === 'CODE' || tag === 'PRE' || tag === 'TEXTAREA' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'INPUT') {
+                if (tag === 'CODE' || tag === 'PRE' || tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') {
                     return true;
                 }
                 if (el.isContentEditable) {
@@ -1065,6 +1385,16 @@ const injectedCode = `
             if (!text || typeof text !== 'string' || !text.trim()) return text;
             let res = text;
 
+            // 0. 精确整词/整句 O(1) 哈希优先匹配（防止被短语局部替换破坏）
+            const trimmed0 = res.trim();
+            if (EXACT_WORDS[trimmed0]) {
+                return res.replace(trimmed0, EXACT_WORDS[trimmed0]);
+            }
+            const norm0 = trimmed0.replace(/\\s+/g, ' ').replace(/[\\u2018\\u2019]/g, "'");
+            if (NORM_EXACT_MAP[norm0]) {
+                return res.replace(trimmed0, NORM_EXACT_MAP[norm0]);
+            }
+
             // 1. 特殊整句或已知混杂语句优先直接处理
             if (res.includes("使用 Gemini Interactions API 和 Live API 构建应用，，包含") || res.includes("使用 Gemini Interactions API 和 Live API 构建应用，包含 text generation")) {
                 return "使用 Gemini Interactions API 和 Live API 构建应用，涵盖文本生成、多轮对话、流式传输、函数调用、托管智能体以及实时音视频等能力。";
@@ -1076,6 +1406,33 @@ const injectedCode = `
                 return "在当前项目中工作时，直接继承并沿用您的全局常规设置。";
             }
 
+            // 1.5 2.22.0 动态数值与结构化正则优先匹配（在短语替换前执行，避免局部词汇干扰）
+            res = res.replace(/^([\\d,]+)\\s*\\/\\s*([\\d,]+)\\s*tokens\\s*\\(([\\d.]+%?)\\)$/gi, '$1 / $2 Tokens ($3)');
+            res = res.replace(/^\\(([\\d,]+)\\s*tokens\\)(.*)$/gi, '($1 Tokens)$2');
+            res = res.replace(/^Show\\s+(\\d+)\\s+breakdowns?$/gi, '展开 $1 项明细');
+            res = res.replace(/^(\\d+)\\s+tools$/gi, '$1 个工具');
+            res = res.replace(/^(\\d+)\\s+demoted$/gi, '$1 项已降级');
+            res = res.replace(/^(\\d+)\\s+excluded$/gi, '$1 项已排除');
+            res = res.replace(/^(\\d+)\\s+tools?\\s+excluded$/gi, '$1 个工具已排除');
+            res = res.replace(/^(\\d+)\\s+accounts?$/gi, '$1 个账户');
+            res = res.replace(/^Unnamed Agent\\s+(\\d+)$/gi, '未命名智能体 $1');
+            res = res.replace(/^See\\s+(\\d+)\\s+more$/gi, '展开更多 ($1)');
+            res = res.replace(/^See\\s+(\\d+)\\s+more\\s+(.+)$/gi, '展开其余 $1 项 $2');
+            res = res.replace(/^See\\s+more\\s+in\\s+(.+)$/gi, '展开更多 $1 扩展');
+            res = res.replace(/^See\\s+less\\s+in\\s+(.+)$/gi, '收起 $1 扩展');
+            res = res.replace(/^See\\s+all\\s*\\((\\d+)\\)$/gi, '查看全部 ($1)');
+            res = res.replace(/^Configure\\s+(.+)$/gi, '配置 $1');
+            res = res.replace(/^The\\s+(.+?)\\s+MCP server requires configuration parameters before it can be started\\.$/gi, '$1 MCP 服务需要先配置参数后才能启动。');
+            res = res.replace(/Exceeded the rules token budget\\.\\s*Full rule content \\(([\\d,]+)\\s*tokens\\)\\s*was replaced with a lightweight file-path pointer in context\\./gi, '超出规则 Token 预算上限。完整规则内容（$1 Tokens）在上下文中已替换为轻量级文件路径指针。');
+            res = res.replace(/Exceeded the customization token budget \\(([\\d,]+)\\s*tokens\\)\\s*and was excluded from context\\./gi, '超出自定义扩展 Token 预算上限（$1 Tokens），已从上下文中排除。');
+            res = res.replace(/All tools in this MCP server \\(([\\d,]+)\\s*tokens\\)\\s*exceeded the customization budget and were excluded from context\\./gi, '此 MCP 服务中的所有工具（$1 Tokens）超出自定义扩展预算上限，已从上下文中排除。');
+            res = res.replace(/(\\d+)\\s+tools?\\s+in this MCP server \\(([\\d,]+)\\s*tokens\\)\\s*exceeded the customization budget and were excluded from context\\./gi, '此 MCP 服务中有 $1 个工具（$2 Tokens）超出自定义扩展预算上限，已从上下文中排除。');
+            res = res.replace(/(\\d+)\\s+rules?\\s+exceeded the rules budget and (?:was|were) demoted from full inline content to a file-path pointer\\./gi, '有 $1 条规则超出规则预算上限，已从完整内联内容降级为文件路径指针。');
+            res = res.replace(/(\\d+)\\s+items?\\s+in\\s+(.+?)\\s+exceeded the customization budget and (?:was|were) excluded from context\\./gi, '$2 中有 $1 项超出自定义扩展预算上限，已从上下文中排除。');
+            res = res.replace(/^Task\\s+"(.+?)"\\s+not found\\.$/gi, '未找到任务 "$1"。');
+            res = res.replace(/^Automation\\s+"(.+?)"\\s+not found\\.$/gi, '未找到自动化任务 "$1"。');
+            res = res.replace(/^Triggered\\s+(.+)$/gi, '触发于 $1');
+
             // 2. 长短语字典替换
             for (let i = 0; i < PHRASES.length; i++) {
                 const [en, zh] = PHRASES[i];
@@ -1086,12 +1443,9 @@ const injectedCode = `
 
             // 2.1 多行与空白折叠归一化匹配 (针对 YAML 块折叠换行等情况)
             if (/[a-zA-Z]{3,}/.test(res)) {
-                const normRes = res.replace(/\\s+/g, ' ').trim();
-                for (let i = 0; i < PHRASES.length; i++) {
-                    const [en, zh] = PHRASES[i];
-                    if (en.includes(' ') && normRes === en.replace(/\\s+/g, ' ').trim()) {
-                        return zh;
-                    }
+                const normRes = res.replace(/\\s+/g, ' ').replace(/[\\u2018\\u2019]/g, "'").trim();
+                if (NORM_EXACT_MAP[normRes]) {
+                    return NORM_EXACT_MAP[normRes];
                 }
             }
 
@@ -1113,22 +1467,22 @@ const injectedCode = `
             }
 
             // 5. 动态正则处理
-            res = res.replace(/Permanently delete\s+([\s\S]+?)\s+including\s+(\d+)\s+active\s+conversations?\./gi, '永久删除 $1（包含 $2 个活动会话）。');
-            res = res.replace(/Permanently delete\s+([\s\S]+?)\s+including/gi, '永久删除 $1，包含');
-            res = res.replace(/Modified in\s+([\s\S]+)/gi, '已在 $1 中修改');
-            res = res.replace(/Learn more about\s+([\s\S]+)/gi, '了解更多关于 $1');
-            res = res.replace(/Learn more\s+关于\s+([\s\S]+)/gi, '了解更多关于 $1');
-            res = res.replace(/Also includes global settings when working\s*（仅当前项目）\s*\.?\s*了解更多\.?/gi, '在当前项目中工作时，同时继承并应用全局设置。了解更多。');
-            res = res.replace(/Also includes global settings when working\s*（仅当前项目）/gi, '在当前项目中工作时，同时继承并应用全局设置');
+            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including\\s+(\\d+)\\s+active\\s+conversations?\\./gi, '永久删除 $1（包含 $2 个活动会话）。');
+            res = res.replace(/Permanently delete\\s+([\\s\\S]+?)\\s+including/gi, '永久删除 $1，包含');
+            res = res.replace(/Modified in\\s+([\\s\\S]+)/gi, '已在 $1 中修改');
+            res = res.replace(/Learn more about\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Learn more\\s+关于\\s+([\\s\\S]+)/gi, '了解更多关于 $1');
+            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）\\s*\\.?\\s*了解更多\\.?/gi, '在当前项目中工作时，同时继承并应用全局设置。了解更多。');
+            res = res.replace(/Also includes global settings when working\\s*（仅当前项目）/gi, '在当前项目中工作时，同时继承并应用全局设置');
             res = res.replace(/Also includes global settings when working/gi, '在当前项目中工作时，同时继承并应用全局设置');
-            res = res.replace(/Inherits your\s+(.+?)\s+settings when working\s*（仅当前项目）\s*\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
-            res = res.replace(/Inherits your\s+(.+?)\s+settings when working in this project\s*\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
-            res = res.replace(/Inherits your\s+(.+?)\s+settings/gi, '继承您的 $1 设置');
-            res = res.replace(/Inherit\s+常规设置/gi, '继承常规设置');
-            res = res.replace(/Inherit\s+General Settings/gi, '继承全局常规设置');
-            res = res.replace(/Inherit\s+Global(\s+Settings)?/gi, '继承全局设置');
-            res = res.replace(/继承\s+Global/gi, '继承全局设置');
-            res = res.replace(/Inherit\s+(.+)/gi, '继承 $1');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working\\s*（仅当前项目）\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings when working in this project\\s*\\.?/gi, '在当前项目中工作时，直接继承并沿用您的 $1 设置。');
+            res = res.replace(/Inherits your\\s+(.+?)\\s+settings/gi, '继承您的 $1 设置');
+            res = res.replace(/Inherit\\s+常规设置/gi, '继承常规设置');
+            res = res.replace(/Inherit\\s+General Settings/gi, '继承全局常规设置');
+            res = res.replace(/Inherit\\s+Global(\\s+Settings)?/gi, '继承全局设置');
+            res = res.replace(/继承\\s+Global/gi, '继承全局设置');
+            res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
             if (res.includes("Controls the actions the agent can take")) {
