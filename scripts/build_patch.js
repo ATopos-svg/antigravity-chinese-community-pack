@@ -52,6 +52,32 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.23.0 新增: 聊天输入框快捷执行模式切换菜单 (Quick Execution Policy Switcher) ===
+    ["Every command requires approval.", "所有命令均需手动审核批准。"],
+    ["Every command requires approval", "所有命令均需手动审核批准"],
+    ["Ask before sensitive operations.", "执行敏感操作前进行确认。"],
+    ["Ask before sensitive operations", "执行敏感操作前进行确认"],
+    ["Run all commands without restrictions.", "无限制自动执行所有命令。"],
+    ["Run all commands without restrictions", "无限制自动执行所有命令"],
+    ["Use Global Settings", "使用全局设置"],
+    ["Use Global settings", "使用全局设置"],
+    ["Use global settings", "使用全局设置"],
+    ["Use Project Settings", "使用项目设置"],
+    ["Use Project settings", "使用项目设置"],
+    ["Use project settings", "使用项目设置"],
+    ["Use Workspace Settings", "使用工作区设置"],
+    ["Use Workspace settings", "使用工作区设置"],
+    ["Use workspace settings", "使用工作区设置"],
+    ["Use 全局设置", "使用全局设置"],
+    ["Use 项目设置", "使用项目设置"],
+    ["Use 工作区设置", "使用工作区设置"],
+    ["Project Settings", "项目设置"],
+    ["Project settings", "项目设置"],
+    ["Global Settings", "全局设置"],
+    ["Global settings", "全局设置"],
+    ["Workspace Settings", "工作区设置"],
+    ["Workspace settings", "工作区设置"],
+
     // === 2.22.0 新增模块 1: 自动化与定时任务系统 (Automations & Scheduled Tasks) ===
     ["You don't have any projects created. Please create a project first.", "您尚未创建任何项目，请先创建一个项目。"],
     ["Your changes were not saved. Please try again.", "您的更改未能保存，请重试。"],
@@ -1143,8 +1169,31 @@ const EXACT_WORDS = {
     "Application": "应用设置",
     "Custom": "自定义",
     "Full machine": "整机访问模式",
+    "Turbo": "极速模式 (Turbo)",
     "Turbo mode": "极速模式",
     "Turbo Mode": "极速模式",
+    "Every command requires approval.": "所有命令均需手动审核批准。",
+    "Every command requires approval": "所有命令均需手动审核批准",
+    "Ask before sensitive operations.": "执行敏感操作前进行确认。",
+    "Ask before sensitive operations": "执行敏感操作前进行确认",
+    "Run all commands without restrictions.": "无限制自动执行所有命令。",
+    "Run all commands without restrictions": "无限制自动执行所有命令",
+    "Use Global Settings": "使用全局设置",
+    "Use Global settings": "使用全局设置",
+    "Use global settings": "使用全局设置",
+    "Use 全局设置": "使用全局设置",
+    "Use Project Settings": "使用项目设置",
+    "Use Project settings": "使用项目设置",
+    "Use 项目设置": "使用项目设置",
+    "Use Workspace Settings": "使用工作区设置",
+    "Use Workspace settings": "使用工作区设置",
+    "Use 工作区设置": "使用工作区设置",
+    "Project Settings": "项目设置",
+    "Project settings": "项目设置",
+    "Global Settings": "全局设置",
+    "Global settings": "全局设置",
+    "Workspace Settings": "工作区设置",
+    "Workspace settings": "工作区设置",
     "Download": "下载安装",
     "Downloaded": "已安装",
     "Install": "安装",
@@ -1432,6 +1481,10 @@ const injectedCode = `
             res = res.replace(/^Task\\s+"(.+?)"\\s+not found\\.$/gi, '未找到任务 "$1"。');
             res = res.replace(/^Automation\\s+"(.+?)"\\s+not found\\.$/gi, '未找到自动化任务 "$1"。');
             res = res.replace(/^Triggered\\s+(.+)$/gi, '触发于 $1');
+            res = res.replace(/^Use\\s+(?:全局设置|Global\\s+Settings?)$/gi, '使用全局设置');
+            res = res.replace(/^Use\\s+(?:项目设置|Project\\s+Settings?)$/gi, '使用项目设置');
+            res = res.replace(/^Use\\s+(?:工作区设置|Workspace\\s+Settings?)$/gi, '使用工作区设置');
+            res = res.replace(/^Use\\s+(.+)$/gi, '使用 $1');
 
             // 2. 长短语字典替换
             for (let i = 0; i < PHRASES.length; i++) {
@@ -1485,6 +1538,29 @@ const injectedCode = `
             res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
+            // 2.23.0 快捷执行模式菜单专项处理
+            if (res.includes("Every command requires approval")) {
+                res = res.replaceAll("Every command requires approval.", "所有命令均需手动审核批准。")
+                         .replaceAll("Every command requires approval", "所有命令均需手动审核批准");
+            }
+            if (res.includes("Ask before sensitive operations")) {
+                res = res.replaceAll("Ask before sensitive operations.", "执行敏感操作前进行确认。")
+                         .replaceAll("Ask before sensitive operations", "执行敏感操作前进行确认");
+            }
+            if (res.includes("Run all commands without restrictions")) {
+                res = res.replaceAll("Run all commands without restrictions.", "无限制自动执行所有命令。")
+                         .replaceAll("Run all commands without restrictions", "无限制自动执行所有命令");
+            }
+            if (res.includes("Use 全局设置") || res.includes("Use Global") || res.includes("Use global")) {
+                res = res.replace(/Use\s+(全局设置|Global\s+Settings?)/gi, '使用全局设置');
+            }
+            if (res.includes("Use 项目设置") || res.includes("Use Project") || res.includes("Use project")) {
+                res = res.replace(/Use\s+(项目设置|Project\s+Settings?)/gi, '使用项目设置');
+            }
+            if (res.includes("Use 工作区设置") || res.includes("Use Workspace") || res.includes("Use workspace")) {
+                res = res.replace(/Use\s+(工作区设置|Workspace\s+Settings?)/gi, '使用工作区设置');
+            }
+
             if (res.includes("Controls the actions the agent can take")) {
                 res = "控制智能体可以执行的操作范围。";
             }
@@ -1718,7 +1794,10 @@ const injectedCode = `
                      .replaceAll("， 包含", "，包含")
                      .replaceAll("，，", "，")
                      .replaceAll("Inherit 常规设置", "继承常规设置")
-                     .replaceAll("Inherit 全局常规设置", "继承全局常规设置");
+                     .replaceAll("Inherit 全局常规设置", "继承全局常规设置")
+                     .replaceAll("项目 设置", "项目设置")
+                     .replaceAll("全局 设置", "全局设置")
+                     .replaceAll("工作区 设置", "工作区设置");
 
             return res;
         }
