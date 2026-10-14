@@ -94,24 +94,7 @@ const electronNativeAPI = {
     },
     openExternal: (url) => electron_1.ipcRenderer.invoke('shell:open-external', url),
     revealInFilePicker: (path) => electron_1.ipcRenderer.invoke('shell:reveal-in-file-picker', path),
-    showContextMenu: (items) => {
-        const translateItems = (list) => {
-            if (!Array.isArray(list)) return list;
-            const fn = globalThis.__agyTranslateText;
-            return list.map((item) => {
-                if (!item || typeof item !== 'object') return item;
-                const copy = { ...item };
-                if (typeof copy.label === 'string' && typeof fn === 'function') {
-                    copy.label = fn(copy.label);
-                }
-                if (Array.isArray(copy.submenu)) {
-                    copy.submenu = translateItems(copy.submenu);
-                }
-                return copy;
-            });
-        };
-        return electron_1.ipcRenderer.invoke('window:show-context-menu', translateItems(items));
-    },
+    showContextMenu: (items) => electron_1.ipcRenderer.invoke('window:show-context-menu', items),
     closeContextMenu: () => electron_1.ipcRenderer.invoke('window:close-context-menu'),
 };
 const ideAPI = {
@@ -132,6 +115,7 @@ electron_1.contextBridge.exposeInMainWorld('agent', agentAPI);
 electron_1.contextBridge.exposeInMainWorld('electronNative', electronNativeAPI);
 electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
 electron_1.contextBridge.exposeInMainWorld('wsl', wslAPI);
+
 
 // ==========================================
 // Antigravity 延迟安全中文本地化引擎 (Preload 隔离环境 - v4.2 全量终极版)

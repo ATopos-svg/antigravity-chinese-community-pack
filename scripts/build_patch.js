@@ -41,7 +41,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2220_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2230_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -1821,4 +1821,57 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2220_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2230_WRITTEN_SUCCESSFULLY");
+
+// 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
+const mainFile = path.join(cleanDir, "dist", "main.js");
+if (fs.existsSync(mainFile)) {
+    let mainSrc = fs.readFileSync(mainFile, "utf8");
+    mainSrc = mainSrc
+        .replace("label: 'No agents running'", "label: '没有正在运行的智能体'")
+        .replace("label: `Open ${electron_1.app.getName()}`", "label: `打开 ${electron_1.app.getName()}`")
+        .replace("label: 'Quit'", "label: '退出'")
+        .replace("buttons: ['Cancel', 'Quit']", "buttons: ['取消', '退出']")
+        .replace("title: 'Confirm Quit'", "title: '确认退出'")
+        .replace("message: 'Are you sure you want to quit?'", "message: '您确定要退出吗？'")
+        .replace("detail: 'There may be agents or background tasks running.'", "detail: '当前可能有正在运行的智能体或后台任务。'");
+    fs.writeFileSync(mainFile, mainSrc, "utf8");
+    console.log("MAIN_JS_PATCHED_SUCCESSFULLY");
+}
+
+const trayFile = path.join(cleanDir, "dist", "tray.js");
+if (fs.existsSync(trayFile)) {
+    let traySrc = fs.readFileSync(trayFile, "utf8");
+    const oldDynamicCount = "(count > 0 ? `${count}` : 'No') +\n                    ' agent' +\n                    (count === 1 ? '' : 's') +\n                    ' running'";
+    const newDynamicCount = "count > 0 ? `${count} 个智能体正在运行` : '没有正在运行的智能体'";
+    if (traySrc.includes(oldDynamicCount)) {
+        traySrc = traySrc.replace(oldDynamicCount, newDynamicCount);
+        fs.writeFileSync(trayFile, traySrc, "utf8");
+        console.log("TRAY_JS_PATCHED_SUCCESSFULLY");
+    }
+}
+
+const menuFile = path.join(cleanDir, "dist", "menu.js");
+if (fs.existsSync(menuFile)) {
+    let menuSrc = fs.readFileSync(menuFile, "utf8");
+    menuSrc = menuSrc
+        .replace("label: 'New Window'", "label: '新建窗口'")
+        .replace("label: 'Docs'", "label: '官方文档'")
+        .replace("return { label: 'Connect to WSL', submenu };", "return { label: '连接到 WSL', submenu };")
+        .replace("return { label: 'Reopen Locally', click: () => relaunchWithWslDistro('') };", "return { label: '在本地重新打开', click: () => relaunchWithWslDistro('') };");
+    fs.writeFileSync(menuFile, menuSrc, "utf8");
+    console.log("MENU_JS_PATCHED_SUCCESSFULLY");
+}
+
+const wizFile = path.join(cleanDir, "dist", "ideInstall", "wizardHtml.js");
+if (fs.existsSync(wizFile)) {
+    let wizSrc = fs.readFileSync(wizFile, "utf8");
+    wizSrc = wizSrc
+        .replace("Setting up…", "正在配置…")
+        .replace("Welcome to the new Antigravity!", "欢迎体验全新的 Antigravity！")
+        .replace("Antigravity has been redesigned to put agents first with new capabilities. If you'd still like a code editor, you can download it as a separate app named <b>Antigravity IDE</b>.", "Antigravity 现已全面重塑，以智能体为第一核心并赋予全新能力。如果您仍需要代码编辑器，可下载独立的 <b>Antigravity IDE</b> 伴侣应用。")
+        .replace("Download the Antigravity IDE", "下载 Antigravity IDE")
+        .replace("Explore the new Antigravity", "开始探索全新 Antigravity");
+    fs.writeFileSync(wizFile, wizSrc, "utf8");
+    console.log("WIZARD_HTML_PATCHED_SUCCESSFULLY");
+}

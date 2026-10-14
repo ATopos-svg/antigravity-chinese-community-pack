@@ -2,9 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+let version = '2.23.0';
+const pkgPath = 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2230_extract\\package.json';
+if (fs.existsSync(pkgPath)) {
+    try {
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+        if (pkg.version) version = pkg.version;
+    } catch (_) {}
+}
+
 const installerDir = path.resolve(__dirname, '..', 'installer');
-const desktopDir = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.22.0';
-const zipPath = 'C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v2.22.0.zip';
+const desktopDir = `C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v${version}`;
+const zipPath = `C:\\Users\\Lenovo\\Desktop\\Antigravity-Chinese-Pack-v${version}.zip`;
 
 console.log('1. 正在同步文件到桌面目录:', desktopDir);
 if (!fs.existsSync(desktopDir)) {
