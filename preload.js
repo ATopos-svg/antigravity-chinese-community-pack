@@ -116,6 +116,7 @@ electron_1.contextBridge.exposeInMainWorld('electronNative', electronNativeAPI);
 electron_1.contextBridge.exposeInMainWorld('ide', ideAPI);
 electron_1.contextBridge.exposeInMainWorld('wsl', wslAPI);
 
+
 // ==========================================
 // Antigravity 延迟安全中文本地化引擎 (Preload 隔离环境 - v4.2 全量终极版)
 // ==========================================

@@ -2,13 +2,13 @@
 
 <p align="center">
   <b>非官方社区自研 · 全界面深度汉化补丁 + 智能体中文交互规则库</b><br>
-  <i>专为 Google Antigravity（反重力）2.22.0+ 最新版设计的全平台双模式中文本地化解决方案</i>
+  <i>专为 Google Antigravity（反重力）2.24.0+ 最新版设计的全平台双模式中文本地化解决方案</i>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.22.0-brightgreen.svg" alt="Latest Release"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.22.0%2B-orange.svg" alt="Compatibility"></a>
+  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.24.0-brightgreen.svg" alt="Latest Release"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.24.0%2B-orange.svg" alt="Compatibility"></a>
   <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue.svg" alt="Platform"></a>
   <a href="#"><img src="https://img.shields.io/badge/Pure%20Architecture-No%20Deadlock-success.svg" alt="Pure Architecture"></a>
 </p>
@@ -58,7 +58,9 @@
 
 | 版本标签 | 适配官方版本 | 发布时间 | 核心更新说明 | 预打包下载 (Releases) |
 | :--- | :--- | :--- | :--- | :--- |
-| **🚀 v2.22.0 (最新版)** | Google Antigravity **v2.22.0** | 2026-10-10 | • 深度适配 Google 2026.10 最新跨代跃迁推送的 2.22.0 正式版（跳过 2.19~2.21 直接升级至 2.22.0.0）<br>• 重磅新增：2.22.0 全新操作系统级原生右键上下文菜单（`electronNative.showContextMenu`）递归汉化拦截，顶层与嵌套子菜单 100% 中文显示<br>• 同步支持：2.22.0 新增文件拖拽真实路径解析接口（`webUtils.getPathForFile`）与系统托盘左键单击快速唤起聚焦功能<br>• 全面覆盖系统托盘智能体计数、退出二次确认弹窗、WSL 2 原生集成、独立 Splash 配置窗与「Antigravity IDE」向导精译<br>• 全量覆盖 45+ 款 MCP 服务市场卡片、126 项官方技能卡片与智能体权限安全策略<br>• 严格遵循 `--unpack-dir` 规范防白屏打包（~4.67MB，适配新版 347 项 `chrome-devtools-mcp` 组件），经 120 项全量自动化测试验证 100% 通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.22.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.22.0) |
+| **🚀 v2.24.0 (最新版)** | Google Antigravity **v2.24.0** | 2026-10-18 | • 深度适配 Google 2026.10 最新推送的 2.24.0 正式版（内部版本 2.24.0.0）<br>• 官方核心 `language_server.exe` 底层扩容至 171.4MB，优化长程任务与工具调用稳定性<br>• 聊天输入框安全快捷执行模式切换菜单（`所有命令均需手动审核批准`、`执行敏感操作前进行确认`、`无限制自动执行所有命令`等）100% 精译<br>• 主进程系统托盘动态计数（`没有正在运行的智能体`、`{count} 个智能体正在运行`）与原生退出二次确认弹窗原生汉化<br>• WSL 连接原生菜单与独立 Antigravity IDE 欢迎向导原生汉化<br>• 全量覆盖 45+ 款 MCP 服务市场卡片、275 项官方扩展技能卡片与智能体权限安全策略<br>• 严格遵循 `--unpack-dir` 规范防白屏打包（~4.55MB），经 120 项全量自动化测试验证 100% 通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.24.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.24.0) |
+| **⭐ v2.23.0 (稳定版)** | Google Antigravity **v2.23.0** | 2026-10-14 | • 深度适配 Google 2026.10 推送的 2.23.0 正式版（内部版本 2.23.0.0）<br>• 聊天输入框快捷执行策略切换菜单与安全权限确认汉化<br>• 保持系统托盘动态计数、二次确认退出弹窗与 WSL 菜单原生汉化<br>• 严格遵循防白屏打包规范，全量测试 100% 通过 | [📥 下载 v2.23.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.23.0) |
+| **⭐ v2.22.0 (稳定版)** | Google Antigravity **v2.22.0** | 2026-10-10 | • 深度适配 Google 2026.10 最新跨代跃迁推送的 2.22.0 正式版（跳过 2.19~2.21 直接升级至 2.22.0.0）<br>• 重磅新增：2.22.0 全新操作系统级原生右键上下文菜单（`electronNative.showContextMenu`）递归汉化拦截，顶层与嵌套子菜单 100% 中文显示<br>• 同步支持：2.22.0 新增文件拖拽真实路径解析接口（`webUtils.getPathForFile`）与系统托盘左键单击快速唤起聚焦功能<br>• 全面覆盖系统托盘智能体计数、退出二次确认弹窗、WSL 2 原生集成、独立 Splash 配置窗与「Antigravity IDE」向导精译<br>• 全量覆盖 45+ 款 MCP 服务市场卡片、126 项官方技能卡片与智能体权限安全策略<br>• 严格遵循 `--unpack-dir` 规范防白屏打包（~4.67MB，适配新版 347 项 `chrome-devtools-mcp` 组件），经 120 项全量自动化测试验证 100% 通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.22.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.22.0) |
 | **⭐ v2.18.1 (稳定版)** | Google Antigravity **v2.18.1** | 2026-09-30 | • 深度适配 Google 2026.09 最新推送的 2.18.1 正式版（内部版本 2.18.1.0）<br>• 重磅支持：官方全新系统托盘（System Tray）集成与托盘活动智能体计数（`没有正在运行的智能体` / `x 个智能体正在运行`）全汉化<br>• 全面汉化原生退出二次确认弹窗（Confirm Quit，防止误关闭后台执行中的智能体）<br>• 持续完善 WSL 2 原生集成、独立 Splash 配置窗与「Antigravity IDE」向导精译<br>• 完整对接 11 大核心 API 架构及 ConnectRPC 通信栈，引入 `shell-env` 环境无损挂载<br>• 全量覆盖 45+ 款 MCP 服务市场卡片、126 项官方技能卡片与智能体权限安全策略<br>• 严格遵循 `--unpack-dir` 规范防白屏打包（~4.8MB），经 120 项全量自动化测试验证 100% 通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.18.1 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.18.1) |
 | **⭐ v2.17.0 (稳定版)** | Google Antigravity **v2.17.0** | 2026-09-25 | • 深度适配 Google 2026.09 最新推送的 2.17.0 重大更新（跳过 2.16.x 跨代跃迁，内部版本 2.17.0.0）<br>• 重磅支持：官方全新 WSL 原生集成（`wslAPI`）与菜单项（连接到 WSL、在本地重新打开）全汉化<br>• 全面汉化新增的独立 WSL 环境配置启动窗口 (`provisionSplash.js`)<br>• 全景汉化独立「Antigravity IDE」欢迎向导与环境初始化 (`wizardHtml.js`)<br>• 完整对齐 11 大核心 API 架构及 ConnectRPC 通信栈，无损零冲突挂载<br>• 全量覆盖 45+ 款 MCP 服务市场卡片、126 项官方技能卡片与智能体权限安全策略<br>• 严格遵循 `--unpack-dir` 规范防白屏打包（~4.8MB），经 120 项全量自动化测试验证 100% 通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.17.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.17.0) |
 | **⭐ v2.15.1 (稳定版)** | Google Antigravity **v2.15.1** | 2026-09-22 | • 深度适配 Google 2026.09 最新推送的 2.15.1 正式版（内部版本 2.15.1.0）<br>• 全量汉化独立「Antigravity IDE」欢迎向导、环境初始化与下载提示<br>• 保持 2.15.1 原生 10 大 API 架构及 ConnectRPC 通信栈零冲突挂载<br>• 全量覆盖 45+ 款官方与社区 MCP 服务市场卡片及搜索栏<br>• 全量 126 项官方技能卡片与智能体权限安全策略深度汉化<br>• 经 120 项自动化测试全量 100% 验证通过<br>• 支持 Windows / macOS / Linux 全平台一键无损安装与一键秒级还原 | [📥 下载 v2.15.1 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.15.1) |
@@ -87,7 +89,7 @@
 
 ### 📥 1. 获取预打包文件
 1. 前往本仓库的 **[Releases 发布页面](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases)**；
-2. 下载最新版通用压缩包 **`Antigravity-Chinese-Pack-v2.22.0.zip`** 并解压。
+2. 下载最新版通用压缩包 **`Antigravity-Chinese-Pack-v2.24.0.zip`** 并解压。
 
 ---
 

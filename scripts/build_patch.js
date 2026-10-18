@@ -41,7 +41,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2230_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2240_extract";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -1900,7 +1900,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2230_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2240_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");

@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-let version = '2.23.0';
-const pkgPath = 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2230_extract\\package.json';
+let version = '2.24.0';
+const pkgPath = 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2240_extract\\package.json';
 if (fs.existsSync(pkgPath)) {
     try {
         const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
