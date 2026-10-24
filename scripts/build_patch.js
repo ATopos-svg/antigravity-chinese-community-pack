@@ -41,7 +41,7 @@ for (const item of allSkills) {
 console.log("Total skill phrase pairs generated:", skillPhrasePairs.length);
 
 // 2. 读取官方纯净 preload.js
-const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_2240_extract";
+const cleanDir = "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_extract_latest";
 const officialPreload = fs.readFileSync(path.join(cleanDir, "dist", "preload.js"), "utf8");
 
 const marker = "// ==========================================";
@@ -1900,7 +1900,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2240_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2260_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
@@ -1913,7 +1913,11 @@ if (fs.existsSync(mainFile)) {
         .replace("buttons: ['Cancel', 'Quit']", "buttons: ['取消', '退出']")
         .replace("title: 'Confirm Quit'", "title: '确认退出'")
         .replace("message: 'Are you sure you want to quit?'", "message: '您确定要退出吗？'")
-        .replace("detail: 'There may be agents or background tasks running.'", "detail: '当前可能有正在运行的智能体或后台任务。'");
+        .replace("detail: 'There may be agents or background tasks running.'", "detail: '当前可能有正在运行的智能体或后台任务。'")
+        .replace("label: 'New Window'", "label: '新建窗口'")
+        .replace("title: 'WSL distro not found'", "title: '未找到 WSL 发行版'")
+        .replace("message: `The WSL distro \"${WSL_DISTRO}\" is no longer installed.`", "message: `WSL 发行版 \"${WSL_DISTRO}\" 已不再安装。`")
+        .replace("detail: 'Antigravity opened on Windows instead.'", "detail: 'Antigravity 已切换至 Windows 本地环境打开。'");
     fs.writeFileSync(mainFile, mainSrc, "utf8");
     console.log("MAIN_JS_PATCHED_SUCCESSFULLY");
 }
@@ -1953,4 +1957,12 @@ if (fs.existsSync(wizFile)) {
         .replace("Explore the new Antigravity", "开始探索全新 Antigravity");
     fs.writeFileSync(wizFile, wizSrc, "utf8");
     console.log("WIZARD_HTML_PATCHED_SUCCESSFULLY");
+}
+
+const splashFile = path.join(cleanDir, "dist", "provisionSplash.js");
+if (fs.existsSync(splashFile)) {
+    let splashSrc = fs.readFileSync(splashFile, "utf8");
+    splashSrc = splashSrc.replace("<div>Setting up WSL: ${escapeHtml(distro)}</div>", "<div>正在配置 WSL 环境: ${escapeHtml(distro)}</div>");
+    fs.writeFileSync(splashFile, splashSrc, "utf8");
+    console.log("PROVISION_SPLASH_PATCHED_SUCCESSFULLY");
 }
