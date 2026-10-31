@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-let version = '2.26.0';
+let version = '2.28.2';
 const pkgPath = 'C:\\Users\\Lenovo\\AppData\\Local\\Temp\\agy_extract_latest\\package.json';
 if (fs.existsSync(pkgPath)) {
     try {

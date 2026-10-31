@@ -97,7 +97,59 @@ const electronNativeAPI = {
     showContextMenu: (items) => electron_1.ipcRenderer.invoke('window:show-context-menu', items),
     closeContextMenu: () => electron_1.ipcRenderer.invoke('window:close-context-menu'),
     executeJavaScriptInIsolatedWorld: (wcId, worldId, code) => electron_1.ipcRenderer.invoke('webview:execute-js-isolated-world', wcId, worldId, code),
+    runScriptInJail: (req) => electron_1.ipcRenderer.invoke('script-jail:run', req),
+    abortScriptJail: (jailId) => electron_1.ipcRenderer.invoke('script-jail:abort', jailId),
+    subscribeWebviewSecurityState: (webContentsId, callback) => {
+        // The push channel and the initial fetch can race; `seq` orders them.
+        let latestSeq = 0;
+        let subscribed = true;
+        const deliver = (state) => {
+            if (!subscribed ||
+                !state ||
+                state.webContentsId !== webContentsId ||
+                state.seq <= latestSeq) {
+                return;
+            }
+            latestSeq = state.seq;
+            callback(state);
+        };
+        const handler = (_event, state) => {
+            deliver(state);
+        };
+        electron_1.ipcRenderer.on('webview:security-state-changed', handler);
+        void electron_1.ipcRenderer
+            .invoke('webview:get-security-state', webContentsId)
+            .then(deliver, () => undefined);
+        return () => {
+            subscribed = false;
+            electron_1.ipcRenderer.removeListener('webview:security-state-changed', handler);
+        };
+    },
+    onWebviewOpenNewTab: (callback) => {
+        const handler = (_event, url, webContentsId) => {
+            callback(url, webContentsId);
+        };
+        electron_1.ipcRenderer.on('webview:open-new-tab', handler);
+        return () => {
+            electron_1.ipcRenderer.removeListener('webview:open-new-tab', handler);
+        };
+    },
+    onWebviewFaviconUpdated: (callback) => {
+        const handler = (_event, payload) => {
+            callback(payload);
+        };
+        electron_1.ipcRenderer.on('webview:favicon-updated', handler);
+        return () => {
+            electron_1.ipcRenderer.removeListener('webview:favicon-updated', handler);
+        };
+    },
 };
+electron_1.ipcRenderer.on('agy-script-jail:port', (event, payload) => {
+    window.postMessage({
+        type: 'agy-script-jail-port',
+        jailId: payload?.jailId,
+    }, '*', event.ports);
+});
 const ideAPI = {
     isInstalled: () => electron_1.ipcRenderer.invoke('ide:is-installed'),
 };

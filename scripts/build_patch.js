@@ -1900,7 +1900,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2260_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2282_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
@@ -1965,4 +1965,16 @@ if (fs.existsSync(splashFile)) {
     splashSrc = splashSrc.replace("<div>Setting up WSL: ${escapeHtml(distro)}</div>", "<div>正在配置 WSL 环境: ${escapeHtml(distro)}</div>");
     fs.writeFileSync(splashFile, splashSrc, "utf8");
     console.log("PROVISION_SPLASH_PATCHED_SUCCESSFULLY");
+}
+
+const webauthnFile = path.join(cleanDir, "dist", "webauthn.js");
+if (fs.existsSync(webauthnFile)) {
+    let authSrc = fs.readFileSync(webauthnFile, "utf8");
+    authSrc = authSrc
+        .replace("title: 'Choose a Passkey'", "title: '选择通行密钥 (Passkey)'")
+        .replace("message: `Sign in to ${rpLabel}`", "message: `登录至 ${rpLabel}`")
+        .replace("detail: 'Select a passkey account to continue:'", "detail: '选择一个通行密钥账号以继续：'")
+        .replace("buttons: [...accountLabels, 'Cancel']", "buttons: [...accountLabels, '取消']");
+    fs.writeFileSync(webauthnFile, authSrc, "utf8");
+    console.log("WEBAUTHN_JS_PATCHED_SUCCESSFULLY");
 }
