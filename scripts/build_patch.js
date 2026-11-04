@@ -52,7 +52,64 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
-    // === 2.29.0 新增: WCV 内嵌浏览器、标签页、下载管理与 WebAuthn 通行密钥 ===
+    // === 2.29.0 用户反馈高频界面补全 (User Feedback Screenshots 1-5) ===
+    // 图 1 & 图 5: 输入框快捷执行模式菜单
+    ["Auto (Preview)", "自动模式 (预览版)"],
+    ["Automatically decide if commands run.", "自动判断是否执行命令。"],
+    ["Automatically decide if commands run", "自动判断是否执行命令"],
+
+    // 图 2: 浏览器设置页面
+    ["Built-in Browser Settings", "内置浏览器设置"],
+    ["External Browser Settings", "外部浏览器设置"],
+    ["Built-in Browser", "内置浏览器"],
+    ["Built-in browser", "内置浏览器"],
+    ["External Browser", "外部浏览器"],
+    ["External browser", "外部浏览器"],
+    ["Configure link opening and built-in browser preferences.", "配置链接打开方式与内置浏览器偏好设置。"],
+    ["Configure link opening and built-in browser preferences", "配置链接打开方式与内置浏览器偏好设置"],
+    ["Open Links In", "在何处打开链接"],
+    ["Choose where links open by default when clicked.", "选择点击链接时的默认打开方式。"],
+    ["Choose where links open by default when clicked", "选择点击链接时的默认打开方式"],
+    ["Download Location", "下载位置"],
+    ["Folder where files downloaded in the built-in browser are saved.", "内置浏览器下载文件的保存文件夹。"],
+    ["Folder where files downloaded in the built-in browser are saved", "内置浏览器下载文件的保存文件夹"],
+    ["Browsing History", "浏览历史"],
+    ["Clear visited URLs and autocomplete suggestions from the built-in browser.", "清除内置浏览器的历史访问 URL 和自动补全建议。"],
+    ["Clear visited URLs and autocomplete suggestions from the built-in browser", "清除内置浏览器的历史访问 URL 和自动补全建议"],
+    ["Browser Subagent", "浏览器子代理"],
+    ["Browser subagent", "浏览器子代理"],
+    ["Change...", "更改..."],
+    ["Change…", "更改…"],
+
+    // 图 3: 系统通知与提示音设置
+    ["Manage your notification preferences.", "管理您的系统通知偏好设置。"],
+    ["Manage your notification preferences", "管理您的系统通知偏好设置"],
+    ["Enable Notifications for Agent", "启用智能体系统通知"],
+    ["Show system notifications when your action is needed or the agent finishes.", "当需要您操作或智能体完成任务时显示系统通知。"],
+    ["Show system notifications when your action is needed or the agent finishes", "当需要您操作或智能体完成任务时显示系统通知"],
+    ["Sound", "提示音"],
+    ["Enable Sounds for Agent", "启用智能体提示音"],
+    ["Play a sound when your action is needed or the agent finishes.", "当需要您操作或智能体完成任务时播放提示音。"],
+    ["Play a sound when your action is needed or the agent finishes", "当需要您操作或智能体完成任务时播放提示音"],
+    ["Volume", "音量"],
+    ["Set the volume of agent sounds.", "设置智能体提示音音量。"],
+    ["Set the volume of agent sounds", "设置智能体提示音音量"],
+
+    // 图 4: 快捷键面板与侧边栏
+    ["Open File Search", "打开文件搜索"],
+    ["New Tab", "新建标签页"],
+    ["Reopen Closed Tab", "重新打开已关闭的标签页"],
+    ["Move Conversation Up", "上移会话"],
+    ["Move Conversation Down", "下移会话"],
+    ["Previous Side Panel Tab", "上一个侧边栏标签页"],
+    ["Next Side Panel Tab", "下一个侧边栏标签页"],
+    ["No conversations yet", "暂无会话"],
+    ["Show All", "查看全部"],
+    ["Show all", "查看全部"],
+    ["Give Feedback", "提供反馈"],
+    ["Give feedback", "提供反馈"],
+
+    // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
     ["Preparing download…", "正在准备下载…"],
     ["Choose a Passkey", "选择通行密钥 (Passkey)"],
@@ -814,7 +871,7 @@ const UI_PHRASES = [
     ["General Settings", "常规设置"],
     ["General", "常规设置"],
     ["Account", "账号设置"],
-    ["Browser", "浏览器设置"],
+    ["Browser", "浏览器"],
     ["App Settings", "应用设置"],
     ["Chat Settings", "对话设置"],
     ["about Turbo mode", "极速模式的相关说明"],
@@ -1001,6 +1058,39 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    // 2.29.0 用户反馈高频精确词条
+    "Auto (Preview)": "自动模式 (预览版)",
+    "Automatically decide if commands run.": "自动判断是否执行命令。",
+    "Automatically decide if commands run": "自动判断是否执行命令",
+    "Built-in Browser": "内置浏览器",
+    "Built-in browser": "内置浏览器",
+    "External Browser": "外部浏览器",
+    "External browser": "外部浏览器",
+    "Built-in Browser Settings": "内置浏览器设置",
+    "External Browser Settings": "外部浏览器设置",
+    "Open Links In": "在何处打开链接",
+    "Download Location": "下载位置",
+    "Browsing History": "浏览历史",
+    "Browser Subagent": "浏览器子代理",
+    "Browser subagent": "浏览器子代理",
+    "Enable Notifications for Agent": "启用智能体系统通知",
+    "Enable Sounds for Agent": "启用智能体提示音",
+    "Sound": "提示音",
+    "Volume": "音量",
+    "Open File Search": "打开文件搜索",
+    "New Tab": "新建标签页",
+    "Reopen Closed Tab": "重新打开已关闭的标签页",
+    "Move Conversation Up": "上移会话",
+    "Move Conversation Down": "下移会话",
+    "Previous Side Panel Tab": "上一个侧边栏标签页",
+    "Next Side Panel Tab": "下一个侧边栏标签页",
+    "No conversations yet": "暂无会话",
+    "Show All": "查看全部",
+    "Show all": "查看全部",
+    "Give Feedback": "提供反馈",
+    "Give feedback": "提供反馈",
+    "Change...": "更改...",
+    "Change…": "更改…",
     "Search MCP servers by name": "按名称搜索 MCP 服务",
     "Search MCP servers": "搜索 MCP 服务",
     "Search MCP server": "搜索 MCP 服务",
@@ -1555,6 +1645,62 @@ const injectedCode = `
             res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
+            // 2.29.0 截图 1 & 5: Auto (Preview)
+            if (res.includes("Automatically decide if commands run")) {
+                res = res.replaceAll("Automatically decide if commands run.", "自动判断是否执行命令。")
+                         .replaceAll("Automatically decide if commands run", "自动判断是否执行命令");
+            }
+            if (res.includes("Auto (Preview)")) {
+                res = res.replaceAll("Auto (Preview)", "自动模式 (预览版)");
+            }
+
+            // 2.29.0 截图 2: 浏览器设置页面
+            if (res.includes("Configure link opening and built-in browser preferences")) {
+                res = res.replaceAll("Configure link opening and built-in browser preferences.", "配置链接打开方式与内置浏览器偏好设置。")
+                         .replaceAll("Configure link opening and built-in browser preferences", "配置链接打开方式与内置浏览器偏好设置");
+            }
+            if (res.includes("Choose where links open by default when clicked")) {
+                res = res.replaceAll("Choose where links open by default when clicked.", "选择点击链接时的默认打开方式。")
+                         .replaceAll("Choose where links open by default when clicked", "选择点击链接时的默认打开方式");
+            }
+            if (res.includes("Folder where files downloaded in the built-in browser are saved")) {
+                res = res.replaceAll("Folder where files downloaded in the built-in browser are saved.", "内置浏览器下载文件的保存文件夹。")
+                         .replaceAll("Folder where files downloaded in the built-in browser are saved", "内置浏览器下载文件的保存文件夹");
+            }
+            if (res.includes("Clear visited URLs and autocomplete suggestions from the built-in browser")) {
+                res = res.replaceAll("Clear visited URLs and autocomplete suggestions from the built-in browser.", "清除内置浏览器的历史访问 URL 和自动补全建议。")
+                         .replaceAll("Clear visited URLs and autocomplete suggestions from the built-in browser", "清除内置浏览器的历史访问 URL 和自动补全建议");
+            }
+
+            // 2.29.0 截图 3: 系统通知与声音
+            if (res.includes("Manage your notification preferences")) {
+                res = res.replaceAll("Manage your notification preferences.", "管理您的系统通知偏好设置。")
+                         .replaceAll("Manage your notification preferences", "管理您的系统通知偏好设置");
+            }
+            if (res.includes("Show system notifications when your action is needed or the agent finishes")) {
+                res = res.replaceAll("Show system notifications when your action is needed or the agent finishes.", "当需要您操作或智能体完成任务时显示系统通知。")
+                         .replaceAll("Show system notifications when your action is needed or the agent finishes", "当需要您操作或智能体完成任务时显示系统通知");
+            }
+            if (res.includes("Play a sound when your action is needed or the agent finishes")) {
+                res = res.replaceAll("Play a sound when your action is needed or the agent finishes.", "当需要您操作或智能体完成任务时播放提示音。")
+                         .replaceAll("Play a sound when your action is needed or the agent finishes", "当需要您操作或智能体完成任务时播放提示音");
+            }
+            if (res.includes("Set the volume of agent sounds")) {
+                res = res.replaceAll("Set the volume of agent sounds.", "设置智能体提示音音量。")
+                         .replaceAll("Set the volume of agent sounds", "设置智能体提示音音量");
+            }
+
+            // 2.29.0 截图 4: 快捷键与会话列表
+            if (res.includes("Open File Search")) res = res.replaceAll("Open File Search", "打开文件搜索");
+            if (res.includes("New Tab")) res = res.replaceAll("New Tab", "新建标签页");
+            if (res.includes("Reopen Closed Tab")) res = res.replaceAll("Reopen Closed Tab", "重新打开已关闭的标签页");
+            if (res.includes("Move Conversation Up")) res = res.replaceAll("Move Conversation Up", "上移会话");
+            if (res.includes("Move Conversation Down")) res = res.replaceAll("Move Conversation Down", "下移会话");
+            if (res.includes("Previous Side Panel Tab")) res = res.replaceAll("Previous Side Panel Tab", "上一个侧边栏标签页");
+            if (res.includes("Next Side Panel Tab")) res = res.replaceAll("Next Side Panel Tab", "下一个侧边栏标签页");
+            if (res.includes("No conversations yet")) res = res.replaceAll("No conversations yet", "暂无会话");
+            if (res.includes("Give Feedback")) res = res.replaceAll("Give Feedback", "提供反馈");
+
             // 2.23.0 快捷执行模式菜单专项处理
             if (res.includes("Every command requires approval")) {
                 res = res.replaceAll("Every command requires approval.", "所有命令均需手动审核批准。")
@@ -1807,7 +1953,14 @@ const injectedCode = `
                      .replace(/(\\d+)\\s*seconds?/gi, '$1 秒');
 
             // 7. 标点清洗
-            res = res.replaceAll("，，包含", "，包含")
+            res = res.replaceAll("Built-in 浏览器设置", "内置浏览器")
+                     .replaceAll("External 浏览器设置", "外部浏览器")
+                     .replaceAll("Built-in 浏览器", "内置浏览器")
+                     .replaceAll("External 浏览器", "外部浏览器")
+                     .replaceAll("浏览器设置 Subagent", "浏览器子代理")
+                     .replaceAll("配置 link opening and built-in browser preferences.", "配置链接打开方式与内置浏览器偏好设置。")
+                     .replaceAll("配置 link opening and built-in browser preferences", "配置链接打开方式与内置浏览器偏好设置")
+                     .replaceAll("，，包含", "，包含")
                      .replaceAll("， 包含", "，包含")
                      .replaceAll("，，", "，")
                      .replaceAll("Inherit 常规设置", "继承常规设置")
