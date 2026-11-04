@@ -4,7 +4,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "========================================================="
-echo "   Antigravity 社区中文补丁一键安装器 (Linux 专属版 v2.28.2)"
+echo "   Antigravity 社区中文补丁一键安装器 (Linux 专属版 v2.29.0)"
 echo "========================================================="
 echo ""
 

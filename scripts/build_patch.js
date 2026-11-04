@@ -52,6 +52,23 @@ if (baseCode.includes(marker)) {
 
 // 3. UI 菜单、系统按钮与基础短语
 const UI_PHRASES = [
+    // === 2.29.0 新增: WCV 内嵌浏览器、标签页、下载管理与 WebAuthn 通行密钥 ===
+    ["Preparing download...", "正在准备下载..."],
+    ["Preparing download…", "正在准备下载…"],
+    ["Choose a Passkey", "选择通行密钥 (Passkey)"],
+    ["Select a passkey account to continue:", "选择一个通行密钥账号以继续："],
+    ["Open in Browser", "在浏览器中打开"],
+    ["Open in browser", "在浏览器中打开"],
+    ["Open in default browser", "在默认浏览器中打开"],
+    ["Close tab", "关闭标签页"],
+    ["New tab", "新建标签页"],
+    ["Show in folder", "在文件夹中显示"],
+    ["Open download folder", "打开下载文件夹"],
+    ["Security State", "安全状态"],
+    ["Secure connection", "安全连接"],
+    ["Connection is not secure", "连接不安全"],
+    ["Certificate error", "证书错误"],
+
     // === 2.23.0 新增: 聊天输入框快捷执行模式切换菜单 (Quick Execution Policy Switcher) ===
     ["Every command requires approval.", "所有命令均需手动审核批准。"],
     ["Every command requires approval", "所有命令均需手动审核批准"],
@@ -1900,7 +1917,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2282_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2290_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
