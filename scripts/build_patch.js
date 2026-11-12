@@ -279,6 +279,79 @@ const UI_PHRASES = [
     ["Connection is secure", "连接安全"],
     ["Your information (for example, passwords or credit card numbers) is private when it is sent to this site.", "您发送至此网站的信息（例如密码或信用卡号）处于加密保密状态。"],
 
+    // === 2.31.2 常规设置布局/权限、语音模式/音色选择器、外观对比度与字体 ===
+    ["Interface Layout", "界面布局"],
+    ["Knowledge Work", "知识工作"],
+    ["Simplified interface for research, writing, and everyday tasks.", "适用于研究、写作与日常任务的简洁界面。"],
+    ["Simplified interface for research, writing, and everyday tasks", "适用于研究、写作与日常任务的简洁界面"],
+    ["Software Engineering", "软件工程"],
+    ["Full interface for coding, developer tools, and managing agents.", "包含编程、开发者工具与智能体管理的完整界面。"],
+    ["Full interface for coding, developer tools, and managing agents", "包含编程、开发者工具与智能体管理的完整界面"],
+    ["Project 4K interface without developer tooling.", "不含开发者工具的 Project 4K 简洁界面。"],
+    ["Project 4K interface without developer tooling", "不含开发者工具的 Project 4K 简洁界面"],
+    ["The full developer experience.", "完整的开发者功能体验。"],
+    ["The full developer experience", "完整的开发者功能体验"],
+    ["Configure global allowed and denied resource permissions.", "配置全局允许和拒绝访问的资源权限。"],
+    ["Configure global allowed and denied resource permissions", "配置全局允许和拒绝访问的资源权限"],
+    ["Configure what the agent can do in local and remote conversations.", "配置智能体在本地和远程对话中可执行的操作权限。"],
+    ["Configure what the agent can do in local and remote conversations", "配置智能体在本地和远程对话中可执行的操作权限"],
+    ["Your agent's ability to execute commands is also controlled by enterprise security policies.", "您的智能体执行命令的权限同时受企业安全策略控制。"],
+    ["Disabled by organization policy", "已被组织策略禁用"],
+    ["Terminal sandbox is not supported in this environment", "当前环境不支持终端沙箱"],
+    ["Permission Preset", "权限预设"],
+    ["Permission Settings", "权限设置"],
+    ["Permission Details", "权限详情"],
+    ["Network Permissions", "网络权限"],
+    ["Terminal & Tooling Permissions", "终端与工具权限"],
+    ["This Computer", "本机"],
+    ["Controls permissions for remote conversations.", "控制远程对话中的权限策略。"],
+    ["Controls permissions for remote conversations", "控制远程对话中的权限策略"],
+    ["Plan Review Policy", "计划审核策略"],
+    ["Type / and select plan to have the agent generate a plan.", "输入 / 并选择 plan 即可让智能体生成实施计划。"],
+    ["and select", "并选择"],
+    ["to have the agent generate a plan.", "即可让智能体生成实施计划。"],
+    ["to have the agent generate a plan", "即可让智能体生成实施计划"],
+    ["Voice mode", "语音模式"],
+    ["Voice Mode", "语音模式"],
+    ["The voice used in Voice mode. Powered by Gemini Live.", "语音模式下使用的音色，由 Gemini Live 提供支持。"],
+    ["The voice used in Voice mode. Powered by Gemini Live", "语音模式下使用的音色，由 Gemini Live 提供支持"],
+    ["The voice Jetski speaks with.", "Jetski 说话时使用的音色。"],
+    ["The voice Jetski speaks with", "Jetski 说话时使用的音色"],
+    ["Input device for voice mode and dictation.", "用于语音模式和语音听写的输入设备。"],
+    ["Input device for voice mode and dictation", "用于语音模式和语音听写的输入设备"],
+    ["System default", "系统默认"],
+    ["System Default", "系统默认"],
+    ["How loud Antigravity's voice is.", "调整 Antigravity 语音播报的音量大小。"],
+    ["How loud Antigravity's voice is", "调整 Antigravity 语音播报的音量大小"],
+    ["How loud Jetski's voice is.", "调整 Jetski 语音播报的音量大小。"],
+    ["Save audio recordings", "保存音频录音"],
+    ["Only stored on your machine.", "仅存储在您的本地设备上。"],
+    ["Delete all recordings?", "确定删除全部录音吗？"],
+    ["Delete all", "全部删除"],
+    ["No recordings", "暂无录音"],
+    ["Powered by Gemini Live ·", "由 Gemini Live 提供支持 ·"],
+    ["Powered by Gemini Live", "由 Gemini Live 提供支持"],
+    ["You can change this in", "您可随时在"],
+    ["later.", "中修改此选项。"],
+    ["Clear and friendly", "清晰友好"],
+    ["Confident and clear", "自信清晰"],
+    ["Warm and engaging", "温暖富有感染力"],
+    ["Warm and approachable", "温暖亲切"],
+    ["Deep and velvety", "低沉柔和"],
+    ["Light and precise", "轻快精准"],
+    ["New Conversation Button", "新建对话按钮"],
+    ["Which workspace the New Conversation button and keyboard shortcut start you in.", "设置点击“新建对话”按钮或使用快捷键时默认进入的工作区模式。"],
+    ["New Workspace", "新建工作区"],
+    ["No Project", "不使用项目"],
+    ["Last Workspace", "上次使用的工作区"],
+    ["Create a new workspace from your first message.", "根据您的首条消息自动创建新工作区。"],
+    ["Start without a workspace, for general questions.", "不关联工作区直接开始对话，适用于常规提问。"],
+    ["Reuse your last workspace.", "继续复用您上一次使用的工作区。"],
+    ["Try out early-stage features before they ship. These may be changed or removed at any time. These features are experimental, and we make no guarantees about performance or functionality.", "提前体验尚未正式发布的早期功能。这些功能随时可能变更或移除；它们属于实验性特性，我们不对其性能或稳定性作任何保证。"],
+    ["Contrast", "对比度"],
+    ["Font Size", "字体大小"],
+    ["System UI", "系统默认 (System UI)"],
+
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
     ["Preparing download…", "正在准备下载…"],
@@ -1228,6 +1301,49 @@ const COMBINED_PHRASES = [...skillPhrasePairs, ...UI_PHRASES];
 
 // 4. 精确单词匹配
 const EXACT_WORDS = {
+    // 2.31.2 常规设置布局/权限、语音模式/音色选择器、外观对比度与字体
+    "Learn more": "了解更多",
+    "Learn more.": "了解更多。",
+    "Use": "使用",
+    "Interface Layout": "界面布局",
+    "Knowledge Work": "知识工作",
+    "Software Engineering": "软件工程",
+    "Permission Preset": "权限预设",
+    "Permission Settings": "权限设置",
+    "Permission Details": "权限详情",
+    "Permissions": "权限配置",
+    "This Computer": "本机",
+    "Remote": "远程对话",
+    "Advanced": "高级选项",
+    "and select": "并选择",
+    "to have the agent generate a plan.": "即可让智能体生成实施计划。",
+    "Voice mode": "语音模式",
+    "Voice Mode": "语音模式",
+    "Voice": "语音音色",
+    "Voices": "音色列表",
+    "Not set": "未设置",
+    "Microphone": "麦克风",
+    "System default": "系统默认",
+    "System Default": "系统默认",
+    "Recordings": "录音文件",
+    "No recordings": "暂无录音",
+    "Delete all": "全部删除",
+    "Workspaces": "工作区",
+    "New Workspace": "新建工作区",
+    "No Project": "不使用项目",
+    "Last Workspace": "上次使用的工作区",
+    "Best of N": "Best of N 多路并行",
+    "Labs": "实验室功能 (Labs)",
+    "Contrast": "对比度",
+    "Strong": "高对比度",
+    "Font": "界面字体",
+    "System UI": "系统默认 (System UI)",
+    "Font Size": "字体大小",
+    "Configure global allowed and denied resource permissions.": "配置全局允许和拒绝访问的资源权限。",
+    "Configure global allowed and denied resource permissions": "配置全局允许和拒绝访问的资源权限",
+    "Configure what the agent can do in local and remote conversations.": "配置智能体在本地和远程对话中可执行的操作权限。",
+    "Configure what the agent can do in local and remote conversations": "配置智能体在本地和远程对话中可执行的操作权限",
+
     // 2.29.0 用户反馈高频精确词条
     "Auto (Preview)": "自动模式 (预览版)",
     "Automatically decide if commands run.": "自动判断是否执行命令。",
@@ -1834,7 +1950,6 @@ const injectedCode = `
             res = res.replace(/^See\\s+more\\s+in\\s+(.+)$/gi, '展开更多 $1 扩展');
             res = res.replace(/^See\\s+less\\s+in\\s+(.+)$/gi, '收起 $1 扩展');
             res = res.replace(/^See\\s+all\\s*\\((\\d+)\\)$/gi, '查看全部 ($1)');
-            res = res.replace(/^Configure\\s+(.+)$/gi, '配置 $1');
             res = res.replace(/^The\\s+(.+?)\\s+MCP server requires configuration parameters before it can be started\\.$/gi, '$1 MCP 服务需要先配置参数后才能启动。');
             res = res.replace(/Exceeded the rules token budget\\.\\s*Full rule content \\(([\\d,]+)\\s*tokens\\)\\s*was replaced with a lightweight file-path pointer in context\\./gi, '超出规则 Token 预算上限。完整规则内容（$1 Tokens）在上下文中已替换为轻量级文件路径指针。');
             res = res.replace(/Exceeded the customization token budget \\(([\\d,]+)\\s*tokens\\)\\s*and was excluded from context\\./gi, '超出自定义扩展 Token 预算上限（$1 Tokens），已从上下文中排除。');
@@ -1850,7 +1965,13 @@ const injectedCode = `
             res = res.replace(/^Use\\s+(?:工作区设置|Workspace\\s+Settings?)$/gi, '使用工作区设置');
             res = res.replace(/^Use\\s+(.+)$/gi, '使用 $1');
 
-            // 1.6 2.31.0 结构化整句动态正则（优先于短语拆分替换）
+            // 1.6 2.31.0 / 2.31.2 结构化整句动态正则（优先于短语拆分替换）
+            res = res.replace(/^Choose\\s+(.+?)'s\\s+Voice$/gi, '选择 $1 的语音音色');
+            res = res.replace(/^(.+?),\\s*voice\\s+(\\d+)\\s+of\\s+(\\d+)$/gi, '$1，音色 $2 / $3');
+            res = res.replace(/^This deletes\\s+(\\d+)\\s+call recordings?\\s*\\((.+?)\\)\\s*from your machine\\.\\s*You can't undo this\\.$/gi, '这将从您的设备上删除 $1 条通话录音（$2）。此操作无法撤销。');
+            res = res.replace(/^Deleted\\s+(\\d+)\\s+recordings?\\s*\\((.+?)\\)$/gi, '已删除 $1 条录音（$2）');
+            res = res.replace(/^(\\d+)\\s+calls?\\s*\\u00b7\\s*(.+)$/gi, '$1 次通话 · $2');
+            res = res.replace(/^Failed to delete recordings:\\s*(.+)$/gi, '删除录音失败：$1');
             res = res.replace(/^Clearing cookies and site data for\\s+(.+?)\\s+may sign you out of this site\\.?$/gi, '清除 $1 的 Cookie 和网站数据可能会导致您退出该网站的登录状态。');
             const viewInfoMatch = res.match(/^(.+?)\\.\\s*View site information$/i);
             if (viewInfoMatch) {
@@ -1907,6 +2028,7 @@ const injectedCode = `
             res = res.replace(/Inherit\\s+Global(\\s+Settings)?/gi, '继承全局设置');
             res = res.replace(/继承\\s+Global/gi, '继承全局设置');
             res = res.replace(/Inherit\\s+(.+)/gi, '继承 $1');
+            res = res.replace(/^Configure\\s+(.+)$/gi, '配置 $1');
 
             // 5.1 用户最新截图针对性动态匹配与兜底
             // 2.29.0 截图 1 & 5: Auto (Preview)
@@ -2253,6 +2375,10 @@ const injectedCode = `
                      .replaceAll("浏览器设置 Subagent", "浏览器子代理")
                      .replaceAll("配置 link opening and built-in browser preferences.", "配置链接打开方式与内置浏览器偏好设置。")
                      .replaceAll("配置 link opening and built-in browser preferences", "配置链接打开方式与内置浏览器偏好设置")
+                     .replaceAll("配置 global allowed and denied resource permissions.", "配置全局允许和拒绝访问的资源权限。")
+                     .replaceAll("配置 global allowed and denied resource permissions", "配置全局允许和拒绝访问的资源权限")
+                     .replaceAll("配置 what the agent can do in local and remote conversations.", "配置智能体在本地和远程对话中可执行的操作权限。")
+                     .replaceAll("配置 what the agent can do in local and remote conversations", "配置智能体在本地和远程对话中可执行的操作权限")
                      .replaceAll("，，包含", "，包含")
                      .replaceAll("， 包含", "，包含")
                      .replaceAll("，，", "，")
@@ -2273,6 +2399,18 @@ const injectedCode = `
                     if (isExcluded(node)) return;
                     const original = node.nodeValue;
                     if (original && original.trim()) {
+                        const trimmedOrig = original.trim();
+                        if (trimmedOrig === 'Type' || trimmedOrig === '类型') {
+                            let sib = node.nextSibling;
+                            while (sib && sib.nodeType === 3 && !sib.nodeValue.trim()) sib = sib.nextSibling;
+                            const isPlanSlashHint = (sib && sib.nodeType === 1 && sib.tagName === 'CODE' && sib.textContent && sib.textContent.trim() === '/') ||
+                                (node.parentElement && node.parentElement.closest && node.parentElement.closest('[data-testid="plan-command-fyi-alert"]'));
+                            if (isPlanSlashHint) {
+                                const replaced = original.replace(trimmedOrig, '输入');
+                                if (replaced !== original) node.nodeValue = replaced;
+                                return;
+                            }
+                        }
                         const translated = translateText(original);
                         if (translated !== original) {
                             node.nodeValue = translated;
