@@ -2363,7 +2363,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2310_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2312_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
