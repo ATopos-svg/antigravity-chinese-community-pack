@@ -109,6 +109,176 @@ const UI_PHRASES = [
     ["Give Feedback", "提供反馈"],
     ["Give feedback", "提供反馈"],
 
+    // === 2.31.0 新增全量适配: Browser 改版、Auto 模式、DeviceChooser、Prompt 卡片、URL 安全弹窗与全量设置 ===
+    ["Configure built-in browser, link opening, and browser subagent preferences.", "配置内置浏览器、链接打开方式与浏览器子代理偏好设置。"],
+    ["Configure built-in browser, link opening, and browser subagent preferences", "配置内置浏览器、链接打开方式与浏览器子代理偏好设置"],
+    ["Configure allowed and denied URLs for the browser subagent. It runs in the built-in browser, so no separate browser install is needed.", "配置浏览器子代理允许与拒绝访问的 URL 规则。它直接在内置浏览器中运行，无需单独安装其他浏览器。"],
+    ["Configure allowed and denied URLs for the browser subagent (invoked with /browser). Requires", "配置浏览器子代理允许与拒绝访问的 URL 规则（使用 /browser 唤起）。需要安装"],
+    ["Clear visited URLs and autocomplete suggestions from side panel preview.", "清除侧边栏预览中的历史访问 URL 和自动补全建议。"],
+    ["Side Panel Preview", "侧边栏预览"],
+    ["Open in Built-in Browser", "在内置浏览器中打开"],
+    ["Open in Side Panel", "在侧边栏中打开"],
+    ["New Browser", "新建浏览器"],
+    ["Built-in Browser (Default)", "内置浏览器 (默认)"],
+    ["External Browser (Default)", "外部浏览器 (默认)"],
+    ["Side Panel (Default)", "侧边栏 (默认)"],
+    ["New Tab (Default)", "新建标签页 (默认)"],
+    ["Let the agent use browser tools to open URLs, read web pages, and interact with browser content. This gives the agent access to important (and often critical) knowledge and methods of validation, but any browser integration does increase exposure to external malicious parties for security exploits.", "允许智能体使用浏览器工具打开 URL、读取网页并与浏览器内容交互。这能让智能体获取关键知识并进行验证，但集成浏览器也会增加遭遇外部恶意攻击与安全漏洞的风险。"],
+    ["The browser subagent has been disabled by your administrator. Contact your administrator to enable browser use.", "您的管理员已禁用浏览器子代理。请联系管理员以启用浏览器功能。"],
+    ["Execute URLs", "执行 URL 访问"],
+    ["Allow/deny agent browser actuation access to specific URLs.", "允许或拒绝智能体对特定 URL 执行浏览器自动化操作。"],
+    ["Download files", "下载文件"],
+    ["Allow/deny agent browser file downloads from specific sites.", "允许或拒绝智能体从特定站点下载文件。"],
+    ["Organization Allowed Domains (Read-Only)", "组织允许的域名（只读）"],
+    ["These allowed domain rules are set by your organization's administrator and cannot be removed.", "以下允许域名规则由您所在组织的管理员统一配置，无法移除。"],
+    ["Allowed Domains", "允许的域名"],
+    ["CitC workspace paths are world-readable and permanently snapshotted. Choose a local folder outside CitC.", "CitC 工作区路径对全局可读且会被永久快照保存。请选择 CitC 之外的本地文件夹。"],
+
+    // 终端与执行策略 / 审核策略 (2.31.0)
+    ["Terminal commands automatically proceed inside the sandbox. A command that needs to leave the sandbox proceeds only if an agent judges it reversible, and otherwise requests review.", "终端命令在沙箱内将自动执行。需要突破沙箱限制的命令仅当智能体判定其操作可逆时才会自动继续，否则将请求人工审核。"],
+    ["Terminal command automatically proceeds if the command runs inside the sandbox. Otherwise, it requests review.", "若命令在沙箱内运行则自动执行，否则请求人工审核。"],
+    ["The agent never asks for confirmation before executing terminal commands (except those in the Deny list). This provides the agent with the maximum ability to operate over long periods without intervention, but also has the highest risk of the agent executing an unsafe terminal command.", "执行终端命令前智能体从不请求确认（拒绝列表中的命令除外）。这能让智能体长时间自主连续运行，但也存在执行不安全命令的最高风险。"],
+    ["The agent always asks for confirmation before executing terminal commands (except those in the Allow list).", "执行终端命令前智能体始终请求确认（允许列表中的命令除外）。"],
+    ["Agent never asks for review. This maximizes the autonomy of the Agent, but also has the highest risk of the Agent operating over unsafe or injected Artifact content.", "智能体从不请求人工审核。这能最大化智能体自主性，但也具有智能体基于不安全或被注入产物内容执行的最高风险。"],
+    ["The agent never asks for review. This maximizes the autonomy of the agent, but also has the highest risk of the agent operating over unsafe or injected artifact content.", "智能体从不请求人工审核。这能最大化智能体自主性，但也具有智能体基于不安全或被注入产物内容执行的最高风险。"],
+    ["Agent always asks for review.", "智能体始终请求人工审核。"],
+    ["The agent always asks for review.", "智能体始终请求人工审核。"],
+    ["Interrupt the agent and send immediately.", "立即打断智能体并发送消息。"],
+    ["Queue until after the current turn.", "排队等待当前轮次完成后发送。"],
+    ["Enter to Send", "按 Enter 发送"],
+    ["Send messages with the keyboard's Enter key instead of starting a new line.", "使用键盘 Enter 键直接发送消息，而非换行。"],
+    ["Agent Non-Workspace File Access", "跨工作区文件访问"],
+    ["Allow the agent to automatically view and edit files outside the current workspace. Use with caution: this gives the agent access to additional potentially-relevant information, but also allows the agent to access credential files, secrets, and other files outside of the workspace that could be targeted in prompt injection attacks or other exploits by malicious actors.", "允许智能体自动查看并编辑当前工作区以外的文件。请谨慎开启：这能让智能体获取更多相关信息，但也会使其访问凭据文件、密钥或工作区外的其他敏感文件，从而可能成为提示词注入攻击或其他恶意漏洞的目标。"],
+    ["Command Setup Script", "命令初始化脚本"],
+    ["A shell setup script run before every command the agent executes.", "在智能体每次执行终端命令前自动运行的 Shell 初始化脚本。"],
+    ["Enable Terminal Sandbox", "启用终端沙箱"],
+    ["Run terminal commands with sandbox restrictions.", "在沙箱隔离限制下运行终端命令。"],
+    ["Sandbox Allow Network", "允许沙箱访问网络"],
+    ["Allow sandboxed commands to make network requests.", "允许沙箱内的命令发起网络请求。"],
+    ["Proceed in Sandbox", "仅在沙箱执行"],
+
+    // 外观、布局、设置分类与开发者设置 (2.31.0)
+    ["Conversation Steps", "对话执行步骤"],
+    ["Choose how much detail is shown during a conversation.", "选择对话过程中展示的详细程度。"],
+    ["Custom Context Menus", "自定义右键菜单"],
+    ["Replace the default browser right-click menu with quick actions.", "使用快捷操作菜单替换浏览器默认右键菜单。"],
+    ["Screen Reader Mode", "屏幕阅读器模式"],
+    ["Optimize the interface and terminal output for screen readers.", "针对屏幕阅读器优化界面与终端输出。"],
+    ["Terminal Placement", "终端显示位置"],
+    ["Choose where terminal sessions appear.", "选择终端会话的显示位置。"],
+    ["Bottom Panel", "底部面板"],
+    ["Side Panel", "侧边栏面板"],
+    ["Markdown Artifact Width", "Markdown 产物文档宽度"],
+    ["Configure the default width of markdown artifacts.", "配置 Markdown 产物文档的默认显示宽度。"],
+    ["Context and Quota Indicator", "上下文与配额指示器"],
+    ["Show how full the context window is next to the send button. Click it for a breakdown and to see your model quota.", "在发送按钮旁显示当前上下文窗口的占用比例，点击可查看占用明细与模型配额。"],
+    ["Enable Browser Tools", "启用浏览器工具"],
+    ["Include Jetski Default Customizations", "包含默认自定义扩展"],
+    ["Include default customizations, such as default skills.", "包含内置默认扩展配置（例如默认技能等）。"],
+    ["A nickname for identifying this application in the companion website. Changing this will restart the connection.", "用于在配套网站中识别此应用设备的昵称。修改此项将会重启连接。"],
+    ["Chat Layout", "对话界面布局"],
+    ["Chat Input", "对话输入设置"],
+    ["Default Customizations", "默认自定义扩展"],
+    ["Customize Global Skills", "自定义全局技能"],
+    ["Default Workspace VCS", "默认工作区版本控制 (VCS)"],
+    ["Default Cog Repository", "默认 Cog 仓库"],
+    ["Default Cog Branch / Ref", "默认 Cog 分支 / 引用"],
+    ["Sync JJ Worktrees to Head", "将 JJ 工作树同步至最新提交 (Head)"],
+    ["Use full VCS clones for Best of N", "为 Best of N 使用完整 VCS 克隆"],
+    ["Use full Git clones for Best of N", "为 Best of N 使用完整 Git 克隆"],
+    ["Console Telemetry", "控制台遥测日志"],
+    ["Print telemetry to the console", "在控制台输出遥测事件"],
+    ["Logs each telemetry event to the browser's DevTools console as it fires, with the click or key that caused it. Stays on across reloads until you turn it off.", "将每个遥测事件及其触发的点击或按键记录输出到浏览器 DevTools 控制台。除非手动关闭，否则刷新后仍保持开启。"],
+    ["Custom Flags", "自定义实验标志 (Flags)"],
+    ["Turn on a flag you don't have", "启用尚未列出的自定义标志"],
+    ["Custom flag to turn on", "要启用的自定义标志"],
+    ["Search flags", "搜索标志"],
+    ["Reset overrides", "重置所有覆盖项"],
+    ["No matching flags", "未找到匹配的标志"],
+    ["This client was started with no custom flags.", "当前客户端启动时未传入任何自定义标志。"],
+    ["No custom flag matches your search.", "没有匹配搜索条件的自定义标志。"],
+    ["Feature Environment Override", "功能环境覆盖 (开发者)"],
+    ["Override feature environment", "启用功能环境覆盖"],
+    ["When enabled, the values below replace the auto-detected OS, host, and user type used for feature gating.", "开启后，下方配置将覆盖自动检测的操作系统、宿主环境与用户类型以进行功能开关调试。"],
+    ["Simulate running on a different OS.", "模拟在不同的操作系统下运行。"],
+    ["Simulate a different host (Electron, desktop or mobile Web, Extension, remote control, or installed PWA).", "模拟不同的宿主环境（桌面端 Electron、桌面或移动 Web、扩展、远程控制或已安装的 PWA）。"],
+    ["Simulate a different user cohort (Google, External, Enterprise).", "模拟不同的用户分组（Google 内部、外部用户、企业版）。"],
+    ["Operating System", "操作系统"],
+    ["Host Environment", "宿主环境"],
+    ["User Type", "用户类型"],
+
+    // 2.31.0 全量快捷键命令注册表
+    ["Accept Step", "接受步骤"],
+    ["Reject Step", "拒绝步骤"],
+    ["Start Voice Recording", "开始语音输入"],
+    ["Stop Voice Recording", "停止语音输入"],
+    ["Mute Voice Mic", "静音语音麦克风"],
+    ["Mute Voice Speaker", "静音语音扬声器"],
+    ["Toggle File Viewer", "切换文件查看器"],
+    ["Toggle Side Panel", "切换侧边栏"],
+    ["Toggle Maximize Side Panel", "切换最大化侧边栏"],
+    ["Toggle Overview Panel", "切换概览面板"],
+    ["Continue Response", "继续生成回复"],
+    ["Split Conversation Vertically", "垂直拆分会话"],
+    ["Split Conversation Horizontally", "水平拆分会话"],
+    ["Equalize Split Panes", "均分分屏窗格"],
+    ["Close Terminal Tab", "关闭终端标签页"],
+    ["Search Conversations", "搜索会话"],
+    ["Open Workspace Selector", "打开工作区选择器"],
+    ["Open in Cider", "在 Cider 中打开"],
+    ["Add to Chat", "添加到对话"],
+    ["Quote Selection", "引用选中内容"],
+    ["Open in Code Search", "在代码搜索中打开"],
+    ["Comment on Selection", "对选中内容添加评论"],
+    ["Go Back in Pane", "在窗格中后退"],
+    ["Go Forward in Pane", "在窗格中前进"],
+    ["Complete Onboarding Step", "完成引导步骤"],
+    ["Code Search", "代码搜索"],
+    ["Open Commit Graph", "打开提交图谱"],
+    ["Open Conversation", "打开会话"],
+    ["Archive / Restore", "归档 / 恢复"],
+    ["Terminal: Add to Chat", "终端：添加到对话"],
+    ["Refresh gcert Credentials", "刷新 gcert 凭据"],
+    ["Copy Conversation Markdown", "复制会话为 Markdown"],
+    ["Archive This Conversation", "归档此会话"],
+    ["Pin This Conversation", "置顶此会话"],
+    ["Unpin This Conversation", "取消置顶此会话"],
+    ["Find in Conversation", "在会话中查找"],
+    ["Mark All as Read", "全部标为已读"],
+    ["Mark This Conversation as Read", "将此会话标为已读"],
+    ["Mark This Conversation as Unread", "将此会话标为未读"],
+    ["Rename This Conversation", "重命名此会话"],
+    ["Move to New Group", "移动到新分组"],
+    ["Remove from Group", "从分组中移除"],
+    ["Open Trajectory Debug View", "打开轨迹调试视图"],
+    ["Copy Conversation ID", "复制会话 ID"],
+    ["Copy Trajectory ID", "复制轨迹 ID"],
+    ["Toggle Between Light/Dark Themes", "切换浅色/深色主题"],
+    ["Cancel Generation", "取消生成"],
+
+    // 2.31.0 前端 DeviceChooser、Human Prompt Card 与 URL Security Popover
+    ["No compatible devices found.", "未找到兼容的设备。"],
+    ["An embedded page on this page says", "当前页面中的嵌入式页面提示："],
+    ["This page says", "此页面提示："],
+    ["View site information", "查看站点信息"],
+    ["Cookies and site data", "Cookie 和网站数据"],
+    ["Clear cookies and site data", "清除 Cookie 和网站数据"],
+    ["Clearing cookies and site data for ", "清除以下站点的 Cookie 与数据（可能退出登录）："],
+    [" may sign you out of this site.", ""],
+    ["Site data cleared for ", "已清除以下站点的网站数据："],
+    ["Could not clear site data for ", "无法清除以下站点的网站数据："],
+    ["Certificate details", "证书详情"],
+    ["Certificate is valid", "证书有效"],
+    ["Certificate is not valid", "证书无效"],
+    ["You're viewing a blank page", "您正在查看空白页"],
+    ["You're viewing a local or shared file", "您正在查看本地或共享文件"],
+    ["Your connection to this site is not secure", "您与此网站的连接不安全"],
+    ["Your connection to this site is not fully secure", "您与此网站的连接并不完全安全"],
+    ["You should not enter any sensitive information on this site (for example, passwords or credit cards), because it could be stolen by attackers.", "请勿在此网站上输入任何敏感信息（例如密码或信用卡号），因为这些信息可能会被攻击者窃取。"],
+    ["Attackers might be able to see the images you're looking at on this site and trick you by modifying them.", "攻击者可能能够查看您在此网站上浏览的图片，并通过篡改图片来误导您。"],
+    ["Connection is secure", "连接安全"],
+    ["Your information (for example, passwords or credit card numbers) is private when it is sent to this site.", "您发送至此网站的信息（例如密码或信用卡号）处于加密保密状态。"],
+
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
     ["Preparing download…", "正在准备下载…"],
@@ -1341,7 +1511,94 @@ const EXACT_WORDS = {
     "General": "常规设置",
     "General Settings": "常规设置",
     "Account": "账号设置",
-    "Browser": "浏览器设置",
+    "Browser": "浏览器",
+    "Auto": "自动模式",
+    "Auto (detected)": "自动检测",
+    "Standalone": "未归属项目会话",
+    "Fill": "铺满",
+    "Verbose": "详细模式",
+    "Connect": "连接",
+    "OK": "确定",
+    "Security": "安全",
+    "Issued to": "颁发给",
+    "Issued by": "颁发者",
+    "Valid until": "有效期至",
+    "Protocol": "协议",
+    "Environments": "环境设置",
+    "Developer": "开发者设置",
+    "Running": "后台运行进程",
+    "Review Policy": "审核策略",
+    "Nickname": "设备昵称",
+    "Execution": "执行策略",
+    "Accessibility": "辅助功能",
+    "Updater": "应用更新",
+    "Quota": "配额管理",
+    "Bottom Panel": "底部面板",
+    "Side Panel": "侧边栏面板",
+    "Side Panel Preview": "侧边栏预览",
+    "New Browser": "新建浏览器",
+    "Built-in Browser (Default)": "内置浏览器 (默认)",
+    "External Browser (Default)": "外部浏览器 (默认)",
+    "Side Panel (Default)": "侧边栏 (默认)",
+    "New Tab (Default)": "新建标签页 (默认)",
+    "Proceed in Sandbox": "仅在沙箱执行",
+    "No compatible devices found.": "未找到兼容的设备。",
+    "An embedded page on this page says": "当前页面中的嵌入式页面提示：",
+    "This page says": "此页面提示：",
+    "View site information": "查看站点信息",
+    "Cookies and site data": "Cookie 和网站数据",
+    "Clear cookies and site data": "清除 Cookie 和网站数据",
+    "Certificate details": "证书详情",
+    "Certificate is valid": "证书有效",
+    "Certificate is not valid": "证书无效",
+    "Connection is secure": "连接安全",
+    "Accept Step": "接受步骤",
+    "Reject Step": "拒绝步骤",
+    "Start Voice Recording": "开始语音输入",
+    "Stop Voice Recording": "停止语音输入",
+    "Mute Voice Mic": "静音语音麦克风",
+    "Mute Voice Speaker": "静音语音扬声器",
+    "Toggle File Viewer": "切换文件查看器",
+    "Toggle Side Panel": "切换侧边栏",
+    "Toggle Maximize Side Panel": "切换最大化侧边栏",
+    "Toggle Overview Panel": "切换概览面板",
+    "Continue Response": "继续生成回复",
+    "Split Conversation Vertically": "垂直拆分会话",
+    "Split Conversation Horizontally": "水平拆分会话",
+    "Equalize Split Panes": "均分分屏窗格",
+    "Close Terminal Tab": "关闭终端标签页",
+    "Search Conversations": "搜索会话",
+    "Open Workspace Selector": "打开工作区选择器",
+    "Open in Cider": "在 Cider 中打开",
+    "Add to Chat": "添加到对话",
+    "Quote Selection": "引用选中内容",
+    "Open in Code Search": "在代码搜索中打开",
+    "Comment on Selection": "对选中内容添加评论",
+    "Go Back in Pane": "在窗格中后退",
+    "Go Forward in Pane": "在窗格中前进",
+    "Complete Onboarding Step": "完成引导步骤",
+    "Code Search": "代码搜索",
+    "Open Commit Graph": "打开提交图谱",
+    "Open Conversation": "打开会话",
+    "Archive / Restore": "归档 / 恢复",
+    "Terminal: Add to Chat": "终端：添加到对话",
+    "Refresh gcert Credentials": "刷新 gcert 凭据",
+    "Copy Conversation Markdown": "复制会话为 Markdown",
+    "Archive This Conversation": "归档此会话",
+    "Pin This Conversation": "置顶此会话",
+    "Unpin This Conversation": "取消置顶此会话",
+    "Find in Conversation": "在会话中查找",
+    "Mark All as Read": "全部标为已读",
+    "Mark This Conversation as Read": "将此会话标为已读",
+    "Mark This Conversation as Unread": "将此会话标为未读",
+    "Rename This Conversation": "重命名此会话",
+    "Move to New Group": "移动到新分组",
+    "Remove from Group": "从分组中移除",
+    "Open Trajectory Debug View": "打开轨迹调试视图",
+    "Copy Conversation ID": "复制会话 ID",
+    "Copy Trajectory ID": "复制轨迹 ID",
+    "Toggle Between Light/Dark Themes": "切换浅色/深色主题",
+    "Cancel Generation": "取消生成",
     "Automations": "自动化",
     "Automation": "自动化任务",
     "Scheduled Tasks": "计划与定时任务",
@@ -1593,6 +1850,13 @@ const injectedCode = `
             res = res.replace(/^Use\\s+(?:工作区设置|Workspace\\s+Settings?)$/gi, '使用工作区设置');
             res = res.replace(/^Use\\s+(.+)$/gi, '使用 $1');
 
+            // 1.6 2.31.0 结构化整句动态正则（优先于短语拆分替换）
+            res = res.replace(/^Clearing cookies and site data for\\s+(.+?)\\s+may sign you out of this site\\.?$/gi, '清除 $1 的 Cookie 和网站数据可能会导致您退出该网站的登录状态。');
+            const viewInfoMatch = res.match(/^(.+?)\\.\\s*View site information$/i);
+            if (viewInfoMatch) {
+                return translateText(viewInfoMatch[1]) + '。查看站点信息';
+            }
+
             // 2. 长短语字典替换
             for (let i = 0; i < PHRASES.length; i++) {
                 const [en, zh] = PHRASES[i];
@@ -1700,6 +1964,35 @@ const injectedCode = `
             if (res.includes("Next Side Panel Tab")) res = res.replaceAll("Next Side Panel Tab", "下一个侧边栏标签页");
             if (res.includes("No conversations yet")) res = res.replaceAll("No conversations yet", "暂无会话");
             if (res.includes("Give Feedback")) res = res.replaceAll("Give Feedback", "提供反馈");
+
+            // 2.31.0 前端 DeviceChooser / Prompt 卡片 / URL 安全弹窗动态文案匹配
+            res = res.replace(/^An embedded page at (.+?) wants to connect to (a HID device|a USB device|a serial port)$/gi, (_, o, d) => {
+                const dl = d.toLowerCase();
+                const dn = dl.includes('hid') ? 'HID 设备' : dl.includes('usb') ? 'USB 设备' : '串口设备';
+                return '位于 ' + o + ' 的嵌入式页面请求连接到 ' + dn;
+            });
+            res = res.replace(/^An embedded page on this page wants to connect to (a HID device|a USB device|a serial port)$/gi, (_, d) => {
+                const dl = d.toLowerCase();
+                const dn = dl.includes('hid') ? 'HID 设备' : dl.includes('usb') ? 'USB 设备' : '串口设备';
+                return '当前页面中的嵌入式页面请求连接到 ' + dn;
+            });
+            res = res.replace(/^This page wants to connect to (a HID device|a USB device|a serial port)$/gi, (_, d) => {
+                const dl = d.toLowerCase();
+                const dn = dl.includes('hid') ? 'HID 设备' : dl.includes('usb') ? 'USB 设备' : '串口设备';
+                return '此页面请求连接到 ' + dn;
+            });
+            res = res.replace(/^(.+?) wants to connect to (a HID device|a USB device|a serial port)$/gi, (_, o, d) => {
+                const dl = d.toLowerCase();
+                const dn = dl.includes('hid') ? 'HID 设备' : dl.includes('usb') ? 'USB 设备' : '串口设备';
+                return o + ' 请求连接到 ' + dn;
+            });
+            res = res.replace(/^An embedded page at (.+?) says$/gi, '位于 $1 的嵌入式页面提示：');
+            res = res.replace(/^(.+?) says$/gi, '$1 提示：');
+            res = res.replace(/^The certificate was rejected \\((.+?)\\)\\.?$/gi, '证书已被拒绝（$1）。');
+            res = res.replace(/^(.+?)\\. View site information$/gi, '$1。查看站点信息');
+            res = res.replace(/^Clearing cookies and site data for\\s+(.+?)\\s+may sign you out of this site\\.?$/gi, '清除 $1 的 Cookie 和网站数据可能会导致您退出该网站的登录状态。');
+            res = res.replace(/^Reset (\\d+) overrides?$/gi, '重置 $1 项覆盖');
+            res = res.replace(/^Not referenced by any feature \\((\\d+)\\)$/gi, '未被任何功能引用 ($1)');
 
             // 2.23.0 快捷执行模式菜单专项处理
             if (res.includes("Every command requires approval")) {
@@ -2070,13 +2363,16 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2290_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2310_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
 if (fs.existsSync(mainFile)) {
     let mainSrc = fs.readFileSync(mainFile, "utf8");
     mainSrc = mainSrc
+        .replaceAll("showErrorBox('Binary not found'", "showErrorBox('未找到可执行文件'")
+        .replaceAll("showErrorBox('WSL setup failed'", "showErrorBox('WSL 环境配置失败'")
+        .replaceAll("showErrorBox('Startup failed'", "showErrorBox('启动失败'")
         .replace("label: 'No agents running'", "label: '没有正在运行的智能体'")
         .replace("label: `Open ${electron_1.app.getName()}`", "label: `打开 ${electron_1.app.getName()}`")
         .replace("label: 'Quit'", "label: '退出'")
@@ -2108,6 +2404,10 @@ const menuFile = path.join(cleanDir, "dist", "menu.js");
 if (fs.existsSync(menuFile)) {
     let menuSrc = fs.readFileSync(menuFile, "utf8");
     menuSrc = menuSrc
+        .replace("label: item.label || 'Actual Size'", "label: '实际大小'")
+        .replace("label: item.label || 'Zoom In'", "label: '放大'")
+        .replace("label: 'Zoom In'", "label: '放大'")
+        .replace("label: item.label || 'Zoom Out'", "label: '缩小'")
         .replace("label: 'New Window'", "label: '新建窗口'")
         .replace("label: 'Docs'", "label: '官方文档'")
         .replace("return { label: 'Connect to WSL', submenu };", "return { label: '连接到 WSL', submenu };")
@@ -2147,4 +2447,82 @@ if (fs.existsSync(webauthnFile)) {
         .replace("buttons: [...accountLabels, 'Cancel']", "buttons: [...accountLabels, '取消']");
     fs.writeFileSync(webauthnFile, authSrc, "utf8");
     console.log("WEBAUTHN_JS_PATCHED_SUCCESSFULLY");
+}
+
+// 7. 2.31.0 新增原生模块汉化: deviceChooser.js、webviewPopupSecurity.js、ipcHandlers.js、updater.js
+const deviceChooserFile = path.join(cleanDir, "dist", "deviceChooser.js");
+if (fs.existsSync(deviceChooserFile)) {
+    let dcSrc = fs.readFileSync(deviceChooserFile, "utf8");
+    dcSrc = dcSrc
+        .replace("hid: 'HID device'", "hid: 'HID 设备'")
+        .replace("usb: 'USB device'", "usb: 'USB 设备'")
+        .replace("serial: 'serial port'", "serial: '串口设备'")
+        .replaceAll("'Unknown device'", "'未知设备'")
+        .replace("title: 'Connect a device'", "title: '连接设备'")
+        .replace("message: `${origin} wants to connect to a ${KIND_NOUNS[kind]}`", "message: `${origin} 请求连接到 ${KIND_NOUNS[kind]}`")
+        .replace("'Select a device:'", "'请选择设备：'")
+        .replace("'No compatible devices found.'", "'未找到兼容的设备。'")
+        .replace("buttons: [...snapshot.map(({ label }) => label), 'Cancel']", "buttons: [...snapshot.map(({ label }) => label), '取消']");
+    fs.writeFileSync(deviceChooserFile, dcSrc, "utf8");
+    console.log("DEVICE_CHOOSER_JS_PATCHED_SUCCESSFULLY");
+}
+
+const popupSecFile = path.join(cleanDir, "dist", "webviewPopupSecurity.js");
+if (fs.existsSync(popupSecFile)) {
+    let psSrc = fs.readFileSync(popupSecFile, "utf8");
+    psSrc = psSrc
+        .replace("insecure: 'Not secure'", "insecure: '不安全'")
+        .replace("dangerous: '⚠ Not secure'", "dangerous: '⚠ 不安全'")
+        .replace("'Your connection to this site is not secure'", "'您与此网站的连接不安全'")
+        .replace("'You should not enter any sensitive information on this site (for ' +\n        'example, passwords or credit cards), because it could be stolen by ' +\n        'attackers.'", "'请勿在此网站上输入任何敏感信息（例如密码或信用卡号），因为这些信息可能会被攻击者窃取。'")
+        .replace("'Connection is secure'", "'连接安全'")
+        .replace("'Your information (for example, passwords or credit card numbers) is ' +\n            'private when it is sent to this site.'", "'您发送至此网站的信息（例如密码或信用卡号）处于加密保密状态。'")
+        .replace("'Connection security information is not available for this page'", "'此页面的连接安全信息不可用'")
+        .replace(": 'unknown'", ": '未知'")
+        .replace("'Certificate is valid'", "'证书有效'")
+        .replace("'Certificate details'", "'证书详情'")
+        .replace("`Error: ${state.certificateError}`", "`错误：${state.certificateError}`")
+        .replace("`Issued to: ${certificate.subjectName}`", "`颁发给：${certificate.subjectName}`")
+        .replace("`Issued by: ${certificate.issuer}`", "`颁发者：${certificate.issuer}`")
+        .replace("`Valid from: ${formatDate(certificate.validFromMs)}`", "`有效期自：${formatDate(certificate.validFromMs)}`")
+        .replace("`Valid until: ${formatDate(certificate.validToMs)}`", "`有效期至：${formatDate(certificate.validToMs)}`")
+        .replace("`Protocol: ${certificate.protocol}`", "`协议：${certificate.protocol}`")
+        .replace("(state.url || 'This page')", "(state.url || '当前页面')")
+        .replace("{ role: 'cut', enabled: canCut }", "{ role: 'cut', label: '剪切', enabled: canCut }")
+        .replace("{ role: 'copy', enabled: canCopy }", "{ role: 'copy', label: '复制', enabled: canCopy }")
+        .replace("{ role: 'paste', enabled: canPaste }", "{ role: 'paste', label: '粘贴', enabled: canPaste }")
+        .replace("{ role: 'selectAll', enabled: canSelectAll }", "{ role: 'selectAll', label: '全选', enabled: canSelectAll }")
+        .replace("label: 'Connection info…'", "label: '连接信息…'")
+        .replace("title: 'Connection info'", "title: '连接信息'")
+        .replace("buttons: ['OK']", "buttons: ['确定']");
+    fs.writeFileSync(popupSecFile, psSrc, "utf8");
+    console.log("WEBVIEW_POPUP_SECURITY_JS_PATCHED_SUCCESSFULLY");
+}
+
+const ipcHandlersFile = path.join(cleanDir, "dist", "ipcHandlers.js");
+if (fs.existsSync(ipcHandlersFile)) {
+    let ipcSrc = fs.readFileSync(ipcHandlersFile, "utf8");
+    ipcSrc = ipcSrc
+        .replace("showErrorBox('Cannot open folder', t.error)", "showErrorBox('无法打开文件夹', t.error)")
+        .replace("message: 'Folder is on the Windows filesystem'", "message: '文件夹位于 Windows 文件系统中'")
+        .replace("title: 'Open workspace'", "title: '打开工作区'")
+        .replace("title: 'Open workspaces'", "title: '打开工作区（多选）'")
+        .replace("title: 'Select Download Folder'", "title: '选择下载文件夹'");
+    fs.writeFileSync(ipcHandlersFile, ipcSrc, "utf8");
+    console.log("IPC_HANDLERS_JS_PATCHED_SUCCESSFULLY");
+}
+
+const updaterFile = path.join(cleanDir, "dist", "updater.js");
+if (fs.existsSync(updaterFile)) {
+    let updSrc = fs.readFileSync(updaterFile, "utf8");
+    updSrc = updSrc
+        .replace('MenuUpdateStep["CheckForUpdates"] = "Check for Updates"', 'MenuUpdateStep["CheckForUpdates"] = "检查更新"')
+        .replace('MenuUpdateStep["CheckingForUpdates"] = "Checking for Updates..."', 'MenuUpdateStep["CheckingForUpdates"] = "正在检查更新..."')
+        .replace('MenuUpdateStep["DownloadingUpdate"] = "Downloading Update..."', 'MenuUpdateStep["DownloadingUpdate"] = "正在下载更新..."')
+        .replace('MenuUpdateStep["RestartToUpdate"] = "Restart to Update"', 'MenuUpdateStep["RestartToUpdate"] = "重启以完成更新"')
+        .replace("title: 'Check for Updates'", "title: '检查更新'")
+        .replace("message: 'No updates available'", "message: '当前已是最新版本'")
+        .replace("buttons: ['OK']", "buttons: ['确定']");
+    fs.writeFileSync(updaterFile, updSrc, "utf8");
+    console.log("UPDATER_JS_PATCHED_SUCCESSFULLY");
 }
