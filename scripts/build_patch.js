@@ -352,6 +352,23 @@ const UI_PHRASES = [
     ["Font Size", "字体大小"],
     ["System UI", "系统默认 (System UI)"],
 
+    // === 2.31.2 自动化与定时任务空白态及管理 (Automations & Scheduled Tasks Empty State) ===
+    ["No automations yet", "暂无自动化任务"],
+    ["No scheduled tasks yet", "暂无定时任务"],
+    ["Run a prompt on a schedule, like a morning summary of yesterday's changes. Runs show up here.", "按计划定时运行提示词，例如每天早晨汇总昨日代码改动。执行记录将在此显示。"],
+    ["Run a prompt on a schedule, like a morning summary of yesterday's changes. Runs show up here", "按计划定时运行提示词，例如每天早晨汇总昨日代码改动。执行记录将在此显示"],
+    ["Refresh all credentials", "刷新全部凭据"],
+    ["Refreshing credentials...", "正在刷新凭据..."],
+    ["Refreshed credentials for all automations.", "已刷新所有自动化的凭据。"],
+    ["Failed to refresh credentials", "刷新凭据失败"],
+    ["Creates a local automation that runs on this computer", "在本地计算机上创建并运行自动化任务"],
+    ["No matching projects", "未找到匹配的项目"],
+    ["No matching workspaces", "未找到匹配的工作区"],
+    ["No remote projects", "未找到远程项目"],
+    ["No remote workspaces", "未找到远程工作区"],
+    ["No projects found", "未找到项目"],
+    ["No workspaces found", "未找到工作区"],
+
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
     ["Preparing download…", "正在准备下载…"],
@@ -1343,6 +1360,21 @@ const EXACT_WORDS = {
     "Configure global allowed and denied resource permissions": "配置全局允许和拒绝访问的资源权限",
     "Configure what the agent can do in local and remote conversations.": "配置智能体在本地和远程对话中可执行的操作权限。",
     "Configure what the agent can do in local and remote conversations": "配置智能体在本地和远程对话中可执行的操作权限",
+    "No automations yet": "暂无自动化任务",
+    "No scheduled tasks yet": "暂无定时任务",
+    "Run a prompt on a schedule, like a morning summary of yesterday's changes. Runs show up here.": "按计划定时运行提示词，例如每天早晨汇总昨日代码改动。执行记录将在此显示。",
+    "Run a prompt on a schedule, like a morning summary of yesterday's changes. Runs show up here": "按计划定时运行提示词，例如每天早晨汇总昨日代码改动。执行记录将在此显示",
+    "Refresh all credentials": "刷新全部凭据",
+    "Refreshing credentials...": "正在刷新凭据...",
+    "Refreshed credentials for all automations.": "已刷新所有自动化的凭据。",
+    "Failed to refresh credentials": "刷新凭据失败",
+    "Creates a local automation that runs on this computer": "在本地计算机上创建并运行自动化任务",
+    "No matching projects": "未找到匹配的项目",
+    "No matching workspaces": "未找到匹配的工作区",
+    "No remote projects": "未找到远程项目",
+    "No remote workspaces": "未找到远程工作区",
+    "No projects found": "未找到项目",
+    "No workspaces found": "未找到工作区",
 
     // 2.29.0 用户反馈高频精确词条
     "Auto (Preview)": "自动模式 (预览版)",
@@ -1966,6 +1998,22 @@ const injectedCode = `
             res = res.replace(/^Use\\s+(.+)$/gi, '使用 $1');
 
             // 1.6 2.31.0 / 2.31.2 结构化整句动态正则（优先于短语拆分替换）
+            res = res.replace(/^No\\s+(automations|scheduled tasks)\\s+yet$/gi, (_, kind) => {
+                return kind.toLowerCase().includes('auto') ? '暂无自动化任务' : '暂无定时任务';
+            });
+            res = res.replace(/^No\\s+(automations|scheduled tasks)\\s+match\\s+[\\u201c"'](.+?)[\\u201d"']\\.?$/gi, (_, kind, q) => {
+                const k = kind.toLowerCase().includes('auto') ? '自动化任务' : '定时任务';
+                return '未找到匹配 “' + q + '” 的' + k + '。';
+            });
+            res = res.replace(/^No\\s+(projects|workspaces)\\s+found$/gi, (_, k) => {
+                return '未找到' + (k.toLowerCase().includes('project') ? '项目' : '工作区');
+            });
+            res = res.replace(/^No\\s+matching\\s+(projects|workspaces)$/gi, (_, k) => {
+                return '未找到匹配的' + (k.toLowerCase().includes('project') ? '项目' : '工作区');
+            });
+            res = res.replace(/^No\\s+remote\s+(projects|workspaces)$/gi, (_, k) => {
+                return '未找到远程' + (k.toLowerCase().includes('project') ? '项目' : '工作区');
+            });
             res = res.replace(/^Choose\\s+(.+?)'s\\s+Voice$/gi, '选择 $1 的语音音色');
             res = res.replace(/^(.+?),\\s*voice\\s+(\\d+)\\s+of\\s+(\\d+)$/gi, '$1，音色 $2 / $3');
             res = res.replace(/^This deletes\\s+(\\d+)\\s+call recordings?\\s*\\((.+?)\\)\\s*from your machine\\.\\s*You can't undo this\\.$/gi, '这将从您的设备上删除 $1 条通话录音（$2）。此操作无法撤销。');
@@ -2445,6 +2493,27 @@ const injectedCode = `
                     }
                     if (node.shadowRoot) {
                         translateNode(node.shadowRoot);
+                    }
+                    // 纯文本碎片节点聚合翻译 (解决 React JSX <p>"No ", t.emptyMessagePlural, " yet"</p> 等跨节点拼接文本)
+                    if (node.childNodes && node.childNodes.length > 1) {
+                        let allText = true;
+                        for (let i = 0; i < node.childNodes.length; i++) {
+                            if (node.childNodes[i].nodeType !== 3) {
+                                allText = false;
+                                break;
+                            }
+                        }
+                        if (allText) {
+                            const fullText = node.textContent;
+                            if (fullText && fullText.trim()) {
+                                const trimmed = fullText.trim();
+                                const translated = translateText(trimmed);
+                                if (translated !== trimmed) {
+                                    node.textContent = translated;
+                                    return;
+                                }
+                            }
+                        }
                     }
                     for (let i = 0; i < node.childNodes.length; i++) {
                         translateNode(node.childNodes[i]);

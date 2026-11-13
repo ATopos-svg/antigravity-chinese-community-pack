@@ -17,12 +17,15 @@
   - **规划提示上下文识别 (`Type / and select plan...`)**：在 `plan-command-fyi-alert` 节点中将前置动作词 `Type` 精准译为`输入`（而不误伤表格列头 `Type -> 类型`），并与 `并选择 plan 即可让智能体生成实施计划。` 完整衔接。
   - **语音模式与 Gemini Live 音色选择器 (`Voice mode`)**：完整汉化 `语音模式`、`语音音色`、`麦克风`、`系统默认`、`调整 Antigravity 语音播报的音量大小。`、录音管理弹窗及全部 6 种音色性格标签。
 - **补齐外观设置 (`Appearance`)**：新增 `Contrast`（对比度）、`Strong`（高对比度）、`Font`（界面字体）、`System UI`（系统默认 (System UI)）与 `Font Size`（字体大小）完整汉化。
+- **补齐自动化与定时任务空白态及管理 (`Automations` & `Scheduled Tasks`)**：
+  - **纯文本碎片跨节点智能聚合翻译**：针对 React JSX `<p>"No ", t.emptyMessagePlural, " yet"</p>` 拆分渲染机制，引入复合文本节点扫描聚合引擎，彻底汉化 `No automations yet`（暂无自动化任务）与 `No scheduled tasks yet`（暂无定时任务）。
+  - **空白态说明与搜索无结果**：完整精译 `Run a prompt on a schedule, like a morning summary of yesterday's changes. Runs show up here.`（按计划定时运行提示词，例如每天早晨汇总昨日代码改动。执行记录将在此显示。）、搜索无匹配动态句式（`未找到匹配 “...” 的自动化任务。`）与凭据刷新相关提示。
 - **新增 WebHID / WebUSB / Web Serial 与弹窗安全架构**：`deviceChooser.js`、`webviewPopupSecurity.js`、地址栏安全芯片、站点 Cookie 清理与证书详情、网页 `window.prompt()` 原生接管卡片 100% 中文精译。
 - **浏览器设置重构与 `Auto` 自动执行模式**：彻底解决早期 `Built-in 浏览器设置` / `浏览器设置 Subagent` 混杂问题，适配新版浏览器设置、`Auto` 执行策略、Hub UI 缩放菜单（`实际大小`、`放大`、`缩小`）、45+ 项前端快捷键命令与完整设置/开发者标志注册表。
 - **主进程系统组件精译**：全面覆盖系统托盘计数、二次确认退出弹窗、macOS Dock 菜单、`updater.js` 更新提示、`ipcHandlers.js` 目录选择对话框、`webauthn.js` 通行密钥弹窗与 WSL 配置引导。
 
 ### 3. 🛡️ 防白屏规范打包 & 自动化验证
-- **严格防白屏规范**：携带 `--unpack-dir "node_modules/chrome-devtools-mcp"` 打包，完整保留全部 347 项卸载组件；全部自动化测试套件（v2.31.2 设置与 DOM 树 63 项 + v2.31.0 前后端专项 67 项 + 界面截图 76 项 + 执行策略 44 项 = **250 项**）**100% 通过**。
+- **严格防白屏规范**：携带 `--unpack-dir "node_modules/chrome-devtools-mcp"` 打包，完整保留全部 347 项卸载组件；全部自动化测试套件（v2.31.2 设置、自动化空白态与 DOM 树 81 项 + v2.31.0 前后端专项 67 项 + 界面截图 76 项 + 执行策略 44 项 = **268 项**）**100% 通过**。
 
 ---
 
