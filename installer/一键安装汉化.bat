@@ -1,7 +1,7 @@
 @echo off
-title Antigravity Chinese Patch Installer (v2.31.2)
+title Antigravity Chinese Patch Installer (v2.33.0)
 echo =========================================================
-echo    Antigravity Chinese Patch Installer (v2.31.2)
+echo    Antigravity Chinese Patch Installer (v2.33.0)
 echo =========================================================
 echo.
 

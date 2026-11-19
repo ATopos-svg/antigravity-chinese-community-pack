@@ -369,6 +369,112 @@ const UI_PHRASES = [
     ["No projects found", "未找到项目"],
     ["No workspaces found", "未找到工作区"],
 
+    // === 2.33.0 新增: 浏览数据与按站点管理 Cookie、键位方案、SSH 远程、插件套装与智能体控制 ===
+    ["Enable Browser Agent", "启用浏览器智能体"],
+    ["Browsing Data", "浏览数据"],
+    ["Clear history, cookies and site data from the built-in browser, or manage cookies for each site.", "清除内置浏览器的历史记录、Cookie 与站点数据，或按站点单独管理 Cookie。"],
+    ["Choose what to clear from the built-in browser. It can't be undone.", "选择要从内置浏览器中清除的内容。此操作无法撤销。"],
+    ["Browsing history", "浏览历史记录"],
+    ["Cookies and other site data", "Cookie 及其他站点数据"],
+    ["Cookies, site storage and cache. Signs you out of all sites in the built-in browser and reloads its open tabs.", "包含 Cookie、站点存储和缓存。清除后将退出内置浏览器中所有站点的登录状态并重新加载已打开的标签页。"],
+    ["An agent is using the built-in browser. Clearing its data signs the agent out of sites and may interrupt its task.", "当前有智能体正在使用内置浏览器。清除数据将退出相关站点的登录状态，并可能中断其任务。"],
+    ["Couldn't clear browsing data. Try again.", "无法清除浏览数据，请重试。"],
+    ["Couldn't load cookies.", "无法加载 Cookie。"],
+    ["No sites have cookies in the built-in browser.", "内置浏览器中暂无任何站点存储 Cookie。"],
+    ["Cookies by Site", "按站点管理 Cookie"],
+    ["Clear Browsing Data?", "确认清除浏览数据？"],
+    ["Sites with cookies", "包含 Cookie 的站点"],
+    ["Search sites...", "搜索站点..."],
+    ["Keybinding Scheme", "键位映射方案"],
+    ["VS Code Default", "VS Code 默认方案"],
+    ["Antigravity (AGY) Style", "Antigravity (AGY) 风格"],
+    ["Manage your keybinding scheme and customize shortcuts in VS Code.", "管理您的键位映射方案并在 VS Code 中自定义快捷键。"],
+    ["Choose between non-colliding VS Code defaults or standalone Antigravity chords.", "在无冲突的 VS Code 默认键位或独立的 Antigravity 组合键之间进行选择。"],
+    ["Customize Shortcuts", "自定义快捷键"],
+    ["All active Antigravity shortcuts and user keybinding overrides are managed directly by VS Code.", "所有当前生效的 Antigravity 快捷键和用户自定义按键覆盖均直接由 VS Code 管理。"],
+    ["Toggle Word Wrap", "切换自动换行"],
+    ["Side Question Selection", "侧边栏追问选中内容"],
+    ["Jump to Previous Prompt", "跳转到上一条提示词"],
+    ["Jump to Next Prompt", "跳转到下一条提示词"],
+    ["Connect to SSH Host…", "连接到 SSH 主机…"],
+    ["Connect to SSH Host...", "连接到 SSH 主机..."],
+    ["Stop SSH Server…", "停止 SSH 服务…"],
+    ["Stop SSH Server...", "停止 SSH 服务..."],
+    ["Switch to This Computer", "切换到本机"],
+    ["Submit Prompt (Alternate to Enter)", "发送提示词（Enter 的备用快捷键）"],
+    ["Enter always submits. This adds a second shortcut.", "按 Enter 始终发送。此项用于添加第二套备用快捷键。"],
+    ["Pin / Unpin Conversation", "置顶 / 取消置顶会话"],
+    ["Terminal: Select All", "终端：全选"],
+    ["Open Keyboard Shortcuts", "打开快捷键指南"],
+    ["SSH Host…", "SSH 主机…"],
+    ["SSH Host...", "SSH 主机..."],
+    ["SSH Config", "SSH 配置"],
+    ["SSH Host", "SSH 主机"],
+    ["SSH host", "SSH 主机"],
+    ["Hidden hosts", "已隐藏的主机"],
+    ["Remove from Recent", "从最近列表中移除"],
+    ["Show Details", "显示详情"],
+    ["System default app", "系统默认应用"],
+    ["Failed to unarchive local project", "取消归档本地项目失败"],
+    ["Failed to clone project locally", "在本地克隆项目失败"],
+    ["Previous Worktrees", "历史工作树 (Worktrees)"],
+    ["New Worktree", "新建工作树 (Worktree)"],
+    ["Remote Projects", "远程项目"],
+    ["Couldn't load your SSH hosts. You can still type one.", "无法加载您的 SSH 主机列表，您仍可手动输入主机地址。"],
+    ["Couldn't load your SSH hosts", "无法加载您的 SSH 主机列表"],
+    ["Resume comment draft", "恢复评论草稿"],
+    ["Discard comment draft", "丢弃评论草稿"],
+    ["The main conversation's input isn't available right now.", "主会话的输入框当前不可用。"],
+    ["Insert into main conversation", "插入到主会话"],
+    ["This side question isn't available in this conversation.", "此侧边追问在当前会话中不可用。"],
+    ["Side Question", "侧边追问"],
+    ["Response actions", "回复操作"],
+    ["View MCP servers", "查看 MCP 服务"],
+    ["MCP server error", "MCP 服务错误"],
+    ["MCP error", "MCP 错误"],
+    ["Voice dictation unavailable", "语音听写不可用"],
+    ["Stop transcription", "停止语音转录"],
+    ["Interrupt Agent", "中断智能体"],
+    ["No longer available", "已不再可用"],
+    ["Removed from the marketplace. Stays installed until you uninstall it.", "已从插件市场下架。在您手动卸载前仍将保持已安装状态。"],
+    ["Installed separately", "单独安装"],
+    ["Disabling or removing this bundle doesn't affect it.", "禁用或移除此插件套装不会对其产生影响。"],
+    ["Review bundle before adding", "添加前预览套装内容"],
+    ["Curated sets of plugins for common workflows and roles.", "针对常见工作流和角色精选的插件套装。"],
+    ["No bundles available.", "暂无可用插件套装。"],
+    ["Loading bundles...", "正在加载插件套装..."],
+    ["Review contents", "预览内容"],
+    ["Add anyway", "仍然添加"],
+    ["Starting the conversation…", "正在启动会话…"],
+    ["Starting the conversation...", "正在启动会话..."],
+    ["Resolving link…", "正在解析链接…"],
+    ["Resolving link...", "正在解析链接..."],
+    ["Open on phone", "在手机上打开"],
+    ["Open on another device", "在其他设备上打开"],
+    ["Pick up this remote conversation on your phone or in any browser. Scan the QR code or open the link below.", "可在手机或任意浏览器中继续此远程会话。请扫描二维码或打开下方链接。"],
+    ["Toggle Virtual Machine", "切换虚拟机"],
+    ["Main Agent", "主智能体"],
+    ["Pause this agent; it keeps its place and streams. Resume to continue.", "暂停此智能体；它将保留当前位置与输出流，恢复后可继续执行。"],
+    ["Resume this agent where it paused", "从暂停处恢复此智能体"],
+    ["Stop this agent", "停止此智能体"],
+    ["Filter agents", "筛选智能体"],
+    ["All agents", "全部智能体"],
+    ["Stop all agents", "停止所有智能体"],
+    ["No agent is working right now.", "当前没有正在运行的智能体。"],
+    ["Remote Control Instances", "远程控制实例"],
+    ["Text Selection", "文本选择"],
+    ["Not signed in", "未登录"],
+    ["Pull Requests", "拉取请求 (Pull Requests)"],
+    ["Switch To", "切换至"],
+    ["Use Default", "使用默认"],
+    ["Access restricted", "访问受限"],
+    ["Open in settings", "在设置中打开"],
+    ["Session Summary", "会话摘要"],
+    ["Last Prompt", "上一条提示词"],
+    ["File Reads", "文件读取"],
+    ["Couldn't search files", "无法搜索文件"],
+    ["Failed to load some diffs", "部分差异对比加载失败"],
+
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
     ["Preparing download…", "正在准备下载…"],
@@ -1375,6 +1481,46 @@ const EXACT_WORDS = {
     "No remote workspaces": "未找到远程工作区",
     "No projects found": "未找到项目",
     "No workspaces found": "未找到工作区",
+    "Browsing Data": "浏览数据",
+    "Cookies by Site": "按站点管理 Cookie",
+    "Clear Browsing Data?": "确认清除浏览数据？",
+    "Sites with cookies": "包含 Cookie 的站点",
+    "Search sites...": "搜索站点...",
+    "Keybinding Scheme": "键位映射方案",
+    "VS Code Default": "VS Code 默认方案",
+    "Antigravity (AGY) Style": "Antigravity (AGY) 风格",
+    "Customize Shortcuts": "自定义快捷键",
+    "SSH Config": "SSH 配置",
+    "SSH Host": "SSH 主机",
+    "SSH host": "SSH 主机",
+    "Hidden hosts": "已隐藏的主机",
+    "Recent": "最近使用",
+    "Show Details": "显示详情",
+    "Side Question": "侧边追问",
+    "Main Agent": "主智能体",
+    "Layout": "布局",
+    "Pause": "暂停",
+    "Resume": "恢复",
+    "All agents": "全部智能体",
+    "Stop all agents": "停止所有智能体",
+    "Filter agents": "筛选智能体",
+    "Remote Control Instances": "远程控制实例",
+    "Text Selection": "文本选择",
+    "Not signed in": "未登录",
+    "Pull Requests": "拉取请求 (Pull Requests)",
+    "Switch To": "切换至",
+    "Use Default": "使用默认",
+    "Access restricted": "访问受限",
+    "Open in settings": "在设置中打开",
+    "Session Summary": "会话摘要",
+    "Last Prompt": "上一条提示词",
+    "File Reads": "文件读取",
+    "Resources": "资源",
+    "Optional": "可选",
+    "Review contents": "预览内容",
+    "Add anyway": "仍然添加",
+    "MCP error": "MCP 错误",
+    "MCP server error": "MCP 服务错误",
 
     // 2.29.0 用户反馈高频精确词条
     "Auto (Preview)": "自动模式 (预览版)",
@@ -2011,9 +2157,12 @@ const injectedCode = `
             res = res.replace(/^No\\s+matching\\s+(projects|workspaces)$/gi, (_, k) => {
                 return '未找到匹配的' + (k.toLowerCase().includes('project') ? '项目' : '工作区');
             });
-            res = res.replace(/^No\\s+remote\s+(projects|workspaces)$/gi, (_, k) => {
+            res = res.replace(/^No\\s+remote\\s+(projects|workspaces)$/gi, (_, k) => {
                 return '未找到远程' + (k.toLowerCase().includes('project') ? '项目' : '工作区');
             });
+            res = res.replace(/^Couldn't delete cookies for\\s+(.+?)\\.\\s*Try again\\.?$/gi, '无法删除 $1 的 Cookie，请重试。');
+            res = res.replace(/^Resume\\s+(\\d+)\\s+comment drafts?$/gi, '恢复 $1 条评论草稿');
+            res = res.replace(/^Captured DOM tree for\\s+(.+?)\\.?$/gi, '已捕获 $1 的 DOM 树。');
             res = res.replace(/^Choose\\s+(.+?)'s\\s+Voice$/gi, '选择 $1 的语音音色');
             res = res.replace(/^(.+?),\\s*voice\\s+(\\d+)\\s+of\\s+(\\d+)$/gi, '$1，音色 $2 / $3');
             res = res.replace(/^This deletes\\s+(\\d+)\\s+call recordings?\\s*\\((.+?)\\)\\s*from your machine\\.\\s*You can't undo this\\.$/gi, '这将从您的设备上删除 $1 条通话录音（$2）。此操作无法撤销。');
@@ -2570,7 +2719,7 @@ const finalPreloadContent = baseCode + "\n" + injectedCode;
 const targetPreload = path.join(cleanDir, "dist", "preload.js");
 fs.writeFileSync(targetPreload, finalPreloadContent, "utf8");
 fs.writeFileSync(path.join(__dirname, "..", "preload.js"), finalPreloadContent, "utf8");
-console.log("FINAL_PRELOAD_V2312_WRITTEN_SUCCESSFULLY");
+console.log("FINAL_PRELOAD_V2330_WRITTEN_SUCCESSFULLY");
 
 // 6. 主进程、系统托盘、应用菜单与安装引导原生汉化 (Main Process & Native Menus)
 const mainFile = path.join(cleanDir, "dist", "main.js");
@@ -2732,4 +2881,27 @@ if (fs.existsSync(updaterFile)) {
         .replace("buttons: ['OK']", "buttons: ['确定']");
     fs.writeFileSync(updaterFile, updSrc, "utf8");
     console.log("UPDATER_JS_PATCHED_SUCCESSFULLY");
+}
+
+// 8. 2.33.0 新增原生模块汉化: remote/disconnectedPage.js、computer/hud.js
+const disconnectedFile = path.join(cleanDir, "dist", "remote", "disconnectedPage.js");
+if (fs.existsSync(disconnectedFile)) {
+    let disSrc = fs.readFileSync(disconnectedFile, "utf8");
+    disSrc = disSrc
+        .replace("reconnect: 'Reconnect',\n    stop: 'Stop Server',\n    close: 'Close',", "reconnect: '重新连接',\n    stop: '停止服务器',\n    close: '关闭',")
+        .replace("? 'Restarting…'\n        : connecting\n            ? 'Reconnecting…'\n            : 'Disconnected';", "? '正在重启…'\n        : connecting\n            ? '正在重连…'\n            : '已断开连接';")
+        .replace("? `Restarting the Antigravity server on ${host}…`\n        : connecting\n            ? `Reconnecting to ${host}…`\n            : `Disconnected from ${host}`;", "? `正在重启 ${host} 上的 Antigravity 服务…`\n        : connecting\n            ? `正在重新连接到 ${host}…`\n            : `已断开与 ${host} 的连接`;")
+        .replace("? 'This window opens it again once it has started.'\n        : connecting\n            ? page.serverStopped\n                ? `Its server on ${host} stopped, and its agents with it.`\n                : `Agents keep running on ${host}.`\n            : page.serverStopped\n                ? `Its agents on ${host} stopped with it.`\n                : `Agents keep running on ${host} unless its server stopped.`;", "? '启动完成后，此窗口将自动重新打开。'\n        : connecting\n            ? page.serverStopped\n                ? `${host} 上的服务器已停止，其中的智能体也已停止。`\n                : `智能体仍在 ${host} 上运行。`\n            : page.serverStopped\n                ? `${host} 上的智能体已随服务器一同停止。`\n                : `除非服务器停止，否则智能体仍将在 ${host} 上继续运行。`;");
+    fs.writeFileSync(disconnectedFile, disSrc, "utf8");
+    console.log("DISCONNECTED_PAGE_JS_PATCHED_SUCCESSFULLY");
+}
+
+const hudFile = path.join(cleanDir, "dist", "computer", "hud.js");
+if (fs.existsSync(hudFile)) {
+    let hudSrc = fs.readFileSync(hudFile, "utf8");
+    hudSrc = hudSrc
+        .replace("title: 'AGY Desktop HUD'", "title: 'Antigravity 桌面控制浮窗 (HUD)'")
+        .replace(">Stop<", ">停止<");
+    fs.writeFileSync(hudFile, hudSrc, "utf8");
+    console.log("HUD_JS_PATCHED_SUCCESSFULLY");
 }
