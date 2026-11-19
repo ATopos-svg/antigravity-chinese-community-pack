@@ -474,6 +474,14 @@ const UI_PHRASES = [
     ["File Reads", "文件读取"],
     ["Couldn't search files", "无法搜索文件"],
     ["Failed to load some diffs", "部分差异对比加载失败"],
+    ["Best of N Models", "Best of N 模型"],
+    ["No models available", "暂无可用模型"],
+    ["Loading models...", "正在加载模型..."],
+    ["Orchestrator (Neon)", "智能调度 (Neon)"],
+    ["Orchestrator (Argon)", "智能调度 (Argon)"],
+    ["Orchestrator (Hydrogen)", "智能调度 (Hydrogen)"],
+    ["Neon that may offload routine steps to Hydrogen. Same Neon-level quality, fewer tokens used.", "由 Neon 主导，可将常规步骤分流给 Hydrogen 处理。保持同等的 Neon 级质量，同时消耗更少 Token。"],
+    ["Neon that may offload routine steps to Hydrogen. Same Neon-level quality, fewer tokens used", "由 Neon 主导，可将常规步骤分流给 Hydrogen 处理。保持同等的 Neon 级质量，同时消耗更少 Token"],
 
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
@@ -1521,6 +1529,19 @@ const EXACT_WORDS = {
     "Add anyway": "仍然添加",
     "MCP error": "MCP 错误",
     "MCP server error": "MCP 服务错误",
+    "Model": "模型",
+    "Best of N Models": "Best of N 模型",
+    "No models available": "暂无可用模型",
+    "Loading models...": "正在加载模型...",
+    "Low": "低",
+    "Medium": "中等",
+    "High": "高",
+    "Extra": "极高",
+    "Max": "最大",
+    "Orchestrator (Neon)": "智能调度 (Neon)",
+    "Orchestrator (Argon)": "智能调度 (Argon)",
+    "Orchestrator (Hydrogen)": "智能调度 (Hydrogen)",
+    "Neon that may offload routine steps to Hydrogen. Same Neon-level quality, fewer tokens used.": "由 Neon 主导，可将常规步骤分流给 Hydrogen 处理。保持同等的 Neon 级质量，同时消耗更少 Token。",
 
     // 2.29.0 用户反馈高频精确词条
     "Auto (Preview)": "自动模式 (预览版)",
@@ -2163,6 +2184,8 @@ const injectedCode = `
             res = res.replace(/^Couldn't delete cookies for\\s+(.+?)\\.\\s*Try again\\.?$/gi, '无法删除 $1 的 Cookie，请重试。');
             res = res.replace(/^Resume\\s+(\\d+)\\s+comment drafts?$/gi, '恢复 $1 条评论草稿');
             res = res.replace(/^Captured DOM tree for\\s+(.+?)\\.?$/gi, '已捕获 $1 的 DOM 树。');
+            res = res.replace(/^Orchestrator\\s*\\((.+?)\\)$/gi, '智能调度 ($1)');
+            res = res.replace(/^(.+?)\\s+that may offload routine steps to\\s+([^.]+)\\.\\s*Same\\s+(.+?)-level quality,\\s*fewer tokens used\\.?$/gi, '由 $1 主导，可将常规步骤分流给 $2 处理。保持同等的 $3 级质量，同时消耗更少 Token。');
             res = res.replace(/^Choose\\s+(.+?)'s\\s+Voice$/gi, '选择 $1 的语音音色');
             res = res.replace(/^(.+?),\\s*voice\\s+(\\d+)\\s+of\\s+(\\d+)$/gi, '$1，音色 $2 / $3');
             res = res.replace(/^This deletes\\s+(\\d+)\\s+call recordings?\\s*\\((.+?)\\)\\s*from your machine\\.\\s*You can't undo this\\.$/gi, '这将从您的设备上删除 $1 条通话录音（$2）。此操作无法撤销。');
