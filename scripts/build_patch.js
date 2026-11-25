@@ -618,6 +618,11 @@ const UI_PHRASES = [
     ["Enable AI credit overages", "启用 AI 积分超额扣费"],
     ["Font size", "字体大小"],
     ["Notification settings", "系统通知设置"],
+    ["Add Context", "添加上下文"],
+    ["Context Providers", "上下文提供程序"],
+    ["Find last quarter's budget and share it with Alex", "查找上季度的预算表并分享给 Alex"],
+    ["Move this week's design exports into the Launch folder", "将本周导出的设计稿移动到 Launch 文件夹"],
+    ["Download the Q3 report as a PDF", "将第三季度 (Q3) 报告下载为 PDF"],
 
     // === 2.29.0 原生 WCV 内嵌浏览器、下载管理与 WebAuthn 通行密钥 ===
     ["Preparing download...", "正在准备下载..."],
@@ -1813,6 +1818,14 @@ const EXACT_WORDS = {
     "Select Sidebar Item 7": "选择侧边栏第 7 项",
     "Select Sidebar Item 8": "选择侧边栏第 8 项",
     "Select Sidebar Item 9": "选择侧边栏第 9 项",
+    "Add Context": "添加上下文",
+    "Files": "文件",
+    "Mentions": "@ 引用",
+    "Actions": "快捷操作",
+    "Drive": "云端硬盘 (Drive)",
+    "Log in": "去登录",
+    "Context Providers": "上下文提供程序",
+    "Used for:": "用于：",
 
     // 2.29.0 用户反馈高频精确词条
     "Auto (Preview)": "自动模式 (预览版)",
@@ -2456,6 +2469,7 @@ const injectedCode = `
             res = res.replace(/^Resume\\s+(\\d+)\\s+comment drafts?$/gi, '恢复 $1 条评论草稿');
             res = res.replace(/^Captured DOM tree for\\s+(.+?)\\.?$/gi, '已捕获 $1 的 DOM 树。');
             res = res.replace(/^Orchestrator\\s*\\((.+?)\\)$/gi, '智能调度 ($1)');
+            res = res.replace(/^Used for:\\s*(.+)$/gi, '用于：$1');
             res = res.replace(/^(.+?)\\s+that may offload routine steps to\\s+([^.]+)\\.\\s*Same\\s+(.+?)-level quality,\\s*fewer tokens used\\.?$/gi, '由 $1 主导，可将常规步骤分流给 $2 处理。保持同等的 $3 级质量，同时消耗更少 Token。');
             res = res.replace(/^Choose\\s+(.+?)'s\\s+Voice$/gi, '选择 $1 的语音音色');
             res = res.replace(/^(.+?),\\s*voice\\s+(\\d+)\\s+of\\s+(\\d+)$/gi, '$1，音色 $2 / $3');
