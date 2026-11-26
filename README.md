@@ -2,13 +2,13 @@
 
 <p align="center">
   <b>非官方社区自研 · 全界面深度汉化补丁 + 智能体中文交互规则库</b><br>
-  <i>专为 Google Antigravity（反重力）2.35.1+ 最新版设计的全平台双模式中文本地化解决方案</i>
+  <i>专为 Google Antigravity（反重力）2.35.2+ 最新版设计的全平台双模式中文本地化解决方案</i>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.35.1-brightgreen.svg" alt="Latest Release"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.35.1%2B-orange.svg" alt="Compatibility"></a>
+  <a href="https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases"><img src="https://img.shields.io/badge/Release-v2.35.2-brightgreen.svg" alt="Latest Release"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Compatibility-Antigravity%202.35.2%2B-orange.svg" alt="Compatibility"></a>
   <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue.svg" alt="Platform"></a>
   <a href="#"><img src="https://img.shields.io/badge/Pure%20Architecture-No%20Deadlock-success.svg" alt="Pure Architecture"></a>
 </p>
@@ -58,7 +58,8 @@
 
 | 版本标签 | 适配官方版本 | 发布时间 | 核心更新说明 | 预打包下载 (Releases) |
 | :--- | :--- | :--- | :--- | :--- |
-| **🚀 v2.35.1 (最新版)** | Google Antigravity **v2.35.1** | 2026-11-25 | • 深度适配 Google 2026.11 最新推送的 **2.35.1** 正式版（内部版本 `2.35.1.0`），基于官方 2.35.1 原包全新提取构建<br>• **智能调度设置 (`Orchestrator Settings`) & 语音听写多语言**：完整汉化规划调度/执行模型配置、`Dictation languages` 与多语言选择面板<br>• **侧边栏自定义、收件箱模式 (`Inbox Mode`) 与插件权限**：完整覆盖 `Customize Sidebar`、`Working Section`、`Auto-Resolve`、插件内置/手动授权管理及 40+ 项 Sentence case 设置词条<br>• **原生 `browserStream` 模块适配**：完成 `browserViewerTabDriver.js` 与 `capturePage.js` 原生错误提示汉化，严格遵循 `--unpack-dir` 规范防白屏打包，经全量 **338 项** 自动化测试 **100% 通过** | [📥 下载 v2.35.1 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.35.1) |
+| **🚀 v2.35.2 (最新版)** | Google Antigravity **v2.35.2** | 2026-11-26 | • 极速跟进适配 Google 2026.11 最新热更新推送的 **2.35.2** 正式版（内部版本 `2.35.2.0`），基于官方 2.35.2 原包全新重建<br>• 完整对齐 2.35.2 服务端与 Web 资源包，延续 `Orchestrator Settings` 智能调度设置、`Dictation languages` 语音听写多语言、侧边栏自定义与 `Inbox Mode` 收件箱模式、`Add Context` 上下文菜单、`Context Providers` 与 Drive 示例提示词、`browserStream` 原生模块及 40+ 项 Sentence case 设置词条全量精译<br>• 同步更新随包附带的 `app.asar.chinese` 与 `app.asar.original` 为官方 2.35.2 对应版本，确保版本号匹配与一键无损还原<br>• 严格遵循 `--unpack-dir` 规范防白屏打包，经全量 **350 项** 自动化测试 **100% 通过** | [📥 下载 v2.35.2 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.35.2) |
+| **⭐ v2.35.1 (稳定版)** | Google Antigravity **v2.35.1** | 2026-11-25 | • 深度适配 Google 2026.11 最新推送的 **2.35.1** 正式版（内部版本 `2.35.1.0`），基于官方 2.35.1 原包全新提取构建<br>• **智能调度设置 (`Orchestrator Settings`) & 语音听写多语言**：完整汉化规划调度/执行模型配置、`Dictation languages` 与多语言选择面板<br>• **侧边栏自定义、收件箱模式 (`Inbox Mode`) 与插件权限**：完整覆盖 `Customize Sidebar`、`Working Section`、`Auto-Resolve`、插件内置/手动授权管理及 40+ 项 Sentence case 设置词条<br>• **原生 `browserStream` 模块适配**：完成 `browserViewerTabDriver.js` 与 `capturePage.js` 原生错误提示汉化，严格遵循 `--unpack-dir` 规范防白屏打包，经全量 **338 项** 自动化测试 **100% 通过** | [📥 下载 v2.35.1 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.35.1) |
 | **⭐ v2.33.0 (稳定版)** | Google Antigravity **v2.33.0** | 2026-11-19 | • 深度适配 Google 2026.11 跨代升级推送的 **2.33.0** 正式版（内部版本 `2.33.0.0`），基于官方 2.33.0 原包全新提取构建<br>• **浏览器数据与按站点 Cookie 管理**：完整汉化 `Browsing Data`、`Cookies by Site`、`Clear Browsing Data?` 及站点级 Cookie 清理<br>• **SSH 远程主机连接 & 桌面控制 HUD**：新增 `remote/disconnectedPage.js`、`computer/hud.js` 桌面浮窗、SSH 主机与 Worktree 管理全量汉化<br>• **键位映射方案与全新界面特性**：完整覆盖 `Keybinding Scheme`（VS Code 默认 / AGY 风格）、插件套装 (`Bundles`)、多智能体暂停/恢复/筛选、评论草稿恢复等新词条<br>• 严格遵循 `--unpack-dir` 规范防白屏打包，经全量 **295 项** 自动化测试 **100% 通过** | [📥 下载 v2.33.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.33.0) |
 | **⭐ v2.31.2 (稳定版)** | Google Antigravity **v2.31.2** | 2026-11-12 | • 极速跟进适配 Google 2026.11 最新热更新推送的 **2.31.2** 正式版（内部版本 `2.31.2.0`），基于官方 2.31.2 原包全新重建<br>• 经二进制定向解包对比，完整对齐 2.31.2 服务端与 Web 资源包，延续 WebHID/USB/Serial 设备选择器、弹窗安全证书详情、网页 Prompt 接管卡片、新版浏览器设置（无 `浏览器设置 Subagent` 混杂）、`Auto` 自动执行模式、Hub 缩放菜单、45+ 快捷键及开发者实验面板全量精译<br>• 同步更新随包附带的 `app.asar.chinese` 与 `app.asar.original` 为官方 2.31.2 对应版本，确保版本号匹配与一键无损还原<br>• 严格遵循 `--unpack-dir` 规范防白屏打包，经全量自动化测试 **100% 通过** | [📥 下载 v2.31.2 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.31.2) |
 | **⭐ v2.31.0 (稳定版)** | Google Antigravity **v2.31.0** | 2026-11-12 | • 深度适配 Google 2026.11 最新推送的 2.31.0 正式版（内部版本 2.31.0.0），提取并全量对齐前端 React Web 资源包<br>• 重磅新增：WebHID / WebUSB / Web Serial 设备权限选择器（`deviceChooser.js` + 前端卡片）及弹窗安全证书详情（`webviewPopupSecurity.js` + 站点数据清理）100% 中文精译<br>• 修复 Browser 词条全局误映射导致的 `Built-in 浏览器设置` / `浏览器设置 Subagent` 混杂瑕疵，完整覆盖新版浏览器设置与 `Auto` 自动执行模式<br>• 补齐 Hub UI 缩放菜单（`实际大小`、`放大`、`缩小`）、45+ 项前端快捷键命令、完整设置注册表、开发者实验标志面板、`updater.js` 与 `ipcHandlers.js` 原生弹窗<br>• 官方核心 `language_server.exe` 升级至 188.8MB；严格遵循 `--unpack-dir` 规范防白屏打包（~5.34MB），全量自动化测试 100% 通过 | [📥 下载 v2.31.0 全平台补丁包](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases/tag/v2.31.0) |
@@ -96,7 +97,7 @@
 
 ### 📥 1. 获取预打包文件
 1. 前往本仓库的 **[Releases 发布页面](https://github.com/ATopos-svg/antigravity-chinese-community-pack/releases)**；
-2. 下载最新版通用压缩包 **`Antigravity-Chinese-Pack-v2.35.1.zip`** 并解压。
+2. 下载最新版通用压缩包 **`Antigravity-Chinese-Pack-v2.35.2.zip`** 并解压。
 
 ---
 
